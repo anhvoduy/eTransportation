@@ -1,8 +1,8 @@
-﻿var express = require('express');
-var http = require('http');
-var path = require("path");
+﻿const express = require('express');
+const http = require('http');
+const path = require("path");
 
-var server = express();
+const server = express();
 //server.set('port', process.env.PORT || 3000);
 server.set('port', 3000);
 
