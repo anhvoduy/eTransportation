@@ -9,5 +9,8 @@
   },
   "author": "VO DUY ANH",
   "email": "duyanh2005@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
