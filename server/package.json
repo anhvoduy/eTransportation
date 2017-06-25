@@ -1,0 +1,13 @@
+{
+  "name": "inventory-mssql",
+  "version": "1.0.0",
+  "description": "inventory-mssql",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js"
+  },
+  "author": "VO DUY ANH",
+  "email": "duyanh2005@gmail.com",
+  "license": "ISC"
+}
