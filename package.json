@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "inventory-mssql",
   "main": "app.js",
+  "engines": {
+    "node": ">=6.9.1"
+  },
   "scripts": {
     "test": "test",
     "start": "node app.js"
