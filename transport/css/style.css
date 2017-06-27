@@ -83,7 +83,8 @@ p {
 
 .logo h2 a {
     color: #fff;
-    text-decoration: none
+    text-decoration: none;
+	text-transform: uppercase;
 }
 
 .navbar-nav>li>a {
@@ -102,12 +103,19 @@ p {
 .header_area_text {
     padding-top: 200px;
     padding-bottom: 200px;
-    padding-right: 500px;
+    /* padding-right: 500px; */
+	text-align: center;	
 }
 
 .header_area_text h2 {
-    font-size: 50px;
-    color: #fff
+    font-size: 70px;
+    color: #fff;
+	text-transform: uppercase;
+}
+
+.header_area_text h3 {
+    font-size: 40px;
+    color: #fff;
 }
 
 .header_area_text p {
