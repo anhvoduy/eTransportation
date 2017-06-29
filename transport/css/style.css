@@ -298,6 +298,43 @@ p {
 .comment i {
     margin-right: 10px;
 }
+
+/************** contact us css ******************/
+#contact_us_area {
+    background: #E9EBEA;
+}
+.contact_us_text {}
+
+.contact_us_text h2,
+.experience h2 {
+    margin-bottom: 40px;
+}
+
+.contact_us_text p,
+.experience p {
+    margin-bottom: 30px;
+}
+
+.contact_us_text a {
+    border: 2px solid #333333;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000;
+    margin-top: 20px;
+    text-transform: uppercase
+}
+
+.experience a {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 20px;
+    text-transform: uppercase
+}
+
 /************** call to action css ******************/
 
 #caal_to_action_area {
