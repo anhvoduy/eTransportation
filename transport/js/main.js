@@ -7,12 +7,12 @@
 }(jQuery));
 
 // init wow
-// new WOW().init();
-// var wowInittialize = function(){
-//     return new WOW().init();
-// };
+new WOW().init();
+var wowInittialize = function(){
+    return new WOW().init();
+};
 
-// transport app
+// init app
 (function ($) {
 	"use strict";
     // load modules
