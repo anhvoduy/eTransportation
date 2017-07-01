@@ -17,7 +17,7 @@ var wowInittialize = function(){
     "use strict";
     // load modules 
     angular.module('transport', [ 
-        'transport.appCommon',
+        'transport.common',
         //'transport.controllers',
         //'transport.directives'  
         //'transport.services'
