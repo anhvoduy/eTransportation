@@ -40,22 +40,20 @@
 	
 </head>
 
-<body>
-	<button onclick="topFunction()" id="btnGoTop" title="Go to top">Top</button>
-    <div id="preloader">
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
-    </div>
-    
+<body>    
     <div header-area></div>
     <!-- end header top area -->    
     
     <div story-area></div>
     <!-- end of story area -->    
 	
+    <div blog-area></div>
+    <!-- end of blog area -->	
+
     <div action-area></div>
     <!-- end call to action area -->
-    
-	<div footer-area></div>
+
+    <div footer-area></div>
     <!-- end of footer area -->
 
     <!-- main jQuery-->
@@ -86,24 +84,6 @@
     <script src="js/apps/controllers/controllers.js"></script>
     <script src="js/apps/directives/directives.js"></script>
     <script src="js/apps/services/services.js"></script>
-    <script src="js/apps/utils/utils.js"></script>	
-	
-    <script>
-        /* scrool to top */
-        // when the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("btnGoTop").style.display = "block";
-            } else {
-                document.getElementById("btnGoTop").style.display = "none";
-            }
-        }
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
+    <script src="js/apps/utils/utils.js"></script>	    
 </body>
 </html>

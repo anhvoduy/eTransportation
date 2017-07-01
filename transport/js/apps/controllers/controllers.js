@@ -1,6 +1,15 @@
 ﻿(function () {
     'use strict';
     angular.module('transport.controllers', ['transport.common', 'transport.services'])
+	.controller('mainMenuController', ['$scope', '$q', '$sce', 'appCommon', 'appService',
+		function ($scope, $q, $sce, appCommon, appService) {
+			// declare models & methods
+			var activate = function(){				
+			}
+
+			// activate
+			activate();
+		}])
 	.controller('headerAreaController', ['$scope', '$q', '$sce', 'appCommon', 'appService',
 		function ($scope, $q, $sce, appCommon, appService) {
 			// declare models & methods
