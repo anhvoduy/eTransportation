@@ -17,10 +17,11 @@ var wowInittialize = function(){
     "use strict";
     // load modules 
     angular.module('transport', [ 
-        //'transport.common',
+        'transport.appCommon',
         //'transport.controllers',
-        'transport.directives',  
-        'transport.services'
+        //'transport.directives'  
+        //'transport.services'
+        'transport.components.mainMenu'
     ]); 
     
     // boostrap
