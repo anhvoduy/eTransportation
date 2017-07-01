@@ -1,120 +1,73 @@
 ﻿(function () {
     'use strict';
-    angular.module('aisha.controllers', ['aisha.common', 'aisha.services'])
-	.controller('headerAreaController', ['$scope', '$q', '$sce', 'appCommon', 'aishaService',
-		function ($scope, $q, $sce, appCommon, aishaService) {
+    angular.module('transport.controllers', ['transport.common', 'transport.services'])
+	.controller('headerAreaController', ['$scope', '$q', '$sce', 'appCommon', 'appService',
+		function ($scope, $q, $sce, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getHeader().then(function(result){
-					$scope.header = result;
-					$scope.header.description = $sce.trustAsHtml(result.description);
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();
 		}])
-	.controller('featureAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('featureAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getFeature().then(function(result){
-					$scope.feature = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();			
 		}])
-	.controller('storyAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('storyAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getStory().then(function(result){
-					$scope.story = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();			
 		}])	
-	.controller('clientSayAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('clientSayAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getClientSay().then(function(result){
-					$scope.clientSay = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();
 		}])
-	.controller('experienceAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('experienceAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getExperience().then(function(result){
-					$scope.experience = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();			
 		}])
-	.controller('blogAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('blogAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getBlogs().then(function(result){
-					$scope.blogs = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();			
 		}])
-	.controller('actionAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('actionAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getAction().then(function(result){
-					$scope.action = result;					
-				}, function(err){
-					console.log(err);
-				});
-
-				aishaService.getNavBars().then(function(result){
-					$scope.navBars = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 
 			// activate
 			activate();				
 		}])	
-	.controller('footerAreaController', ['$scope', '$q', 'appCommon', 'aishaService',
-		function ($scope, $q, appCommon, aishaService) {
+	.controller('footerAreaController', ['$scope', '$q', 'appCommon', 'appService',
+		function ($scope, $q, appCommon, appService) {
 			// declare models & methods
-			var activate = function(){
-				aishaService.getFooter().then(function(result){
-					$scope.footer = result;					
-				}, function(err){
-					console.log(err);
-				})
+			var activate = function(){				
 			}
 			
 			// activate

@@ -1,13 +1,13 @@
 ﻿// aisha directives
 (function () {
-    angular.module('aisha.directives', ['aisha.common'])
+    angular.module('transport.directives', ['transport.common'])
     .directive('headerArea',['appCommon', function (appCommon) {
         return {
             restrict: 'EA',
             replace: true,
             controller: 'headerAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/headerArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/headerArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {				
                 wowInittialize();
@@ -20,7 +20,7 @@
             replace: true,
             controller: 'featureAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/featureArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/featureArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -33,7 +33,7 @@
             replace: true,
             controller: 'storyAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/storyArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/storyArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -46,7 +46,7 @@
             replace: true,
             controller: 'clientSayAreaController',
             templateUrl: function () {                
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/clientSayArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/clientSayArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -59,7 +59,7 @@
             replace: true,
             controller: 'experienceAreaController',
             templateUrl: function () {                
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/experienceArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/experienceArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -72,7 +72,7 @@
             replace: true,
             controller: 'blogAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/blogArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/blogArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -85,7 +85,7 @@
             replace: true,
             controller: 'actionAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/actionArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/actionArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -98,7 +98,7 @@
             replace: true,
             controller: 'footerAreaController',
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/footerArea.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/footerArea.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
 				wowInittialize();
@@ -113,7 +113,7 @@
                 skill: '='
             },
             templateUrl: function () {
-                return String.format('{0}{1}',appCommon.baseUrl, "js/components/views/skillPercent.tpl.html");
+                return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/skillPercent.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
                 wowInittialize();                

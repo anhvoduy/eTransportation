@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';	
-    angular.module('aisha.common', [])
+    angular.module('transport.common', [])
     .factory('appCommon', ['$q', function ($q) {
         var appCommon = function () {            
         };

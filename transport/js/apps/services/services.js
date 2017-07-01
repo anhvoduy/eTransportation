@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
-    angular.module('aisha.services', ['aisha.common'])    
-    .factory('aishaService', ['$http', '$q', 'appCommon', function ($http, $q, appCommon) {
+    angular.module('transport.services', ['transport.common'])    
+    .factory('appService', ['$http', '$q', 'appCommon', function ($http, $q, appCommon) {
         // constructor
-        var aishaService = function () {
+        var appService = function () {
             this._siteUrl = '';
         };
 
-        aishaService.prototype.getNavBars = function () {
+        appService.prototype.getNavBars = function () {
             var q = $q.defer();
             var data = [
                 { title: 'Home', link: '#'},
@@ -20,7 +20,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getHeader = function () {
+        appService.prototype.getHeader = function () {
             var q = $q.defer();
             var data = {
                 slogan: 'We are here to create @mazing things.',
@@ -37,7 +37,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getFeature = function () {
+        appService.prototype.getFeature = function () {
             var q = $q.defer();
             var data = {
                 title: 'About Me',
@@ -51,7 +51,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getStory = function () {
+        appService.prototype.getStory = function () {
             var q = $q.defer();
             var data = {
                 image: String.format('{0}{1}', appCommon.baseUrl, "images/bg1.jpg"),
@@ -67,7 +67,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getClientSay = function () {
+        appService.prototype.getClientSay = function () {
             var q = $q.defer();
             var data = [
 				{
@@ -81,7 +81,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getExperience = function () {
+        appService.prototype.getExperience = function () {
             var q = $q.defer();
             var data = {
                 desc1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -103,7 +103,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getBlogs = function () {
+        appService.prototype.getBlogs = function () {
             var q = $q.defer();
             var data = [
                 { 
@@ -147,7 +147,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getAction = function () {
+        appService.prototype.getAction = function () {
             var q = $q.defer();
             var data = {
                 title: 'Are you ready to start?',
@@ -161,7 +161,7 @@
             return q.promise;
         };
 
-        aishaService.prototype.getFooter = function () {
+        appService.prototype.getFooter = function () {
             var q = $q.defer();
             var data = {
                 location: 'Ho Chi Minh city',
@@ -172,6 +172,6 @@
             return q.promise;
         };
 
-        return new aishaService();
+        return new appService();
     }]);
 })();
