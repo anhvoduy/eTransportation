@@ -11,5 +11,7 @@ server.use('/publish', express.static(path.join(__dirname, 'publish'), { index: 
 server.use('/transport', express.static(path.join(__dirname, 'transport'), { index: 'default.html' }));
 
 server.use('/', express.static(path.join(__dirname, 'transport'), { index: 'default.html' }));
+server.use('/about-us', express.static(path.join(__dirname, 'transport'), { index: 'about-us.html' }));
+server.use('/contact-us', express.static(path.join(__dirname, 'transport'), { index: 'contact-us.html' }));
 
 module.exports = server;

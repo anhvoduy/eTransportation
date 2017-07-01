@@ -5,6 +5,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'headerAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/headerArea.tpl.html");
@@ -18,6 +19,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'featureAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/featureArea.tpl.html");
@@ -31,6 +33,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'storyAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/storyArea.tpl.html");
@@ -44,6 +47,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'clientSayAreaController',
             templateUrl: function () {                
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/clientSayArea.tpl.html");
@@ -57,6 +61,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'experienceAreaController',
             templateUrl: function () {                
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/experienceArea.tpl.html");
@@ -70,6 +75,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'blogAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/blogArea.tpl.html");
@@ -83,6 +89,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'actionAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/actionArea.tpl.html");
@@ -96,6 +103,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             controller: 'footerAreaController',
             templateUrl: function () {
                 return String.format('{0}{1}',appCommon.baseUrl, "js/apps/views/footerArea.tpl.html");
@@ -109,6 +117,7 @@
         return {
             restrict: 'EA',
             replace: true,
+            transclude: true,
             scope: {
                 skill: '='
             },
