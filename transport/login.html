@@ -15,24 +15,14 @@
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!--fontawesome-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-
-    <!--animation-->
-    <link href="css/animate.min.css" rel="stylesheet">
-
-    <!--main css-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">   
 
     <!--login css-->
-    <link href="css/login.css" rel="stylesheet">
-
-    <!--responsive css-->
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">    
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,167 +35,41 @@
 </head>
 
 <body>
-	<button onclick="topFunction()" id="btnGoTop" title="Go to top">Top</button>
-    <div id="preloader">
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
-    </div>
-    
-    <header id="header_area">		
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="logo">
-                        <h2>
-							<a href="/">
-								<span>T</span>ransportation
-							</a>
-						</h2>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div main-menu></div>
-                </div>
-            </div>            
-        </div>
-    </header>
-    <!-- end header top area -->
-
-    <section id="login_form_area" class="section_padding">
-        <div class="container">            
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="login-page">
-                        <div class="form">
-                            <form class="register-form">
-                            <input type="text" placeholder="name"/>
-                            <input type="password" placeholder="password"/>
-                            <input type="text" placeholder="email address"/>
-                            <button>create</button>
-                            <p class="message">Already registered? <a href="#">Sign In</a></p>
-                            </form>
-                            <form class="login-form">
-                            <input type="text" placeholder="username"/>
-                            <input type="password" placeholder="password"/>
-                            <button>login</button>
-                            <p class="message">Not registered? <a href="#">Create an account</a></p>
-                            </form>
-                        </div>
-                    </div>                   
-                </div>
-            </div>            
-        </div>
-    </section>
-    <!-- end clients say area -->
-
-    <section id="caal_to_action_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="call_to_action_text wow slideInLeft" data-wow-duration="2s">
-                        <h2>Are you ready to go?</h2>
-                        <p>Here the call to action area. Lorem ipsum dolor sit amet and click to the button</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="call_project text-right wow slideInRight" data-wow-duration="2s">
-                        <a href="">Start your project</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end call to action area -->
-
-
-    <footer id="footer_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="company_logo wow slideInDown">
-                        <h2>Transportation</h2>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="company_address wow slideInDown">
-                        <h2>New York</h2>
-                        <p>Address goes here in a one or two lines, maybe lorem ipsum
-                        </p>
-                        <h3>
-                            +44 800 800 90
-                            info@domen.com </h3>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="company_address wow slideInDown">
-                        <h2>london</h2>
-                        <p>Address goes here in a one or two lines, maybe lorem ipsum
-                        </p>
-                        <h3>
-                            +44 800 800 90
-                            info@domen.com </h3>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="company_address wow slideInDown">
-                        <h2>madrid</h2>
-                        <p>Address goes here in a one or two lines, maybe lorem ipsum
-                        </p>
-                        <h3>
-                            +44 800 800 90
-                            info@domen.com </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form">
+				<input type="text" placeholder="name"/>
+				<input type="password" placeholder="password"/>
+				<input type="text" placeholder="email address"/>
+				<button>create</button>
+				<p class="message">Already registered? <a href="#">Sign In</a></p>
+			</form>
+			<form class="login-form">
+				<input type="text" placeholder="username"/>
+				<input type="password" placeholder="password"/>
+				<button>login</button>
+				<p class="message">Not registered? <a href="#">Create an account</a></p>
+				<p class="message">
+					<span><a href="/">Back to Home Page</a></span>
+				</p>
+			</form>
+		</div>
+	</div>
 
     <!-- main jQuery-->
     <script src="js/jquery-1.11.3.min.js"></script>
-
+	
     <!-- bootstrap js -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- moment -->
     <script src="libs/moment/moment.min.js"></script>
-
-    <!-- wow js -->
-    <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>    
-
-    <!-- angular -->    
-    <script src="libs/angular/angular.min.js"></script>
-    <script src="libs/angular/angular-loader.min.js"></script>
-    <script src="libs/angular/angular-messages.min.js"></script>
-    <script src="libs/angular/angular-touch.min.js"></script>
-    <script src="libs/angular/angular-sanitize.min.js"></script> 
-
-    <!-- main js -->
-    <script src="js/main.js"></script>
-    <script src="js/apps/common/common.js"></script>
-    <script src="js/apps/components/mainMenu/mainMenu.js"></script>
-    <script src="js/apps/utils/utils.js"></script>
-
-	<!-- scroll to top -->	
-	<script>
-		// When the user scrolls down 20px from the top of the document, show the button
-		window.onscroll = function() {scrollFunction()};
-		function scrollFunction() {
-			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-				document.getElementById("btnGoTop").style.display = "block";
-			} else {
-				document.getElementById("btnGoTop").style.display = "none";
-			}
-		}
-
-		// When the user clicks on the button, scroll to the top of the document
-		function topFunction() {
-			document.body.scrollTop = 0;
-			document.documentElement.scrollTop = 0;
-		}
-	</script>
 	
+	<script>
+		$('.message a').click(function(){
+			$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+		});
+	</script>
 </body>
 
 </html>
