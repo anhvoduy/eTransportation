@@ -1,7 +1,7 @@
 {
-  "name": "inventory-mssql",
+  "name": "transportation-mssql",
   "version": "1.0.0",
-  "description": "inventory-mssql",
+  "description": "transportation-mssql",
   "main": "app.js",
   "engines": {
     "node": ">=6.9.1"
