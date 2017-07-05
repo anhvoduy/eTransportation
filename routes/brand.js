@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var auth = require('../config/auth');
+var brandService = require('../services/brandService');
 
 // Router
 router.get('/items', function (req, res, next) {

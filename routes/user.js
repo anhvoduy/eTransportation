@@ -1,10 +1,10 @@
 ﻿// Dependencies
 var express = require('express');
 var router = express.Router();
-var q = require('q');
+var Q = require('q');
 var throat = require('throat');
 var auth = require('../config/auth');
-var sampleData = require('../services/sampleData');
+var userService = require('../services/userService');
 
 // Routers
 router.get('/items', auth.checkAuthentication(), function (req, res, next) {

@@ -1,8 +1,9 @@
 // Dependencies
 var express = require('express');
 var router = express.Router();
-var q = require('q');
+var Q = require('q');
 var auth = require('../config/auth');
+var customerService = require('../services/customerService');
 
 // Router
 router.get('/itemspaging/:id', function (request, response, next) {

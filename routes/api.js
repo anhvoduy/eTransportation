@@ -15,7 +15,6 @@ var dbContext = require('../config/dbContext');
 var errorHelper = require('../config/errorHelper');
 var userService = require('../services/userService');
 
-
 // routers: use to test
 router.get('/', function (req, res, next) {
     res.json({ message: 'eTransport method GET() is success' });
