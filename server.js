@@ -18,7 +18,6 @@ server.use('/api/user', require('./routes/user'));
  * register site collections
  */
 server.use('/admin', express.static(path.join(__dirname, 'admin'), { index: 'default.html' }));
-server.use('/publish', express.static(path.join(__dirname, 'publish'), { index: 'default.html' }));
 server.use('/transport', express.static(path.join(__dirname, 'transport'), { index: 'default.html' }));
 
 const webpath = path.join(__dirname, 'transport'); 
