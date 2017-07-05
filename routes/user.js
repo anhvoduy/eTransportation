@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var throat = require('throat');
-var auth = require('../config/auth');
+var auth = require('../lib/auth');
 var userService = require('../services/userService');
 
 // Routers

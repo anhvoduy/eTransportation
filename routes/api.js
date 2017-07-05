@@ -8,11 +8,11 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 // our configuration
-var auth = require('../config/auth');
 var config = require('../config/config');
-var constant = require('../config/constant');
-var dbContext = require('../config/dbContext');
-var errorHelper = require('../config/errorHelper');
+var auth = require('../lib/auth');
+var constant = require('../lib/constant');
+var dbContext = require('../lib/dbContext');
+var errorHelper = require('../lib/errorHelper');
 var userService = require('../services/userService');
 
 // routers: use to test
