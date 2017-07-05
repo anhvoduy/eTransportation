@@ -1,7 +1,7 @@
 {
-  "name": "inventory-mssql",
+  "name": "transportation-mssql",
   "version": "1.0.0",
-  "description": "inventory-mssql",
+  "description": "transportation-mssql",
   "main": "app.js",
   "engines": {
     "node": ">=6.9.1"
@@ -15,11 +15,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
     "lodash": "^4.17.4",
-    "mssql": "^4.0.4"
+    "mssql": "^4.0.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "q": "^1.5.0"
   },
   "devDependencies": {
     "chai": "^4.0.2",
-	"mocha": "^3.2.0"
+    "mocha": "^3.2.0"
   }
 }

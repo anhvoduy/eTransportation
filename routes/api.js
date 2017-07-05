@@ -8,24 +8,23 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 // our configuration
-var auth = require('../config/auth');
 var config = require('../config/config');
-var constant = require('../config/constant');
-var dbContext = require('../config/dbContext');
-var errorHelper = require('../config/errorHelper');
+var constant = require('../lib/constant');
+var dbContext = require('../lib/dbContext');
+var errorHelper = require('../lib/errorHelper');
+var auth = require('../services/authService');
 var userService = require('../services/userService');
-
 
 // routers: use to test
 router.get('/', function (req, res, next) {
     res.json({ message: 'eTransport method GET() is success' });
-    console.log('%s %s — %s', (new Date).toString(), req.method, req.url);	
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
     next();
 });
 
 router.post('/', function (req, res, next) {
     res.json({ message: 'eTransport method POST() is success' });
-    console.log('%s %s — %s', (new Date).toString(), req.method, req.url);
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);
     next();
 });
 
@@ -58,7 +57,11 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/logout', function (req, res) {
-	console.log('Log out current user...');
+	console.log('Log out current user ...');
+	res.status(200).json({
+		success: true,
+		message: { code: 'LOGOUT', message: 'Logout is successful.' }
+	});
 });
 
 // return Router
