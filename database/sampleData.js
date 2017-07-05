@@ -31,8 +31,20 @@ var users = [
 	}
 ];
 
+var peoples = [
+    {name: '11', sex: false},
+    {name: '12', sex: false},
+    {name: '13', sex: false},
+    {name: '14', sex: false},
+    {name: '15', sex: true},
+    {name: '16', sex: false},
+    {name: '20', sex: true},
+    {name: '22', sex: true}
+];
+
 // Export
 module.exports = {
 	user: user,
-	users: users
+	users: users,
+	peoples: peoples
 };
