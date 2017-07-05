@@ -18,13 +18,13 @@ var userService = require('../services/userService');
 // routers: use to test
 router.get('/', function (req, res, next) {
     res.json({ message: 'eTransport method GET() is success' });
-    console.log('%s %s — %s', (new Date).toString(), req.method, req.url);	
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
     next();
 });
 
 router.post('/', function (req, res, next) {
     res.json({ message: 'eTransport method POST() is success' });
-    console.log('%s %s — %s', (new Date).toString(), req.method, req.url);
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);
     next();
 });
 
