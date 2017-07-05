@@ -9,10 +9,10 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // our configuration
 var config = require('../config/config');
-var auth = require('../lib/auth');
 var constant = require('../lib/constant');
 var dbContext = require('../lib/dbContext');
 var errorHelper = require('../lib/errorHelper');
+var auth = require('../services/authService');
 var userService = require('../services/userService');
 
 // routers: use to test

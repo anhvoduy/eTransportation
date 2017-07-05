@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var Q = require('q');
-var auth = require('../lib/auth');
+var auth = require('../services/authService');
 var customerService = require('../services/customerService');
 
 // Router
