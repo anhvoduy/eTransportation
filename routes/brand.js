@@ -3,84 +3,35 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var auth = require('../config/auth');
-var constant = require('../config/constant');
-var dbContext = require('../config/dbContext');
-var errorHelper = require('../config/errorHelper');
-var brandService = require('../services/brandService');
 
 // Router
 router.get('/items', function (req, res, next) {
-	var brands;	
-
-	Q.when()
-	.then(function(){
-		// getBrands()
-	})
-	.then(function(){
-		res.status(200).json(brands);
-	})
-	.catch(function(err){
-		ctx.release();
-		next(error); // middleware
-	})
-	.done();
+	var brands = [];	
+	res.status(200).json(brands);
+	next();	
 });
 
-router.get('/items/:id', function (req, res, next) {
-	var brandId = req.params.id;
-	var ctx = {};
-
-	Q.when()
-	.then(function () {
-		return dbContext.getConnection();
-	}).then(function (con) {
-		ctx = con;
-		return brandService.getBrands(ctx);
-	}).then(function (brands) {
-		if (brands.length == 0) {
-			res.status(404).json(errorHelper.Error_Not_Exist_BrandId);
-		} else {
-			res.status(200).json(brands[0]);
-		}
-	}).catch(function (error) {
-		next(error);
-	}).finally(function () {
-		ctx.release();
-	});
+router.get('/items/:id', function (req, res, next) {	
+	var brand = {};
+	res.status(200).json(brand);
+	next();
 });
 
 router.post('/create', auth.checkAuthentication(), function (req, res, next) {
 	// create brand
+	res.status(200).json({ code: 'CREATE_BRAND_SUCCESS', message: "Create Brand is success." });
+	next();
 });
 
 router.put('/update', auth.checkAuthentication(), function (req, res, next) {
-    // validate data at server side
-    var brand = {
-        BrandId: req.body.BrandId,
-        Name: req.body.Name,
-        Description: req.body.Description
-    };
-    
-	var ctx = {};
-	dbContext.getConnection().then(function (result) {
-		ctx = result;
-		return ctx.beginTransaction();
-	}).then(function () {
-		return brandService.updateBrand(ctx, brand);
-	}).then(function () {
-		return ctx.commitTransaction();
-	}).then(function () {
-        res.status(200).json({ code: 'UPDATE_BRAND_SUCCESS', message: "Update Brand is success." });
-	}).catch(function (error) {
-		ctx.rollbackTransaction();        
-        next(error);
-	}).done(function () {
-		ctx.release();		
-	});
+    res.status(200).json({ code: 'UPDATE_BRAND_SUCCESS', message: "Update Brand is success." });
+	next();
 });
 
 router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {
 	// delete brand
+	res.status(200).json({ code: 'DELETE_BRAND_SUCCESS', message: "Delete Brand is success." });
+	next();
 });
 
 // return Router

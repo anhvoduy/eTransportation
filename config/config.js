@@ -1,4 +1,4 @@
-var configMySql = {
+var config = {
     host: 'localhost',
     user: 'root',
     password: 'P@ssw0rd',
@@ -8,4 +8,4 @@ var configMySql = {
 	debugMode: true
 };
 
-module.exports = configMySql;
+module.exports = config;
