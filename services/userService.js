@@ -1,9 +1,9 @@
-﻿var _ = require('lodash');
-var Q = require('q');
-var data = require('../database/sampleData');
+﻿const _ = require('lodash');
+const Q = require('q');
+const data = require('../database/sampleData');
 
 // Constructor
-var Factory = function () { 
+const Factory = function () { 
 }
 
 Factory.prototype.myProfile = function(){

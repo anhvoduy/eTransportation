@@ -1,9 +1,29 @@
-﻿var _ = require('lodash');
-var Q = require('q');
-var data = require('../database/sampleData');
+﻿const _ = require('lodash');
+const Q = require('q');
+const data = require('../database/sampleData');
 
 // Constructor
-var Factory = function(){	
+const Factory = function(){	
+}
+
+Factory.prototype.getBrands = function(){
+    return [
+        {
+            id: 1,
+            title: 'brand 1'
+        },
+        {
+            id: 2,
+            title: 'brand 2'
+        }
+    ]
+}
+
+Factory.prototype.getBrandById = function(brandId){
+    return {
+        id: 2,
+        title: 'brand 2'
+    }
 }
 
 // Export

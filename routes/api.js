@@ -1,19 +1,16 @@
-﻿// Dependencies
-var express = require('express');
-var router = express.Router();
+﻿// dependencies
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-// sample Authentication
-var jwt = require('jsonwebtoken');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
-// our configuration
-var config = require('../config/config');
-var constant = require('../lib/constant');
-var dbContext = require('../lib/dbContext');
-var errorHelper = require('../lib/errorHelper');
-var auth = require('../services/authService');
-var userService = require('../services/userService');
+// configuration
+const config = require('../config/config');
+const constant = require('../lib/constant');
+const errorHelper = require('../lib/errorHelper');
+const auth = require('../services/authService');
+const userService = require('../services/userService');
 
 // routers: use to test
 router.get('/', function (req, res, next) {
@@ -31,7 +28,13 @@ router.post('/', function (req, res, next) {
 // routers: use to authenticate
 router.post('/authenticate', function (req, res, next) {
 	console.log('authenticate ...');
-	return next();
+	next();
+});
+
+router.get('/profile', function (req, res, next) {
+	console.log('get my profile ...');
+    res.json(userService.myProfile());
+    next();
 });
 
 router.post('/login', function (req, res, next) {
@@ -64,5 +67,4 @@ router.get('/logout', function (req, res) {
 	});
 });
 
-// return Router
 module.exports = router;

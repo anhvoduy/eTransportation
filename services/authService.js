@@ -2,7 +2,6 @@
 var jwt = require('jsonwebtoken');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var config = require('../config/config');
 
 // Authenticate Service
 var auth = {};
