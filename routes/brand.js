@@ -86,7 +86,7 @@ router.put('/update', auth.checkAuthentication(), function (req, res, next) {
 });
 
 router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {
-	// create brand
+	// delete brand
 });
 
 // return Router

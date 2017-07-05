@@ -59,6 +59,10 @@ router.post('/login', function (req, res, next) {
 
 router.get('/logout', function (req, res) {
 	console.log('Log out current user...');
+	res.status(200).json({
+		success: true,
+		message: { code: 'SUCCESS_AUTHENTICATION', message: 'Login is successful.' }
+	});
 });
 
 // return Router
