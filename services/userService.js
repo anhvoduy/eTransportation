@@ -3,10 +3,10 @@ var Q = require('q');
 var dbHelper = require('../config/dbHelper');
 
 // Constructor
-var userService = function () { 
+var Factory = function () { 
 }
 
-userService.prototype.getUsers = function (ctx) {
+Factory.prototype.getUsers = function (ctx) {
     var sql = `
 		SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth 
 		FROM tbluser 
@@ -16,7 +16,7 @@ userService.prototype.getUsers = function (ctx) {
 	return ctx.queryCommand(sql);    
 }
 
-userService.prototype.getUserById = function (ctx, userId) {
+Factory.prototype.getUserById = function (ctx, userId) {
     var sql = dbHelper.prepareQueryCommand(`
 		SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth 
 		FROM tbluser 
@@ -24,7 +24,7 @@ userService.prototype.getUserById = function (ctx, userId) {
 	return ctx.queryCommand(sql);
 }
 
-userService.prototype.getUserByName = function (ctx, userName) {
+Factory.prototype.getUserByName = function (ctx, userName) {
     var sql = dbHelper.prepareQueryCommand(`
 		SELECT UserId, UserType, UserName, Email, DateOfBirth, Deleted 
 		FROM tbluser 
@@ -32,7 +32,7 @@ userService.prototype.getUserByName = function (ctx, userName) {
     return ctx.queryCommand(sql);
 }
 
-userService.prototype.getUserByEmail = function (ctx, email) {
+Factory.prototype.getUserByEmail = function (ctx, email) {
 	var sql = dbHelper.prepareQueryCommand(`
 		SELECT UserId, UserType, UserName, Email, DateOfBirth, Deleted 
 		FROM tbluser 
@@ -40,11 +40,11 @@ userService.prototype.getUserByEmail = function (ctx, email) {
 	return ctx.queryCommand(sql);
 }
 
-userService.prototype.authenticate = function (username, password) {
+Factory.prototype.authenticate = function (username, password) {
     return (username === 'admin' && password === '@dmin');
 }
 
-userService.prototype.getMenu = function () {
+Factory.prototype.getMenu = function () {
 	var navigation = [
 		{
 			code: 'cash',
@@ -92,4 +92,4 @@ userService.prototype.getMenu = function () {
 }
 
 // Export
-module.exports = new userService;
+module.exports = new Factory;

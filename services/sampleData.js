@@ -1,16 +1,38 @@
-﻿// Constructor
-var sampleData = function () { 
+﻿// define sample objects by Json
+var user = {
+	userName: 'admin',
+	password: '@dmin',
+	firstName: 'Admin',
+	lastName: 'Transport',
+	displayName: 'Admin Transport'
 }
 
-sampleData.prototype.User = function () {
-    var user = {
-		userName: 'admin',
+var users = [
+	{
+		userName: 'beckham',
+		password: '@dmin',
 		firstName: 'David',
 		lastName: 'Beckham',
 		displayName: 'David Beckham'
+	},
+	{
+		userName: 'cantona',
+		password: '@dmin',
+		firstName: 'Eric',
+		lastName: 'Cantona',
+		displayName: 'Eric Cantona'
+	},
+	{
+		userName: 'ronaldo',
+		password: '@dmin',
+		firstName: 'CR',
+		lastName: 'Ronaldo',
+		displayName: 'CR Ronaldo'
 	}
-	return user;
-}
+];
 
 // Export
-module.exports = new sampleData;
+module.exports = {
+	user: user,
+	users: users
+};
