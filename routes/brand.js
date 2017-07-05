@@ -10,24 +10,18 @@ var brandService = require('../services/brandService');
 
 // Router
 router.get('/items', function (req, res, next) {
-	var brands;
-	var ctx;
+	var brands;	
 
-	return Q.when()
+	Q.when()
 	.then(function(){
-		return dbContext.getConnection();
-	})
-	.then(function(ctx){
-		return brandService.getBrands(ctx).then(function(data){
-			brands = data;
-		});
+		// getBrands()
 	})
 	.then(function(){
 		res.status(200).json(brands);
 	})
 	.catch(function(err){
 		ctx.release();
-		next(error);
+		next(error); // middleware
 	})
 	.done();
 });
@@ -36,7 +30,7 @@ router.get('/items/:id', function (req, res, next) {
 	var brandId = req.params.id;
 	var ctx = {};
 
-	return Q.when()
+	Q.when()
 	.then(function () {
 		return dbContext.getConnection();
 	}).then(function (con) {
