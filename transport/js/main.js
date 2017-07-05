@@ -20,8 +20,9 @@ var wowInittialize = function(){
         'transport.common',
         //'transport.controllers',
         //'transport.directives'  
-        //'transport.services'
-        'transport.components.mainMenu'
+        //'transport.services'        
+        'transport.components.mainMenu',
+        'transport.components.login'
     ]); 
     
     // boostrap
