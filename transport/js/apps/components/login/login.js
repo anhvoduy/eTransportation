@@ -22,14 +22,15 @@
     };
 
     // controller
-    loginController.$inject = ['$scope', '$rootScope', '$location'];
-    function loginController($scope, $rootScope, $location) {
+    loginController.$inject = ['$scope', '$rootScope', '$location', '$window'];
+    function loginController($scope, $rootScope, $location, $window) {
         var animateLogin = function(){
             $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
         }
 
 		$scope.login = function () {
 			console.log('---login---');
+            $window.location.href = '/admin';
 		};
 		
 		$scope.signIn = function(){
