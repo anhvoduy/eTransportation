@@ -133,6 +133,8 @@ p {
     color: #cbcbcb;
     font-size: 16px;
     line-height: 24px;
+	padding-left: 180px;
+	padding-right: 180px;
 }
 
 .header_area_text a {
