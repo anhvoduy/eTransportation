@@ -1,6 +1,6 @@
 (function () {
     'use strict';    
-    angular.module('transport.components.tracking', ['transport.common'])
+    angular.module('transport.components.tracking', ['transport.common', 'bootstrapLightbox'])
     .directive('trackButton', trackButton)
     .directive('trackDialog', trackDialog)
     .controller('trackController', trackController);
@@ -37,10 +37,22 @@
     };
 
     // controller
-    trackController.$inject = ['$scope', '$rootScope', '$location', '$window'];
-    function trackController($scope, $rootScope, $location, $window) {
+    trackController.$inject = ['$scope', '$rootScope', '$location', '$window', 'Lightbox'];
+    function trackController($scope, $rootScope, $location, $window, Lightbox) {
+        $scope.images = [
+            {
+                'url': 'images/bg.jpg',
+                'thumbUrl': 'images/bg.jpg',
+                'caption': 'Transportation'
+            },
+            {
+                'type': 'video',
+                'url': '/videos/our-service.mp4'
+            },
+        ];        
+
         $scope.showDialog = function(){
-            console.log('---showDialog---');            
+            Lightbox.openModal($scope.images, 1);
         }
 	}
 })();
