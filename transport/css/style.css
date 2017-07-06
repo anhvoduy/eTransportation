@@ -146,6 +146,23 @@ p {
     font-weight: 700;
     border-radius: 5px;
 }
+
+.header_area_text .track_button{
+    background: none;
+    display: inline-block;    
+    padding: 10px 15px;
+    text-transform: inherit;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+.track_button:hover {
+    text-decoration:none;
+}
+
 /************** feature area css ******************/
 
 #features_area h2 {
