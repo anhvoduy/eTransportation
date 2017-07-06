@@ -25,6 +25,12 @@
     <!--animation-->
     <link href="css/animate.min.css" rel="stylesheet">
 
+    <!--angular-lightbox-->
+    <link rel="stylesheet" href="libs/angular-lightbox/angular-bootstrap-lightbox.min.css">
+
+    <!--videogular-->
+    <link rel="stylesheet" href="libs/videogular/video.min.css">
+
     <!--main css-->
     <link href="css/style.css" rel="stylesheet">
 
@@ -75,8 +81,10 @@
 							overseas. Discover the amazing world of logistics with Trans!
 						</p>
                         <a class="wow slideInUp" data-wow-duration="2s" href="">MAKE ORDER</a>
-						<a class="wow slideInUp" data-wow-duration="2s" href="">LEARN MORE</a>
-						<p class="wow slideInDown" data-wow-duration="2s" style="color: #fff; font-size: 24px;">Track Shipment</p>
+						<a class="wow slideInUp" data-wow-duration="2s" href="">LEARN MORE</a>						
+                        <p class="wow slideInDown" data-wow-duration="2s" style="color: #fff; font-size: 24px;">
+                            <track-button/>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -399,14 +407,18 @@
     <script src="libs/angular/angular-loader.min.js"></script>
     <script src="libs/angular/angular-messages.min.js"></script>
     <script src="libs/angular/angular-touch.min.js"></script>
-    <script src="libs/angular/angular-sanitize.min.js"></script> 
+    <script src="libs/angular/angular-sanitize.min.js"></script>
+    <script src="libs/ui-bootstrap/ui-bootstrap-tpls.min.js"></script> 
+    <script src="libs/angular-lightbox/angular-bootstrap-lightbox.min.js"></script>
+    <script src="libs/videogular/videogular.min.js"></script>
 
     <!-- main js -->
     <script src="js/main.js"></script>
     <script src="js/apps/common/common.js"></script>
     <script src="js/apps/components/mainMenu/mainMenu.js"></script>
     <script src="js/apps/components/login/login.js"></script>
-    <script src="js/apps/utils/utils.js"></script>
+    <script src="js/apps/components/tracking/tracking.js"></script>
+    <script src="js/apps/utils/utils.js"></script>        
 
 	<!-- scroll to top -->	
 	<script>

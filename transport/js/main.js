@@ -16,13 +16,15 @@ var wowInittialize = function(){
 (function ($) { 
     "use strict";
     // load modules 
-    angular.module('transport', [ 
+    angular.module('transport', [
+        'bootstrapLightbox',
         'transport.common',
         //'transport.controllers',
         //'transport.directives'  
         //'transport.services'        
         'transport.components.mainMenu',
-        'transport.components.login'
+        'transport.components.login',
+        'transport.components.tracking'
     ]); 
     
     // boostrap
