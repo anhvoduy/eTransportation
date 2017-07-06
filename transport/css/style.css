@@ -71,7 +71,7 @@ p {
 /************** header css ******************/
 
 #header_area {
-    background: url(../images/bg.jpg);
+    background: url(../images/bg.jpg);    
     padding-top: 35px;
     background-size: cover;
     background-position: center center
@@ -181,7 +181,9 @@ p {
     background: #E9EBEA;
 }
 
-.story_text {}
+.story_text {
+
+}
 
 .story_text h2,
 .experience h2 {
@@ -338,7 +340,11 @@ p {
     margin-bottom: 50px;
 }
 
+/************** video area css ******************/
 
+#video_area {
+    background: #E9EBEA;
+}
 
 /************** footer area css ******************/
 
