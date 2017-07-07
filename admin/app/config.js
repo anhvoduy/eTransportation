@@ -53,6 +53,33 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('blank', {
+		url: '/blank',
+		views: {
+			'view': {
+				templateUrl: 'app/views/blank.tpl.html',
+				controller: 'blankController'
+			}
+		}
+	})
+	.state('bootstrapElement', {
+		url: '/bootstrapElement',
+		views: {
+			'view': {
+				templateUrl: 'app/views/bootstrapElement.tpl.html',
+				controller: 'bootstrapElementController'
+			}
+		}
+	})
+	.state('bootstrapGrid', {
+		url: '/bootstrapGrid',
+		views: {
+			'view': {
+				templateUrl: 'app/views/bootstrapGrid.tpl.html',
+				controller: 'bootstrapGridController'
+			}
+		}
+	})
 	.state('otherwise', {
 		url: '/error',
 		views: {
