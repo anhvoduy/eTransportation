@@ -6,5 +6,10 @@ const data = require('../database/sampleData');
 const Factory = function () { 
 }
 
+Factory.prototype.getCustomer = function(){
+    let sql = `SELECT * FROM Customer ORDER BY CustomerId DESC`;
+    
+}
+
 // Export
 module.exports = new Factory;
