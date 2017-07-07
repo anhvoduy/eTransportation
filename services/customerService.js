@@ -16,11 +16,14 @@ Factory.prototype.getCustomer = function(){
         return dbContext.openConnection();
     })
     .then(function(pool){
-        return dbContext.queryData(pool,'SELECT * FROM Customer ORDER BY CustomerId DESC;');
+		let sql = 'SELECT * FROM Customer ORDER BY CustomerId DESC';
+        return dbContext.queryData(pool, sql)
+		.then(function(data){
+			customers = data;
+		});
     })
-    .then(function(data){
-        customers = data;
-        dbContext.closeConnection();                
+    .then(function(data){        
+        dbContext.closeConnection();
     })
     .then(function(){
         deferred.resolve(customers);
