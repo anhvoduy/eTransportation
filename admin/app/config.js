@@ -1,10 +1,6 @@
 var app = angular.module('cargo', [
 	'ngCookies',
-	'ui.router',
-	'mega-menu',
-	'cargo.directives.megaMenu',
-	'cargo.directives.searchControl',
-	'cargo.directives.customDirectives'
+	'ui.router'	
 ]);
 
 app.config(function ($stateProvider) {
@@ -13,7 +9,8 @@ app.config(function ($stateProvider) {
 		url: '/',
 		views: {
 			'view': {
-				templateUrl: 'app/views/home.tpl.html'
+				templateUrl: 'app/views/dashboard.tpl.html',
+				controller: 'dashboardController'
 			}
 		}
 	})

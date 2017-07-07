@@ -1,5 +1,5 @@
-app.run(['$rootScope', '$location', '$cookieStore', '$http', 'userService', 'authenticationService',
-    function ($rootScope, $location, $cookieStore, $http, userService, authenticationService) {		
+app.run(['$rootScope', '$location', '$cookieStore', '$http',
+    function ($rootScope, $location, $cookieStore, $http) {
 		// keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
         $rootScope.settings = $cookieStore.get('settings') || {};
@@ -13,8 +13,7 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http', 'userService', 'aut
 				$location.path('/login');				
 			} else if ($location.path() === '') {
 				$location.path('/login');				
-			} else {
-				console.log('app is running ...');				
+			} else {				
 				if ($rootScope.globals && $rootScope.globals.currentUser) {
 					$rootScope.setupUI();
 				}				
@@ -24,23 +23,23 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http', 'userService', 'aut
 		// set up UI
 		$rootScope.setupUI = function () {
 			// get navigation
-			userService.getMenu().then(function (result) {
-				$rootScope.settings.navigation = result;				
-			}, function (error) {
-				console.log(error);
-			});
-			
-			// get user profile
-			userService.getProfile().then(function (result) {
-				$rootScope.settings.profile = result;				
-			}, function (error) {
-				console.log(error);
-			});
+			//userService.getMenu().then(function (result) {
+			//	$rootScope.settings.navigation = result;				
+			//}, function (error) {
+			//	console.log(error);
+			//});
+			//
+			//// get user profile
+			//userService.getProfile().then(function (result) {
+			//	$rootScope.settings.profile = result;				
+			//}, function (error) {
+			//	console.log(error);
+			//});
 		}
 
 		// logout
 		$rootScope.logout = function () {
-			authenticationService.clearCredentials();
+			//authenticationService.clearCredentials();
 		};
 	}
 ]);
