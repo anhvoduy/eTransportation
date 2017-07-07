@@ -1,5 +1,5 @@
 (function () {
-    'use strict';	
+    'use strict';
     angular.module('transport.common', [])
     .factory('appCommon', ['$q', '$location', function ($q, $location) {
         var appCommon = function () {            

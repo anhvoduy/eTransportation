@@ -1,40 +1,22 @@
 var app = angular.module('cargo', [
 	'ngCookies',
 	'ui.router',
-	'mega-menu',
-	'cargo.directives.megaMenu',
-	'cargo.directives.searchControl',
-	'cargo.directives.customDirectives'
+	'cargo.common',
+	'cargo.directives',
+	'cargo.components.navigation'
 ]);
 
 app.config(function ($stateProvider) {
 	$stateProvider
 	.state('/', {
-		url: '/',
+		url: '',
 		views: {
 			'view': {
-				templateUrl: 'app/views/home.tpl.html'
+				templateUrl: 'app/views/dashboard.tpl.html',
+				controller: 'dashboardController'
 			}
 		}
-	})
-	.state('login', {
-		url: '/login',
-		views: {
-			'view': {
-				templateUrl: 'app/views/login.tpl.html',
-				controller: 'loginController'
-			}
-		},
-		showMenus: false
-	})
-	.state('logout', {
-		url: '/logout',
-		views: {
-			'view': {
-				templateUrl: 'app/views/logout.tpl.html',
-			}
-		}
-	})
+	})	
 	.state('dashboard', {
 		url: '/dashboard',
 		views: {
@@ -53,6 +35,15 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('table', {
+		url: '/table',
+		views: {
+			'view': {
+				templateUrl: 'app/views/table.tpl.html',
+				controller: 'tableController'
+			}
+		}
+	})
 	.state('form', {
 		url: '/form',
 		views: {
@@ -62,6 +53,33 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})	
+	.state('bootstrapElement', {
+		url: '/bootstrapElement',
+		views: {
+			'view': {
+				templateUrl: 'app/views/bootstrapElement.tpl.html',
+				controller: 'bootstrapElementController'
+			}
+		}
+	})
+	.state('bootstrapGrid', {
+		url: '/bootstrapGrid',
+		views: {
+			'view': {
+				templateUrl: 'app/views/bootstrapGrid.tpl.html',
+				controller: 'bootstrapGridController'
+			}
+		}
+	})
+	.state('blank', {
+		url: '/blank',
+		views: {
+			'view': {
+				templateUrl: 'app/views/blank.tpl.html',
+				controller: 'blankController'
+			}
+		}
+	})
 	.state('otherwise', {
 		url: '/error',
 		views: {
