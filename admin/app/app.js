@@ -9,15 +9,15 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 						
 		$rootScope.$on('$locationChangeStart', function (event, next, current) {			
 			// redirect to login page if not logged in
-			if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-				$location.path('/login');				
-			} else if ($location.path() === '') {
-				$location.path('/login');				
-			} else {				
-				if ($rootScope.globals && $rootScope.globals.currentUser) {
-					$rootScope.setupUI();
-				}				
-			}
+			//if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
+			//	$location.path('/login');				
+			//} else if ($location.path() === '') {
+			//	$location.path('/login');				
+			//} else {				
+			//	if ($rootScope.globals && $rootScope.globals.currentUser) {
+			//		$rootScope.setupUI();
+			//	}				
+			//}
 		});
 
 		// set up UI
