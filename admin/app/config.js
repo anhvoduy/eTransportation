@@ -1,6 +1,7 @@
 var app = angular.module('cargo', [
 	'ngCookies',
-	'ui.router'	
+	//'ui.router',
+	'cargo.common'
 ]);
 
 app.config(function ($stateProvider) {
