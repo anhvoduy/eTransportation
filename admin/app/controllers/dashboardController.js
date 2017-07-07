@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 	app.controller('dashboardController', dashboardController);
-	dashboardController.$inject = ['$rootScope', 'navigationService'];
-	function dashboardController($rootScope, navigationService) {
+	dashboardController.$inject = ['$rootScope'];
+	function dashboardController($rootScope) {
 		// view-model
 		var vm = this;
 		

@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
-	app.controller('chartController', chartController);
-	chartController.$inject = ['$rootScope'];
-	function chartController($rootScope) {
+	app.controller('formController', formController);
+	formController.$inject = ['$rootScope'];
+	function formController($rootScope) {
 		// view-model
 		var vm = this;
 		

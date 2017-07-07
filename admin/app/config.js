@@ -35,6 +35,15 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('table', {
+		url: '/table',
+		views: {
+			'view': {
+				templateUrl: 'app/views/table.tpl.html',
+				controller: 'tableController'
+			}
+		}
+	})
 	.state('form', {
 		url: '/form',
 		views: {
