@@ -1,11 +1,27 @@
-// Dependencies
-var express = require('express');
-var router = express.Router();
-var Q = require('q');
-var auth = require('../services/authService');
-var customerService = require('../services/customerService');
+const express = require('express');
+const router = express.Router();
+const Q = require('q');
+const auth = require('../services/authService');
+const customerService = require('../services/customerService');
 
-// Router
+router.get('/items', function (req, res, next) {
+	let customers;
+
+    Q.when()
+	.then(function(){
+		return customerService.getCustomer().then(function(data){
+			customers = data;
+		});
+	})
+	.then(function(){
+		console.log(customers);
+		return res.status(200).json(customers);
+	})
+	.catch(function(err){
+		throw err;
+	});
+});
+
 router.get('/itemspaging/:id', function (request, response, next) {
     var customer = [];
 	res.status(200).json(customer);

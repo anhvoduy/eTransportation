@@ -1,8 +1,8 @@
 const config = {
     user: 'sa',
     password: 's@',
-    server: 'HSSSC1PCL018511\SQL_EXPRESS',
-    database: 'ndemo',
+    server: 'localhost\\SQL_EXPRESS',
+    database: 'ndemo',    
     pool: {
         max: 10,
         min: 0,
