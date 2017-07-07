@@ -1,17 +1,8 @@
-// String.format = function() {
-//     var s = arguments[0];
-//     for (var i = 0; i < arguments.length - 1; i += 1) {
-//         var reg = new RegExp('\\{' + i + '\\}', 'gm');
-//         s = s.replace(reg, arguments[i + 1]);
-//     }
-//     return s;
-// };
-
 (function () {
     'use strict';    
     angular.module('cargo.common', []).factory('appCommon', appCommon);
-    appCommon.$inject = ['$rootScope', '$cookieStore'];
-    function appCommon($rootScope, $cookieStore) {
+    appCommon.$inject = ['$rootScope'];
+    function appCommon($rootScope) {
         // constructor
         var appCommon = function () {
         }
@@ -29,6 +20,11 @@
                 return false;
             }
         }
+
+        appCommon.prototype.baseUrl = function(){            
+            return 'admin/'; // dev local mode
+        };
+
         return new appCommon;
     };        
 })();
