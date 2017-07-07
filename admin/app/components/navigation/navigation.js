@@ -1,7 +1,12 @@
 (function () {
     'use strict';
     angular.module('cargo.components.navigation', ['cargo.common'])
-    .directive('navigationMenu', ['appCommon', function(appCommon){
+    .directive('navigationMenu', navigationMenu)
+    .controller('navigationController', navigationController);
+
+    // directives    
+    navigationMenu.$inject = ['appCommon'];
+    function navigationMenu(appCommon){
         return {
             restrict: 'EA',
             replace: true,
@@ -14,10 +19,15 @@
                 console.log('init navigation.....');
             }
         };
-    }])
-    .controller('navigationController', ['$scope', function($scope){
-        $scope.activate = function(){
+    };
 
+    // controllers
+    navigationController.$inject = ['$scope', 'appCommon'];
+    function navigationController($scope, appCommon){        
+        var activate = function(){
+            console.log('--- activate ---');
         }
-    }]);    
+
+        activate();
+    }
 })();
