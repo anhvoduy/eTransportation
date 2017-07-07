@@ -1,11 +1,10 @@
-// Dependencies
-var express = require('express');
-var router = express.Router();
-var Q = require('q');
-var auth = require('../services/authService');
-var brandService = require('../services/brandService');
+const express = require('express');
+const router = express.Router();
+const _ = require('lodash');
+const Q = require('q');
+const auth = require('../services/authService');
+const brandService = require('../services/brandService');
 
-// Router
 router.get('/items', function (req, res, next) {
 	var brands = [];	
 	res.status(200).json(brands);
@@ -35,5 +34,4 @@ router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {
 	next();
 });
 
-// return Router
 module.exports = router;
