@@ -52,16 +52,7 @@ app.config(function ($stateProvider) {
 				controller: 'formController'
 			}
 		}
-	})
-	.state('blank', {
-		url: '/blank',
-		views: {
-			'view': {
-				templateUrl: 'app/views/blank.tpl.html',
-				controller: 'blankController'
-			}
-		}
-	})
+	})	
 	.state('bootstrapElement', {
 		url: '/bootstrapElement',
 		views: {
@@ -77,6 +68,15 @@ app.config(function ($stateProvider) {
 			'view': {
 				templateUrl: 'app/views/bootstrapGrid.tpl.html',
 				controller: 'bootstrapGridController'
+			}
+		}
+	})
+	.state('blank', {
+		url: '/blank',
+		views: {
+			'view': {
+				templateUrl: 'app/views/blank.tpl.html',
+				controller: 'blankController'
 			}
 		}
 	})
