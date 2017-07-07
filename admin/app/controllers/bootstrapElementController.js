@@ -8,6 +8,7 @@
 		
 		// functions
 		function activate() {
+			console.log(' init bootstrapElementController ..... ');
 		}
 		
 		/* start */
