@@ -32,16 +32,17 @@
 </head>
 <body ng-app="cargo">    
     
+    <!-- #wrapper -->
     <div id="wrapper">
         <div navigation-menu></div>
+
         <div id="page-wrapper">
-            <!-- views-->            
+            <!-- views-->
             <div class="body-view">
                 <div class="well" ui-view="view"></div>
             </div>            
         </div>
-    </div>    
-    <!-- /#wrapper -->
+    </div>
 
 
     <!-- jQuery -->
@@ -76,6 +77,7 @@
     <script src="app/components/navigation/navigation.js"></script>
 
     <script src="app/controllers/dashboardController.js"></script>
+    <script src="app/controllers/chartController.js"></script>
 
     <script src="app/utils/utils.js"></script>
 </body>
