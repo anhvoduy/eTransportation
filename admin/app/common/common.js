@@ -22,7 +22,7 @@
         }
 
         appCommon.prototype.baseUrl = function(){            
-            return 'admin/'; // dev local mode
+            return '/'; // dev local mode
         };
 
         return new appCommon;
