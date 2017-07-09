@@ -1,6 +1,7 @@
 ﻿const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
+const Q = require('q');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -16,6 +17,17 @@ router.get('/', function (req, res, next) {
     console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
     next();
 });
+
+router.get('/connection', Q.async(function* (req, res, next) {
+	let tables = yield auth.getInformationSchema();
+    res.json({ 
+		code: 'CONNECTION_SUCCESS', 
+		message: 'eTransport make connection to database is success',
+		data: tables
+	});
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
+    next();
+}));
 
 // POST: test api
 router.post('/', function (req, res, next) {
