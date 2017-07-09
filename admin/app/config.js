@@ -26,6 +26,15 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})	
+	.state('customer', {
+		url: '/customer',
+		views: {
+			'view': {
+				templateUrl: 'app/views/customer.tpl.html',
+				controller: 'customerController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {

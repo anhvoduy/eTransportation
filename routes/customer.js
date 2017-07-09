@@ -9,32 +9,32 @@ router.get('/items', function (req, res, next) {
 
     Q.when()
 	.then(function(){
-		return customerService.getCustomer().then(function(data){
+		customerService.getCustomer().then(function(data){
 			customers = data;
 		});
 	})
-	.then(function(){
-		console.log(customers);
-		return res.status(200).json(customers);
+	.then(function(){		
+		res.status(200).json(customers);
 	})
-	.catch(function(err){
-		throw err;
+	.catch(function(err){		
+		res.status(500).json(err);
+		next(err);
 	});
 });
 
-router.get('/itemspaging/:id', function (request, response, next) {
+router.get('/item/:id', function (req, res, next) {
     var customer = [];
 	res.status(200).json(customer);
 	next();
 });
 
-router.get('/items/:id', function (request, response, next) {
+router.get('/edit/:id', function (req, res, next) {
 	var customer = [];
 	res.status(200).json(customer);
 	next();
 });
 
-router.get('/itemsbrand/:id', function (request, response, next) {
+router.get('/delete/:id', function (req, res, next) {
     var customer = [];
 	res.status(200).json(customer);
 	next();
