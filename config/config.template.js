@@ -1,6 +1,7 @@
 const config = {
     user: 'sa',
     password: 's@',
+    //server: 'localhost\\SQL_EXPRESS',
     server: 'SONYVAIO\\SQL_2014',
     database: 'ndemo',    
     pool: {
