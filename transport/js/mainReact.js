@@ -5,7 +5,7 @@
         title: 'Our Short Story',
         imageUrl: 'images/bg.jpg',
         desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        moreInfo: 'More about our team'
+        moreInfo: 'More about info ...'
     }
 
     var StoryArea = React.createClass({
