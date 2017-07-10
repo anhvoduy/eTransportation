@@ -27,4 +27,6 @@ server.use('/contact-us', express.static(webpath, { index: 'contact-us.html' }))
 server.use('/service-us', express.static(webpath, { index: 'service-us.html' }));
 server.use('/login', express.static(webpath, { index: 'login.html' }));
 
+server.use('/sample', express.static(webpath, { index: 'sample.html' }));
+
 module.exports = server;

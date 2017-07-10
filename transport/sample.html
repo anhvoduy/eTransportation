@@ -405,7 +405,15 @@ online presense and style</h2>
     </script>
 
     <!-- main js -->
-    <script src="js/main.js"></script>
+    <script type="text/javascript">
+		(function ($) {
+			"use strict";
+			jQuery(window).load(function(){
+				// Preloader
+				$("#preloader").fadeOut(500);
+			});
+		}(jQuery));
+	</script>
 
 </body>
 
