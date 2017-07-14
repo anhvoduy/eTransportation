@@ -13,6 +13,7 @@ server.use('/api', require('./routes/api'));
 server.use('/api/brand', require('./routes/brand'));
 server.use('/api/customer', require('./routes/customer'));
 server.use('/api/user', require('./routes/user'));
+server.use('/api/truck', require('./routes/truck'));
 
 /**
  * register site collections
