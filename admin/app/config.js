@@ -35,6 +35,15 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('truck', {
+		url: '/truck',
+		views: {
+			'view': {
+				templateUrl: 'app/views/truck.tpl.html',
+				controller: 'truckController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {

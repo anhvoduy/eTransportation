@@ -4,6 +4,7 @@
     .directive('navigationMenu', navigationMenu)
     .directive('topMenu', topMenu)
     .directive('sidebarMenu', sidebarMenu)
+    .directive('sidebarMenuItemActive', sidebarMenuItemActive)
     .controller('navigationController', navigationController);
 
     // directives    
@@ -22,6 +23,17 @@
             }
         };
     };
+
+    function sidebarMenuItemActive(){
+        return {
+            restrict: 'A',
+            replace: false,
+            transclude: true,
+            link: function (scope, element, attrs, ngCtrl) {
+                console.log('init sidebarMenuItemActive().....');
+            }
+        }
+    }
 
     topMenu.$inject = ['appCommon'];
     function topMenu(appCommon){
