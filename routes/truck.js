@@ -1,9 +1,9 @@
-﻿// Dependencies
-var express = require('express');
-var router = express.Router();
-var Q = require('q');
-var auth = require('../services/authService');
-var truckService = require('../services/truckService');
+﻿const express = require('express');
+const router = express.Router();
+const _ = require('lodash');
+const Q = require('q');
+const auth = require('../services/authService');
+const truckService = require('../services/truckService');
 
 // Routers
 router.get('/items', function (req, res, next) {
