@@ -17,16 +17,16 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
+                            <th>Number</th>
                             <th>Address</th>
-                            <th>Phone</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="c in customers">
-                            <td>{{ c.CustomerId }}</td>
-                            <td>{{ c.CustomerName }}</td>
-                            <td>{{ c.Address }}</td>
-                            <td>{{ c.Phone }}</td>
+                        <tr ng-repeat="t in trucks">
+                            <td>{{ t.TruckId }}</td>
+                            <td>{{ t.TruckName }}</td>
+                            <td>{{ t.TruckNumber }}</td>
+                            <td>{{ t.Description }}</td>
                         </tr>                        
                     </tbody>
                 </table>

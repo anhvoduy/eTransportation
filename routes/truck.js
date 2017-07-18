@@ -6,11 +6,11 @@ const auth = require('../services/authService');
 const truckService = require('../services/truckService');
 
 // Routers
-router.get('/items', function (req, res, next) {
-	var trucks = truckService.getTrucks();
+router.get('/items', Q.async(function* (req, res, next) {
+	var trucks = yield truckService.getTrucks();
 	res.status(200).json(trucks);
 	next();
-});
+}));
 
 router.get('/items/:id', function (req, res, next) {
     var truck = truckService.getTruckById(100);

@@ -3,8 +3,7 @@
     angular.module('cargo.components.navigation', ['cargo.common'])
     .directive('navigationMenu', navigationMenu)
     .directive('topMenu', topMenu)
-    .directive('sidebarMenu', sidebarMenu)
-    .directive('sidebarMenuItemActive', sidebarMenuItemActive)
+    .directive('sidebarMenu', sidebarMenu)    
     .controller('navigationController', navigationController);
 
     // directives    
@@ -22,18 +21,7 @@
                 console.log('init navigation.....');
             }
         };
-    };
-
-    function sidebarMenuItemActive(){
-        return {
-            restrict: 'A',
-            replace: false,
-            transclude: true,
-            link: function (scope, element, attrs, ngCtrl) {
-                console.log('init sidebarMenuItemActive().....');
-            }
-        }
-    }
+    };    
 
     topMenu.$inject = ['appCommon'];
     function topMenu(appCommon){

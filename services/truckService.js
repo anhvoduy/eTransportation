@@ -29,7 +29,7 @@ Factory.prototype.getTrucks = function(){
 			trucks = data;
 		});
     })
-    .then(function(data){
+    .then(function(){
         dbContext.closeConnection();
     })
     .then(function(){
