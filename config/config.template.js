@@ -2,7 +2,7 @@ const configMySql = {
     user: 'sa',
     password: 's@',    
     server: 'SONYVAIO\\SQL_2014',
-    database: 'estore',    
+    database: 'ndemo',    
     pool: {
         max: 10,
         min: 0,
@@ -14,7 +14,7 @@ const configAzure = {
     user: 'invdemo',
     password: 'inv@demo2017',
     server: 'invdemo.database.windows.net',
-    database: 'estore',
+    database: 'ndemo',
     port: 1433,
     options: {        
         encrypt: true

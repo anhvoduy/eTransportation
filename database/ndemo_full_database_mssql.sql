@@ -6,9 +6,6 @@ USE [ndemo]
 GO
 
 /****** Object:  Table [dbo].[Customer]    Script Date: 7/7/2017 6:18:30 PM ******/
-DROP TABLE [dbo].[Customer]
-GO
-
 SET ANSI_NULLS ON
 GO
 
@@ -38,6 +35,9 @@ VALUES ('Cris Ronaldo', 'Real Madrid', '1234567890')
 
 INSERT INTO [dbo].[Customer] ([CustomerName] ,[Address] ,[Phone])
 VALUES ('Michael Owen', 'Liverpool', '1234567890')
+
+INSERT INTO [dbo].[Customer] ([CustomerName] ,[Address] ,[Phone])
+VALUES ('Di Maria', 'PSG', '1234567890')
 
 GO
 
