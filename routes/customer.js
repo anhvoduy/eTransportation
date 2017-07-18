@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const _ = require('lodash');
 const Q = require('q');
 const auth = require('../services/authService');
 const customerService = require('../services/customerService');
@@ -9,7 +10,7 @@ router.get('/items', function (req, res, next) {
 
     Q.when()
 	.then(function(){
-		customerService.getCustomer().then(function(data){
+		return customerService.getCustomer().then(function(data){
 			customers = data;
 		});
 	})

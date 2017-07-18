@@ -3,7 +3,7 @@
     angular.module('cargo.components.navigation', ['cargo.common'])
     .directive('navigationMenu', navigationMenu)
     .directive('topMenu', topMenu)
-    .directive('sidebarMenu', sidebarMenu)
+    .directive('sidebarMenu', sidebarMenu)    
     .controller('navigationController', navigationController);
 
     // directives    
@@ -21,7 +21,7 @@
                 console.log('init navigation.....');
             }
         };
-    };
+    };    
 
     topMenu.$inject = ['appCommon'];
     function topMenu(appCommon){
