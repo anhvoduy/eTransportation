@@ -17,21 +17,18 @@ Factory.prototype.getTrucks = function(){
     })
     .then(function(pool){
         let sql = `
-            SELECT TOP (1000) [TruckId]
-                ,[TruckName]
-                ,[TruckNumber]
-                ,[Description]
-            FROM [ndemo].[dbo].[Truck]
-            ORDER BY [TruckId]
+            SELECT TruckId, TruckName, TruckNumber, Description
+            FROM Truck
+            ORDER BY TruckId DESC
         `;
-        return dbContext.queryData(pool, sql)
+        return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			trucks = data;
-		});
-    })
-    .then(function(){
-        dbContext.closeConnection();
-    })
+        })
+        .then(function(){
+            dbContext.closeConnection(pool);
+        });
+    })    
     .then(function(){
         deferred.resolve(trucks);
     })

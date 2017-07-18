@@ -1,4 +1,4 @@
-const config = {
+const configMySql = {
     user: 'sa',
     password: 's@',    
     server: 'SONYVAIO\\SQL_2014',
@@ -10,4 +10,15 @@ const config = {
     }
 }
 
-module.exports = config;
+const configAzure = {
+    user: 'invdemo',
+    password: 'inv@demo2017',
+    server: 'invdemo.database.windows.net',
+    database: 'ndemo',
+    port: 1433,
+    options: {        
+        encrypt: true
+    }
+}
+
+module.exports = configAzure;
