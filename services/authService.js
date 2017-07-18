@@ -28,13 +28,13 @@ auth.getInformationSchema = function(){
     })
     .then(function(pool){
 		let sql = 'SELECT * FROM INFORMATION_SCHEMA.TABLES';
-        return dbContext.queryData(pool, sql)
+        return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			tables = data;
-		});
-    })
-    .then(function(data){
-        dbContext.closeConnection();
+        })
+        .then(function(){
+            dbContext.closeConnection(pool);
+        });
     })
     .then(function(){
         deferred.resolve(tables);
