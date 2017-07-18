@@ -20,11 +20,11 @@ Factory.prototype.getCustomer = function(){
         return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			customers = data;
-		});
-    })
-    .then(function(data){
-        dbContext.closeConnection();
-    })
+        })
+        .then(function(){
+            dbContext.closeConnection(pool);    
+        });
+    })    
     .then(function(){
         deferred.resolve(customers);
     })

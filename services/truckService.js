@@ -24,11 +24,11 @@ Factory.prototype.getTrucks = function(){
         return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			trucks = data;
-		});
-    })
-    .then(function(){
-        dbContext.closeConnection();
-    })
+        })
+        .then(function(){
+            dbContext.closeConnection(pool);
+        });
+    })    
     .then(function(){
         deferred.resolve(trucks);
     })
