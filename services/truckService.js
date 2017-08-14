@@ -40,19 +40,19 @@ Factory.prototype.getTrucks = function(){
     return deferred.promise;
 }
 
-Factory.prototype.getTruckById = function(){
+Factory.prototype.getTruckById = function(truckId){
     return data.getUser();
 }
 
-Factory.prototype.createTruck = function(){
+Factory.prototype.createTruck = function(Truck){
     return data.getUsers();
 }
 
-Factory.prototype.updateTruck = function(){
+Factory.prototype.updateTruck = function(Truck){
     return data.getUsers();
 }
 
-Factory.prototype.deleteTruck = function(){
+Factory.prototype.deleteTruck = function(truckKey){
     return data.getMenus();
 }
 
