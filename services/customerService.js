@@ -16,7 +16,12 @@ Factory.prototype.getCustomer = function(){
         return dbContext.openConnection();
     })
     .then(function(pool){
-		let sql = 'SELECT CustomerId, CustomerName, Address, Phone FROM Customer ORDER BY CustomerId DESC';        
+        let sql = `
+            SELECT CustomerId, CustomerKey, CustomerName, Description, 
+                Email, Mobile, Tel, Fax, Title, Address 
+            FROM Customer
+            WHERE Deleted = 0 
+            ORDER BY CustomerId DESC`;
         return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			customers = data;
