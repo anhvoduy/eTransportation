@@ -17,8 +17,9 @@ Factory.prototype.getTrucks = function(){
     })
     .then(function(pool){
         let sql = `
-            SELECT TruckId, TruckName, TruckNumber, Description
+            SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
             FROM Truck
+            WHERE Deleted = 0
             ORDER BY TruckId DESC
         `;
         return dbContext.queryDatabase(pool, sql)
@@ -39,19 +40,19 @@ Factory.prototype.getTrucks = function(){
     return deferred.promise;
 }
 
-Factory.prototype.getTruckById = function(){
+Factory.prototype.getTruckById = function(truckId){
     return data.getUser();
 }
 
-Factory.prototype.createTruck = function(){
+Factory.prototype.createTruck = function(Truck){
     return data.getUsers();
 }
 
-Factory.prototype.updateTruck = function(){
+Factory.prototype.updateTruck = function(Truck){
     return data.getUsers();
 }
 
-Factory.prototype.deleteTruck = function(){
+Factory.prototype.deleteTruck = function(truckKey){
     return data.getMenus();
 }
 
