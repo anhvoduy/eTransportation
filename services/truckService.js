@@ -17,8 +17,9 @@ Factory.prototype.getTrucks = function(){
     })
     .then(function(pool){
         let sql = `
-            SELECT TruckId, TruckName, TruckNumber, Description
+            SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
             FROM Truck
+            WHERE Deleted = 0
             ORDER BY TruckId DESC
         `;
         return dbContext.queryDatabase(pool, sql)
