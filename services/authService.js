@@ -18,10 +18,17 @@ auth.setup = function (app) {
                 success: userService.authenticate(username, password),
                 user: { username: username, password: password }
             };
-            console.log('Verify Username & Password ...');
+            //console.log('Verify Username & Password ...');
             return done(null, data);
         }
     ));   
+};
+
+auth.checkAuthentication = function () {    
+    return function (req, res, next) {
+        //console.log('checkAuthentication() ...');
+        next();
+    };
 };
 
 auth.getInformationSchema = function(){
