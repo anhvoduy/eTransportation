@@ -9,15 +9,22 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 						
 		$rootScope.$on('$locationChangeStart', function (event, next, current) {			
 			// redirect to login page if not logged in
-			//if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-			//	$location.path('/login');				
-			//} else if ($location.path() === '') {
-			//	$location.path('/login');				
-			//} else {				
-			//	if ($rootScope.globals && $rootScope.globals.currentUser) {
-			//		$rootScope.setupUI();
-			//	}				
-			//}
+			console.log('locationChangeStart...');
+			if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
+				console.log('redirect to /login');
+				$location.path('/login');
+			} else if ($location.path() === '') {
+				console.log('redirect to /login');
+				$location.path('/login');
+			} else if ($location.path() === '/login') {
+				console.log('current view: /login');
+				return;
+			}else {
+				if ($rootScope.globals && $rootScope.globals.currentUser) {
+					console.log('setupUI().....');
+					//$rootScope.setupUI();
+				}				
+			}
 		});
 
 		// set up UI
@@ -39,6 +46,7 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 
 		// logout
 		$rootScope.logout = function () {
+			console.log('logout.....');
 			//authenticationService.clearCredentials();
 		};
 	}

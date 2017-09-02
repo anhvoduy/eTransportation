@@ -1,13 +1,13 @@
 (function () {
     'use strict';
-    app.factory('authenticationService', authenticationService);
-    authenticationService.$inject = ['$http', '$rootScope', '$q', '$cookieStore', 'Base64'];
-    function authenticationService($http, $rootScope, $q, $cookieStore, Base64) {
+    app.factory('authService', authService);
+    authService.$inject = ['$http', '$rootScope', '$q', '$cookieStore', 'Base64'];
+    function authService($http, $rootScope, $q, $cookieStore, Base64) {
         // constructor
-        var authenticationService = function () {
+        var authService = function () {
         }
 
-        //authenticationService.prototype.loginClientSide = function (username, password) {
+        //authService.prototype.loginClientSide = function (username, password) {
         //    /* Use this for test at client side */
         //    var q = $q.defer();
         //    var response = { success: username === 'admin' && password === '@dmin' };
@@ -18,18 +18,20 @@
         //    return q.promise;
         //};        
 
-        authenticationService.prototype.login = function (username, password) {           
-            /* Use this for test at server side: /api/user/authenticate */
+        authService.prototype.login = function (username, password) {            
             var q = $q.defer();            
-            $http.post('/api/login', { username: username, password: password }).success(function (result) {
+            $http.post('/api/login', { username: username, password: password })
+            .success(function (result) {
+                console.log('SUCCESS');
                 q.resolve(result);
-            }).error(function (result) {
-                q.reject(result);
+            }).error(function (error) {
+                console.log('FAILED');
+                q.reject(error);
             });
             return q.promise;
         };
 
-        authenticationService.prototype.setCredentials = function (user) {            
+        authService.prototype.setCredentials = function (user) {            
             $rootScope.globals = {
                 currentUser: {
                     username: user.username,
@@ -41,13 +43,13 @@
             $cookieStore.put('globals', $rootScope.globals);
         };
 
-        authenticationService.prototype.clearCredentials = function () {
+        authService.prototype.clearCredentials = function () {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
         };
 
-        return new authenticationService;
+        return new authService;
     };
 })();
 

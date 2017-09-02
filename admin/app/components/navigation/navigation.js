@@ -18,7 +18,7 @@
                 return String.format('{0}{1}', appCommon.baseUrl, "admin/app/components/navigation/navigaton.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
-                console.log('init navigation.....');
+                //console.log('init navigation.....');
             }
         };
     };    
@@ -34,7 +34,7 @@
                 return String.format('{0}{1}', appCommon.baseUrl, "admin/app/components/navigation/topMenu.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
-                console.log('init topMenu.....');
+                //console.log('init topMenu.....');
             }
         };
     };
@@ -50,7 +50,7 @@
                 return String.format('{0}{1}', appCommon.baseUrl, "admin/app/components/navigation/sidebarMenu.tpl.html");
             },
             link: function (scope, element, attrs, ngCtrl) {
-                console.log('init sidebarMenu.....');
+                //console.log('init sidebarMenu.....');
             }
         };
     };
@@ -60,7 +60,7 @@
     navigationController.$inject = ['$scope', 'appCommon'];
     function navigationController($scope, appCommon){        
         var activate = function(){
-            console.log('--- activate ---');
+            //console.log('--- activate ---');
         }
 
         activate();

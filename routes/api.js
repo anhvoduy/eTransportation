@@ -50,7 +50,7 @@ router.post('/login', function (req, res, next) {
 			});
 		} 
 		else {
-			var token = jwt.sign(result.user, config.secretKey, { expiresIn: 60 * 60 * 24 * 1 });
+			var token = jwt.sign(result.user, constant.secretKey, { expiresIn: 60 * 60 * 24 * 1 });
 			res.status(200).json({
 				success: true,
 				message: { code: 'SUCCESS_AUTHENTICATION', message: 'Login is successful.' },

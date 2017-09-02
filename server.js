@@ -1,10 +1,22 @@
 ﻿const express = require('express');
 const http = require('http');
 const path = require("path");
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const constant = require('./lib/constant');
+const auth = require('./services/authService');
 
+// Express
 const server = express();
+server.use(cookieParser()); // read cookies (needed for auth)
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
+
+// setup Server
+auth.setup(server);
 //server.set('port', process.env.PORT || 3000);
 server.set('port', 3000);
+server.set('secretKey', constant.secretKey); // secret variable
 
 /**
  * register API 
