@@ -7,7 +7,9 @@ const dbContext = require('../lib/dbContext');
 const userService = require('./userService');
 
 // Authenticate Service
+// https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 const auth = {};
+
 auth.setup = function (app) {
     app.use(passport.initialize());    
     passport.use(new LocalStrategy(
@@ -20,13 +22,6 @@ auth.setup = function (app) {
             return done(null, data);
         }
     ));   
-};
-
-auth.checkAuthentication = function () {    
-    return function (req, res, next) {
-        console.log('checkAuthentication() ...');
-        next();
-    };
 };
 
 auth.getInformationSchema = function(){
