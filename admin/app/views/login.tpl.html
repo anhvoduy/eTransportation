@@ -116,7 +116,11 @@
 </style>
 
 <div class="login-page">
-	<div class="login-panel">		
+	<div class="login-panel">        
+        <div ng-show="error" class="alert alert-danger message-error">
+            <!-- <div class="row">{{ error.code }}</div> -->
+            <div class="row">{{ error.message }}</div>                
+        </div>
 		<form id="loginForm" class="login-form">
             <input type="text" 
                    name="username"
