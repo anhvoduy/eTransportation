@@ -1,11 +1,5 @@
 <style>
-    body {
-        /* background: #76b852; */ /* fallback for old browsers */
-        /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);*/
-        /*background: -moz-linear-gradient(right, #76b852, #8DC26F);*/
-        /*background: -o-linear-gradient(right, #76b852, #8DC26F);*/
-        /*background: linear-gradient(to left, #76b852, #8DC26F);*/
-        
+    body {                
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -123,41 +117,32 @@
 
 <div class="login-page">
 	<div class="login-panel">
-		<!-- 
-        <form class="register-form">
-			<input type="text" placeholder="name"/>
-			<input type="password" placeholder="password"/>
-			<input type="text" placeholder="email address"/>
-			<button ng-click="registerAccount()">Register</button>
-			<p class="message">
-                Already registered? 
-                <a href="#" ng-click="signIn()">Sign In</a>
-            </p>
-        </form> 
-        -->
-		<form id="loginForm" class="login-form">
+        <div ng-show="error" class="alert alert-danger message-error">
+            <!-- <div class="row">{{ error.code }}</div> -->
+            <div class="row">{{ error.message }}</div>
+        </div>
+        <div ng-show="dataLoading">
+            <div class="row">
+                <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+        </div>
+		<form id="loginForm" ng-submit="login()" class="login-form" role="form">
             <input type="text" 
                    name="username"
                    ng-model="username"
                    placeholder="username" 
                    maxlength="20"
-                   required />            
-
+                   required />
             <input type="password" 
                    name="password"
                    ng-model="password"
                    placeholder="password"
                    maxlength="20"
                    required />
-			<button ng-click="login()">login</button>
-			<!-- 
-            <p class="message">Not registered? 
-                <a href="#" ng-click="createAccount()">Create an account</a>
-            </p>
-            -->
+			<button type="submit">login</button>			
 			<p class="message">
 				<span style="font-size: 18px;"><a href="/">Back to Home Page</a></span>
 			</p>
-		</form>
+        </form>        
 	</div>
 </div>

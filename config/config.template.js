@@ -1,4 +1,7 @@
 const configMySql = {
+}
+
+const configMsSql = {
     user: 'sa',
     password: 's@',    
     server: 'SONYVAIO\\SQL_2014',

@@ -7,25 +7,12 @@
         var authService = function () {
         }
 
-        //authService.prototype.loginClientSide = function (username, password) {
-        //    /* Use this for test at client side */
-        //    var q = $q.defer();
-        //    var response = { success: username === 'admin' && password === '@dmin' };
-        //    if (!response.success) {
-        //        response.message = 'Username or password is incorrect';
-        //    }
-        //    q.resolve(response);
-        //    return q.promise;
-        //};        
-
         authService.prototype.login = function (username, password) {            
-            var q = $q.defer();            
+            var q = $q.defer();
             $http.post('/api/login', { username: username, password: password })
             .success(function (result) {
-                console.log('SUCCESS');
                 q.resolve(result);
             }).error(function (error) {
-                console.log('FAILED');
                 q.reject(error);
             });
             return q.promise;
@@ -38,8 +25,8 @@
                     authdata: user.token
                 },
 				authorized: true
-            };			
-            $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.authdata; // jshint ignore:line			
+            };
+            $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         };
 

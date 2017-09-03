@@ -1,5 +1,5 @@
-app.run(['$rootScope', '$location', '$cookieStore', '$http',
-    function ($rootScope, $location, $cookieStore, $http) {
+app.run(['$rootScope', '$location', '$cookieStore', '$http', 'authService',
+    function ($rootScope, $location, $cookieStore, $http, authService) {
 		// keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
         $rootScope.settings = $cookieStore.get('settings') || {};
@@ -11,19 +11,17 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 			// redirect to login page if not logged in
 			console.log('locationChangeStart...');
 			if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-				console.log('redirect to /login');
 				$location.path('/login');
-			} else if ($location.path() === '') {
-				console.log('redirect to /login');
-				$location.path('/login');
-			} else if ($location.path() === '/login') {
-				console.log('current view: /login');
-				return;
-			}else {
+			}
+			else if($location.path() === '' || $location.path() === '/') {
+				if(!$rootScope.globals.currentUser) $location.path('/login');
+				else $location.path('/dashboard');
+			}
+			else {
 				if ($rootScope.globals && $rootScope.globals.currentUser) {
 					console.log('setupUI().....');
 					//$rootScope.setupUI();
-				}				
+				}
 			}
 		});
 
@@ -43,11 +41,5 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 			//	console.log(error);
 			//});
 		}
-
-		// logout
-		$rootScope.logout = function () {
-			console.log('logout.....');
-			//authenticationService.clearCredentials();
-		};
 	}
 ]);
