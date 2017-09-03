@@ -2,5 +2,5 @@
 const server = require('./server');
 
 http.createServer(server).listen(server.get('port'), function () {
-    console.log('eInventory Web & API is running on port:' + server.get('port'));    
+    console.log('eTransportation Web & APIs is running on port:' + server.get('port'));    
 });

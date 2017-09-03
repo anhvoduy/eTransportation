@@ -4,16 +4,29 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const dbContext = require('../lib/dbContext');
+const userService = require('./userService');
 
 // Authenticate Service
+// https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 const auth = {};
+
 auth.setup = function (app) {
     app.use(passport.initialize());    
+    passport.use(new LocalStrategy(
+        function (username, password, done) {
+            var data = {
+                success: userService.authenticate(username, password),
+                user: { username: username, password: password }
+            };
+            //console.log('Verify Username & Password ...');
+            return done(null, data);
+        }
+    ));   
 };
 
 auth.checkAuthentication = function () {    
     return function (req, res, next) {
-        console.log('checkAuthentication() ...');
+        //console.log('checkAuthentication() ...');
         next();
     };
 };

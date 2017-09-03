@@ -9,14 +9,23 @@ var app = angular.module('cargo', [
 app.config(function ($stateProvider) {
 	$stateProvider
 	.state('/', {
-		url: '',
+		url: '/',
 		views: {
 			'view': {
 				templateUrl: 'app/views/dashboard.tpl.html',
 				controller: 'dashboardController'
 			}
 		}
-	})	
+	})
+	.state('login', {
+		url: '/login',
+		views: {
+			'view': {
+				templateUrl: 'app/views/login.tpl.html',
+				controller: 'loginController'
+			}
+		}
+	})
 	.state('dashboard', {
 		url: '/dashboard',
 		views: {

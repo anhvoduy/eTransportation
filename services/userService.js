@@ -10,6 +10,15 @@ Factory.prototype.myProfile = function(){
     return data.myProfile();
 }
 
+Factory.prototype.authenticate = function(username, password){
+    if(username && password){
+        if(username === 'admin' && password === '@dmin'){
+            return true;
+        }
+    }
+    return false;
+}
+
 Factory.prototype.getUser = function(){
     return data.getUser();
 }
