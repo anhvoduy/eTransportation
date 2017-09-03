@@ -16,6 +16,15 @@ app.config(function ($stateProvider) {
 				controller: 'dashboardController'
 			}
 		}
+	})	
+	.state('dashboard', {
+		url: '/dashboard',
+		views: {
+			'view': {
+				templateUrl: 'app/views/dashboard.tpl.html',
+				controller: 'dashboardController'
+			}
+		}
 	})
 	.state('login', {
 		url: '/login',
@@ -23,15 +32,6 @@ app.config(function ($stateProvider) {
 			'view': {
 				templateUrl: 'app/views/login.tpl.html',
 				controller: 'loginController'
-			}
-		}
-	})
-	.state('dashboard', {
-		url: '/dashboard',
-		views: {
-			'view': {
-				templateUrl: 'app/views/dashboard.tpl.html',
-				controller: 'dashboardController'
 			}
 		}
 	})	

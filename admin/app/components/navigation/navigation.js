@@ -57,12 +57,15 @@
 
 
     // controllers
-    navigationController.$inject = ['$scope', 'appCommon'];
-    function navigationController($scope, appCommon){        
+    navigationController.$inject = ['$scope', 'appCommon', 'authService'];
+    function navigationController($scope, appCommon, authService){
         var activate = function(){
-            //console.log('--- activate ---');
+            //console.log('--- activate: navigationController ');
         }
 
+        $scope.logout = function(){
+		    authService.clearCredentials();
+        }
         activate();
     }
 })();

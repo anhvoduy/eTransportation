@@ -116,12 +116,17 @@
 </style>
 
 <div class="login-page">
-	<div class="login-panel">        
+	<div class="login-panel">
         <div ng-show="error" class="alert alert-danger message-error">
             <!-- <div class="row">{{ error.code }}</div> -->
-            <div class="row">{{ error.message }}</div>                
+            <div class="row">{{ error.message }}</div>
         </div>
-		<form id="loginForm" class="login-form">
+        <div ng-show="dataLoading">
+            <div class="row">
+                <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+        </div>
+		<form id="loginForm" ng-submit="login()" class="login-form" role="form">
             <input type="text" 
                    name="username"
                    ng-model="username"
@@ -134,10 +139,10 @@
                    placeholder="password"
                    maxlength="20"
                    required />
-			<button ng-click="login()">login</button>			
+			<button type="submit">login</button>			
 			<p class="message">
 				<span style="font-size: 18px;"><a href="/">Back to Home Page</a></span>
 			</p>
-		</form>
+        </form>        
 	</div>
 </div>
