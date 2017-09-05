@@ -23,7 +23,7 @@ Factory.prototype.getCustomer = function(){
             WHERE Deleted = 0 
             ORDER BY CustomerId DESC
         `;
-        return dbContext.queryDatabase(pool, sql)
+        return dbContext.queryList(pool, sql)
 		.then(function(data){
 			customers = data;
         })
