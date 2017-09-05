@@ -1,0 +1,102 @@
+<div class="container" ng-cloak>
+	<h2>{{ formTitle }}</h2>
+    <form name="formCustomer" class="form-horizontal">
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(messageError.length > 0)'>{{ messageError }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="customerName" class="col-sm-2 control-label">Customer Name</label>
+            <div class="col-sm-6">
+                <input name="customerName" ng-model="customer.CustomerName" class="form-control" placeholder="Name" required maxlength="20" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.customerName.$dirty && formCustomer.customerName.$invalid'>Please input Name</div>
+        </div>        
+
+		<div class="form-group">
+            <label for="Email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-6">
+                <input name="Email" ng-model="customer.Email" class="form-control" placeholder="Email" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Email.$dirty && formCustomer.Email.$invalid'>Please input Email</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Mobile" class="col-sm-2 control-label">Mobile</label>
+            <div class="col-sm-6">
+                <input name="Mobile" ng-model="customer.Mobile" class="form-control" placeholder="Mobile" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Mobile.$dirty && formCustomer.Mobile.$invalid'>Please input Mobile</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Tel" class="col-sm-2 control-label">Tel</label>
+            <div class="col-sm-6">
+                <input name="Tel" ng-model="customer.Tel" class="form-control" placeholder="Tel" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Tel.$dirty && formCustomer.Tel.$invalid'>Please input Tel</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Fax" class="col-sm-2 control-label">Fax</label>
+            <div class="col-sm-6">
+                <input name="Fax" ng-model="customer.Fax" class="form-control" placeholder="Fax" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Fax.$dirty && formCustomer.Fax.$invalid'>Please input Fax</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Title" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-6">
+                <input name="Title" ng-model="customer.Title" class="form-control" placeholder="Title" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Title.$dirty && formCustomer.Title.$invalid'>Please input Title</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Address" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-6">
+                <input name="Address" ng-model="customer.Address" class="form-control" placeholder="Address" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Address.$dirty && formCustomer.Address.$invalid'>Please input Address</div>
+		</div>
+
+		<div class="form-group">
+            <label for="Description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-6">
+                <input name="Description" ng-model="customer.Description" class="form-control" placeholder="Description" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formCustomer.Description.$dirty && formCustomer.Description.$invalid'>Please input Description</div>
+		</div>
+
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-success'
+                 ng-show='(messageSuccess.length > 0)'>{{ messageSuccess }}</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="button" 
+                       class="btn btn-primary"
+                       value="Submit" 
+                       ng-click="save()" 
+                       ng-disabled="disabledButton"/>
+                <input type="button"
+					   class="btn btn-primary"
+                       value="Cancel"
+                       ng-click="cancel()"
+                       ng-disabled="disabledButton" />
+            </div>
+        </div>
+    </form>
+</div>    
+

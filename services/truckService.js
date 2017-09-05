@@ -1,13 +1,12 @@
 ﻿const _ = require('lodash');
 const Q = require('q');
 const dbContext = require('../lib/dbContext');
-const data = require('../database/sampleData');
 
 // Constructor
 const Factory = function () { 
 }
 
-Factory.prototype.getTrucks = function(){
+Factory.prototype.getList = function(){
     let deferred  = Q.defer();
     let trucks;
 
@@ -15,19 +14,19 @@ Factory.prototype.getTrucks = function(){
     .then(function(){
         return dbContext.openConnection();
     })
-    .then(function(pool){
+    .then(function(){
         let sql = `
             SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
             FROM Truck
             WHERE Deleted = 0
             ORDER BY TruckId DESC
         `;
-        return dbContext.queryDatabase(pool, sql)
+        return dbContext.queryList(sql)
 		.then(function(data){
 			trucks = data;
         })
         .then(function(){
-            dbContext.closeConnection(pool);
+            dbContext.closeConnection();
         });
     })    
     .then(function(){
@@ -40,9 +39,23 @@ Factory.prototype.getTrucks = function(){
     return deferred.promise;
 }
 
-Factory.prototype.getTruckById = function(truckId){
-    return data.getUser();
-}
+Factory.prototype.getItem = Q.async(function* (TruckKey){
+    let truck;
+    try
+    {        
+        let sql = `
+            SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
+            FROM Truck
+            WHERE TruckKey = @TruckKey AND Deleted = 0
+        `;
+        yield dbContext.openConnection();
+        truck = yield dbContext.queryItem2(sql, TruckKey);
+        yield dbContext.closeConnection();
+        return truck;
+    }catch(err){        
+        return err;
+    }
+});
 
 Factory.prototype.createTruck = function(Truck){
     return data.getUsers();

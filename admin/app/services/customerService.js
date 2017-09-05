@@ -10,8 +10,20 @@
         customerService.prototype.constructor = customerService;
                 
         // methods
-        customerService.prototype.getItems = function () {
-            var url = String.format('{0}{1}', this.api, '/items');
+        customerService.prototype.getList = function () {
+            var url = String.format('{0}{1}', this.api, '/list');
+            
+            var q = $q.defer();
+            this.getData(url).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            })
+            return q.promise;
+        }
+
+        customerService.prototype.getItem = function (customerKey) {
+            var url = String.format('{0}{1}{2}{3}', this.api, '/item', '?CustomerKey=', customerKey);
             
             var q = $q.defer();
             this.getData(url).then(function (result) {

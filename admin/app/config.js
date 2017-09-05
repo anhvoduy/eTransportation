@@ -44,12 +44,32 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('customerEdit', {
+		url: '/customer/:customerKey',
+		parentState: 'customer',
+		views: {
+			'view': {
+				templateUrl: 'app/views/customerEdit.tpl.html',
+				controller: 'customerEditController'
+			}
+		}
+	})
 	.state('truck', {
 		url: '/truck',
 		views: {
 			'view': {
 				templateUrl: 'app/views/truck.tpl.html',
 				controller: 'truckController'
+			}
+		}
+	})
+	.state('truckEdit', {
+		url: '/truck/:truckKey',
+		parentState: 'truck',
+		views: {
+			'view': {
+				templateUrl: 'app/views/truckEdit.tpl.html',
+				controller: 'truckEditController'
 			}
 		}
 	})

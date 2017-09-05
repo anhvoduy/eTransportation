@@ -1,7 +1,11 @@
+const mssql = require('mssql');
+
 const configMySql = {
+    provider: 'mysql'
 }
 
 const configMsSql = {
+    provider: mssql,
     user: 'sa',
     password: 's@',    
     server: 'SONYVAIO\\SQL_2014',
@@ -14,6 +18,7 @@ const configMsSql = {
 }
 
 const configAzure = {
+    provider: mssql,
     user: 'invdemo',
     password: 'inv@demo2017',
     server: 'invdemo.database.windows.net',

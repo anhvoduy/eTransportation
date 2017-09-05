@@ -5,12 +5,12 @@ const Q = require('q');
 const auth = require('../services/authService');
 const customerService = require('../services/customerService');
 
-router.get('/items', function (req, res, next) {
+router.get('/list', function (req, res, next) {
 	let customers;
 
     Q.when()
 	.then(function(){
-		return customerService.getCustomer().then(function(data){
+		return customerService.getList().then(function(data){
 			customers = data;
 		});
 	})
@@ -23,21 +23,31 @@ router.get('/items', function (req, res, next) {
 	});
 });
 
-router.get('/item/:id', function (req, res, next) {
-    var customer = [];
-	res.status(200).json(customer);
+router.get('/item', Q.async(function* (req, res, next) {	
+	try
+	{
+		let query = _.pick(req.query, ['CustomerKey']);	
+		let customer = yield customerService.getItem(query.CustomerKey);
+		res.status(200).json(customer);
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
+}));
+
+router.post('/create', function (req, res, next) {
+	res.status(200).json(true);
 	next();
 });
 
-router.get('/edit/:id', function (req, res, next) {
-	var customer = [];
-	res.status(200).json(customer);
+router.post('/edit', function (req, res, next) {	
+	res.status(200).json(true);
 	next();
 });
 
-router.get('/delete/:id', function (req, res, next) {
-    var customer = [];
-	res.status(200).json(customer);
+router.post('/delete', function (req, res, next) {
+	res.status(200).json(true);
 	next();
 });
 
