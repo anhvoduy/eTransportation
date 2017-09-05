@@ -23,21 +23,32 @@ router.get('/items', function (req, res, next) {
 	});
 });
 
-router.get('/item/:id', function (req, res, next) {
-    var customer = [];
-	res.status(200).json(customer);
+router.get('/item', Q.async(function* (req, res, next) {
+	let query = _.pick(req.query, ['CustomerKey']);
+	console.log('- CustomerKey:', query.CustomerKey);
+	try
+	{
+		let customer = yield customerService.getCustomerByKey(query.CustomerKey);
+		res.status(200).json(customer);
+	}
+	catch(err){
+		res.status(500).json(err);
+	}	
+	next();
+}));
+
+router.post('/create', function (req, res, next) {
+	res.status(200).json(true);
 	next();
 });
 
-router.get('/edit/:id', function (req, res, next) {
-	var customer = [];
-	res.status(200).json(customer);
+router.post('/edit', function (req, res, next) {	
+	res.status(200).json(true);
 	next();
 });
 
-router.get('/delete/:id', function (req, res, next) {
-    var customer = [];
-	res.status(200).json(customer);
+router.post('/delete', function (req, res, next) {
+	res.status(200).json(true);
 	next();
 });
 

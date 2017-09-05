@@ -4,7 +4,7 @@ const dbContext = require('../lib/dbContext');
 const data = require('../database/sampleData');
 
 // Constructor
-const Factory = function () { 
+const Factory = function () {
 }
 
 Factory.prototype.getCustomer = function(){
@@ -21,7 +21,8 @@ Factory.prototype.getCustomer = function(){
                 Email, Mobile, Tel, Fax, Title, Address 
             FROM Customer
             WHERE Deleted = 0 
-            ORDER BY CustomerId DESC`;
+            ORDER BY CustomerId DESC
+        `;
         return dbContext.queryDatabase(pool, sql)
 		.then(function(data){
 			customers = data;
@@ -39,6 +40,37 @@ Factory.prototype.getCustomer = function(){
 
     return deferred.promise;
 }
+
+Factory.prototype.getCustomerByKey = Q.async(function* (customerKey){
+    try
+    {        
+        let sql = `
+            SELECT CustomerId, CustomerKey, CustomerName, Description, 
+                Email, Mobile, Tel, Fax, Title, Address 
+            FROM Customer
+            WHERE CustomerId = 1 AND Deleted = 0
+        `;        
+        let pool = yield dbContext.openConnection();
+        let customer = yield dbContext.queryItem(pool, sql);
+        yield dbContext.closeConnection(pool);
+        return customer;        
+    }catch(err){
+        console.log(err);
+        return err;
+    }
+});
+
+Factory.prototype.createCustomer = Q.async(function* (customer){
+    return true;
+});
+
+Factory.prototype.editCustomer = Q.async(function* (customer){
+    return true;
+});
+
+Factory.prototype.deleteCustomer = Q.async(function* (customerKey){
+    return true;
+});
 
 // Export
 module.exports = new Factory;
