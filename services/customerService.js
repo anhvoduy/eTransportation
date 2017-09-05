@@ -54,8 +54,7 @@ Factory.prototype.getCustomerByKey = Q.async(function* (customerKey){
         let customer = yield dbContext.queryItem(pool, sql);
         yield dbContext.closeConnection(pool);
         return customer;        
-    }catch(err){
-        console.log(err);
+    }catch(err){        
         return err;
     }
 });

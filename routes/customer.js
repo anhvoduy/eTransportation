@@ -23,18 +23,17 @@ router.get('/items', function (req, res, next) {
 	});
 });
 
-router.get('/item', Q.async(function* (req, res, next) {
-	let query = _.pick(req.query, ['CustomerKey']);
-	console.log('- CustomerKey:', query.CustomerKey);
+router.get('/item', Q.async(function* (req, res, next) {	
 	try
 	{
+		let query = _.pick(req.query, ['CustomerKey']);	
 		let customer = yield customerService.getCustomerByKey(query.CustomerKey);
 		res.status(200).json(customer);
 	}
 	catch(err){
 		res.status(500).json(err);
-	}	
-	next();
+		next(err);
+	}
 }));
 
 router.post('/create', function (req, res, next) {
