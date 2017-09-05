@@ -18,7 +18,8 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>Number</th>
-                            <th>Address</th>
+                            <th>Description</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,7 @@
                             <td>{{ t.TruckName }}</td>
                             <td>{{ t.TruckNumber }}</td>
                             <td>{{ t.Description }}</td>
+                            <td><a ui-sref="truckEdit({ truckKey: t.TruckKey, formStatus: 2 })">Edit</a></td>
                         </tr>                        
                     </tbody>
                 </table>

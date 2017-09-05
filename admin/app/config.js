@@ -63,6 +63,16 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('truckEdit', {
+		url: '/truck/:truckKey',
+		parentState: 'truck',
+		views: {
+			'view': {
+				templateUrl: 'app/views/truckEdit.tpl.html',
+				controller: 'truckEditController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {

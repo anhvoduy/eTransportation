@@ -6,7 +6,7 @@
 		
 		// functions
 		function activate() {			
-			truckService.getItems().then(function(data){
+			truckService.getList().then(function(data){
 				$scope.trucks = data;
 			}, function(err){
 				console.log(err);

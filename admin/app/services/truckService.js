@@ -10,8 +10,20 @@
         truckService.prototype.constructor = truckService;
                 
         // methods
-        truckService.prototype.getItems = function () {
-            var url = String.format('{0}{1}', this.api, '/items');
+        truckService.prototype.getList = function () {
+            var url = String.format('{0}{1}', this.api, '/list');
+            
+            var q = $q.defer();
+            this.getData(url).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            })
+            return q.promise;
+        }
+
+        truckService.prototype.getItem = function (truckKey) {
+            var url = String.format('{0}{1}{2}{3}', this.api, '/item', '?TruckKey=', truckKey);
             
             var q = $q.defer();
             this.getData(url).then(function (result) {
