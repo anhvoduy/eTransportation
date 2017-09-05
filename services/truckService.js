@@ -15,19 +15,19 @@ Factory.prototype.getTrucks = function(){
     .then(function(){
         return dbContext.openConnection();
     })
-    .then(function(pool){
+    .then(function(){
         let sql = `
             SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
             FROM Truck
             WHERE Deleted = 0
             ORDER BY TruckId DESC
         `;
-        return dbContext.queryDatabase(pool, sql)
+        return dbContext.queryList(sql)
 		.then(function(data){
 			trucks = data;
         })
         .then(function(){
-            dbContext.closeConnection(pool);
+            dbContext.closeConnection();
         });
     })    
     .then(function(){

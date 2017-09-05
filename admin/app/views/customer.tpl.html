@@ -17,16 +17,20 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Address</th>
                             <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="c in customers">
                             <td>{{ c.CustomerId }}</td>
                             <td>{{ c.CustomerName }}</td>
-                            <td>{{ c.Address }}</td>
                             <td>{{ c.Mobile }}</td>
+                            <td>{{ c.Email }}</td>
+                            <td>{{ c.Address }}</td>
+                            <td><a ui-sref="customerEdit({ customerKey: c.CustomerKey, formStatus: 2 })">Edit</a></td>
                         </tr>
                     </tbody>
                 </table>

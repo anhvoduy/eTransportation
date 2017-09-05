@@ -7,15 +7,9 @@ const data = require('../database/sampleData');
 const Factory = function () {
 }
 
-Factory.prototype.getCustomer = function(){
-    let deferred  = Q.defer();
+Factory.prototype.getList = Q.async(function* (){
     let customers;
-
-    Q.when()
-    .then(function(){
-        return dbContext.openConnection();
-    })
-    .then(function(pool){
+    try{        
         let sql = `
             SELECT CustomerId, CustomerKey, CustomerName, Description, 
                 Email, Mobile, Tel, Fax, Title, Address 
@@ -23,37 +17,30 @@ Factory.prototype.getCustomer = function(){
             WHERE Deleted = 0 
             ORDER BY CustomerId DESC
         `;
-        return dbContext.queryList(pool, sql)
-		.then(function(data){
-			customers = data;
-        })
-        .then(function(){
-            dbContext.closeConnection(pool);    
-        });
-    })    
-    .then(function(){
-        deferred.resolve(customers);
-    })
-    .catch(function(err){
-        deferred.reject(err);
-    });
+        yield dbContext.openConnection();
+        customers = yield dbContext.queryList(sql);    
+        yield dbContext.closeConnection();
+        return customers;
+    }
+    catch(err){
+        return err;
+    }
+})
 
-    return deferred.promise;
-}
-
-Factory.prototype.getCustomerByKey = Q.async(function* (customerKey){
+Factory.prototype.getItem = Q.async(function* (CustomerKey){
+    let customer;
     try
     {        
         let sql = `
             SELECT CustomerId, CustomerKey, CustomerName, Description, 
                 Email, Mobile, Tel, Fax, Title, Address 
             FROM Customer
-            WHERE CustomerId = 1 AND Deleted = 0
-        `;        
-        let pool = yield dbContext.openConnection();
-        let customer = yield dbContext.queryItem(pool, sql);
-        yield dbContext.closeConnection(pool);
-        return customer;        
+            WHERE CustomerKey = @CustomerKey AND Deleted = 0
+        `;
+        yield dbContext.openConnection();
+        customer = yield dbContext.queryItem(sql, CustomerKey);
+        yield dbContext.closeConnection();
+        return customer;
     }catch(err){        
         return err;
     }

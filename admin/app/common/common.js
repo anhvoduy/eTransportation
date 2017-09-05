@@ -1,8 +1,8 @@
 (function () {
     'use strict';    
     angular.module('cargo.common', []).factory('appCommon', appCommon);
-    appCommon.$inject = ['$rootScope'];
-    function appCommon($rootScope) {
+    appCommon.$inject = ['$rootScope', '$cookieStore'];
+    function appCommon($rootScope, $cookieStore) {
         // constructor
         var appCommon = function () {
         }
@@ -20,6 +20,13 @@
                 return false;
             }
         }
+
+        // constanst
+        appCommon.prototype.formStatus = {
+            isNew: 1,
+            isEdit: 2,
+            isView: 3
+        };
 
         appCommon.prototype.baseUrl = function(){            
             return '/'; // dev local mode

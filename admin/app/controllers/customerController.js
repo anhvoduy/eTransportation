@@ -6,7 +6,7 @@
 		
 		// functions
 		function activate() {			
-			customerService.getItems().then(function(data){
+			customerService.getList().then(function(data){
 				$scope.customers = data;
 			}, function(err){
 				console.log(err);

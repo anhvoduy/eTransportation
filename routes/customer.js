@@ -5,12 +5,12 @@ const Q = require('q');
 const auth = require('../services/authService');
 const customerService = require('../services/customerService');
 
-router.get('/items', function (req, res, next) {
+router.get('/list', function (req, res, next) {
 	let customers;
 
     Q.when()
 	.then(function(){
-		return customerService.getCustomer().then(function(data){
+		return customerService.getList().then(function(data){
 			customers = data;
 		});
 	})
@@ -27,7 +27,7 @@ router.get('/item', Q.async(function* (req, res, next) {
 	try
 	{
 		let query = _.pick(req.query, ['CustomerKey']);	
-		let customer = yield customerService.getCustomerByKey(query.CustomerKey);
+		let customer = yield customerService.getItem(query.CustomerKey);
 		res.status(200).json(customer);
 	}
 	catch(err){
