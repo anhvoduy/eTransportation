@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 	app.controller('customerEditController', customerEditController);
-	customerEditController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', 'appCommon', 'customerService'];
-	function customerEditController($rootScope, $scope, $state, $stateParams, appCommon, customerService) {
+	customerEditController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', '$timeout', 'appCommon', 'customerService'];
+	function customerEditController($rootScope, $scope, $state, $stateParams, $timeout, appCommon, customerService) {
 		// models
 		$scope.isSubmitted = false;
 		$scope.isSubmitting = false;
@@ -38,12 +38,24 @@
 				$scope.formTitle = 'Display Customer';
 		};
 
-		// buttons
-		$scope.submit = function () {			
-			$scope.isSubmitted = true;
-			$scope.isSubmitting = true;
+		function validateForm(){
+			return true;
+		}
 
-			console.log($scope.customer);
+		// buttons
+		$scope.submit = function () {
+			$scope.isSubmitted = true;
+
+			if($scope.customer && validateForm()){
+				$scope.isSubmitting = true;
+				$timeout(function(){
+					console.log('timeout.....');
+					console.log($scope.customer);
+					$scope.isSubmitted = false;
+					$scope.isSubmitting = false;
+				}, 5000);
+			}
+			
 			// brandService.updateBrand($scope.brand).then(function (result) {
 			// 	$scope.messageSuccess = result.message;
 			// 	resetFormStatus();
@@ -53,7 +65,7 @@
 			// });
 		}
 
-		$scope.cancel = function() {            
+		$scope.cancel = function() {
             $state.go($state.current.parentState);
         }
 		
