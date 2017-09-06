@@ -38,14 +38,17 @@
 				$scope.formTitle = 'Display Customer';
 		};
 
-		function validateForm(){
+		function validateForm(){			
+			if(!$scope.customer.CustomerName)
+				return false;
+			if(!$scope.customer.Email)
+				return false;
 			return true;
 		}
 
 		// buttons
 		$scope.submit = function () {
-			//$scope.isSubmitted = true;
-
+			$scope.isSubmitted = true;
 			if($scope.customer && validateForm()){
 				//$scope.isSubmitting = true;
 				// $timeout(function(){
@@ -56,9 +59,11 @@
 				// }, 5000);
 				customerService.update($scope.customer).then(function(result){
 					$scope.messageSuccess = result.message;
+					$scope.isSubmitted = false;
 					//resetFormStatus();
 				}, function(error){
 					$scope.messageError = error.message;
+					$scope.isSubmitted = false;
 					// resetFormStatus();
 				})
 			}					
