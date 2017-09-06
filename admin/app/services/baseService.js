@@ -5,7 +5,7 @@
     
     function baseService($http, $q, $location) {
         // constructor
-		var baseService = function (api) {			
+		var baseService = function (api) {
 			var baseUrl = String.format('{0}://{1}:{2}', $location.protocol(), $location.host(), $location.port());
 			this.api = String.format('{0}/{1}', baseUrl, api);
 		}
@@ -26,7 +26,7 @@
         }                
         
         // POST()
-        baseService.prototype.add = function (url, data) {
+        baseService.prototype.postData = function (url, data) {
             var q = $q.defer();
             $http({
                 url: url,
@@ -42,7 +42,7 @@
         }
         
         // PUT()
-        baseService.prototype.update = function (url, data) {            
+        baseService.prototype.putData = function (url, data) {
             var q = $q.defer();
             $http({
                 url: url,
@@ -58,7 +58,7 @@
         }
         
         // DELETE()
-        baseService.prototype.delete = function (url) {            
+        baseService.prototype.deleteData = function (url) {
             var q = $q.defer();
             $http({
                 url: url,

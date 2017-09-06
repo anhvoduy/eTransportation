@@ -46,15 +46,20 @@ Factory.prototype.getItem = Q.async(function* (CustomerKey){
     }
 });
 
-Factory.prototype.createCustomer = Q.async(function* (customer){
+Factory.prototype.create = Q.async(function* (customer){
+    console.log('---- create()');
+    console.log(customer);
     return true;
 });
 
-Factory.prototype.editCustomer = Q.async(function* (customer){
+Factory.prototype.update = Q.async(function* (customer){
+    console.log('---- update()');
+    console.log(customer);
     return true;
 });
 
-Factory.prototype.deleteCustomer = Q.async(function* (customerKey){
+Factory.prototype.delete = Q.async(function* (customerKey){
+    console.log(customerKey);
     return true;
 });
 

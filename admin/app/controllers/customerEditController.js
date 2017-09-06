@@ -44,25 +44,24 @@
 
 		// buttons
 		$scope.submit = function () {
-			$scope.isSubmitted = true;
+			//$scope.isSubmitted = true;
 
 			if($scope.customer && validateForm()){
-				$scope.isSubmitting = true;
-				$timeout(function(){
-					console.log('timeout.....');
-					console.log($scope.customer);
-					$scope.isSubmitted = false;
-					$scope.isSubmitting = false;
-				}, 5000);
-			}
-			
-			// brandService.updateBrand($scope.brand).then(function (result) {
-			// 	$scope.messageSuccess = result.message;
-			// 	resetFormStatus();
-			// }, function (error) {
-			// 	$scope.messageError = error.message;
-			// 	resetFormStatus();
-			// });
+				//$scope.isSubmitting = true;
+				// $timeout(function(){
+				// 	console.log('timeout.....');
+				// 	console.log($scope.customer);
+				// 	$scope.isSubmitted = false;
+				// 	$scope.isSubmitting = false;
+				// }, 5000);
+				customerService.update($scope.customer).then(function(result){
+					$scope.messageSuccess = result.message;
+					//resetFormStatus();
+				}, function(error){
+					$scope.messageError = error.message;
+					// resetFormStatus();
+				})
+			}					
 		}
 
 		$scope.cancel = function() {
