@@ -4,12 +4,16 @@
 	customerEditController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', 'appCommon', 'customerService'];
 	function customerEditController($rootScope, $scope, $state, $stateParams, appCommon, customerService) {
 		// models
+		$scope.isSubmitted = false;
+		$scope.isSubmitting = false;
 		$scope.customerKey = $stateParams.customerKey;
-		$scope.formStatus = angular.isUndefined($scope.CustomerKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = $stateParams.formStatus;
+		$scope.formStatus = appCommon.isUndefined($scope.customerKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 
 		// function
 		function activate() {
-			$scope.formTitle = setFormTitle();
+			setFormTitle();
+			if($scope.formStatus === appCommon.formStatus.isNew) return;
 
 			customerService.getItem($scope.customerKey).then(function (result) {
 				$scope.customer = result;
@@ -26,16 +30,20 @@
 		}
 
 		function setFormTitle(){
-			if($scope.formStatus === appCommon.formStatus.isNew) return 'Create Customer';
-			else if ($scope.formStatus === appCommon.formStatus.isEdit) return 'Edit Customer';
-			else return 'Display Customer';			
+			if($scope.formStatus === appCommon.formStatus.isNew)
+				$scope.formTitle = 'Create Customer';
+			else if ($scope.formStatus === appCommon.formStatus.isEdit)
+				$scope.formTitle = 'Edit Customer';
+			else
+				$scope.formTitle = 'Display Customer';
 		};
 
 		// buttons
-		$scope.save = function () {
-			if (angular.isUndefined($scope.customer)) return;
-			
-			$scope.disabledButton = true;
+		$scope.submit = function () {			
+			$scope.isSubmitted = true;
+			$scope.isSubmitting = true;
+
+			console.log($scope.customer);
 			// brandService.updateBrand($scope.brand).then(function (result) {
 			// 	$scope.messageSuccess = result.message;
 			// 	resetFormStatus();

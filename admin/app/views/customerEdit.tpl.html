@@ -1,18 +1,18 @@
 <div class="container" ng-cloak>
 	<h2>{{ formTitle }}</h2>
-    <form name="formCustomer" class="form-horizontal">
+    <form name="formCustomer" class="form form-horizontal" ng-submit="submit()">
         <div class="form-group">
             <div class='control-label col-sm-8 message-error'
                  ng-show='(messageError.length > 0)'>{{ messageError }}</div>
         </div>
 
         <div class="form-group">
-            <label for="customerName" class="col-sm-2 control-label">Customer Name</label>
+            <label for="CustomerName" class="col-sm-2 control-label">Customer Name</label>
             <div class="col-sm-6">
-                <input name="customerName" ng-model="customer.CustomerName" class="form-control" placeholder="Name" required maxlength="20" />
+                <input name="CustomerName" ng-model="customer.CustomerName" class="form-control" placeholder="Customer Name" required maxlength="20" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.customerName.$dirty && formCustomer.customerName.$invalid'>Please input Name</div>
+                 ng-show='(isSubmitted && formCustomer.CustomerName.$invalid)'>Customer Name is required</div>
         </div>        
 
 		<div class="form-group">
@@ -21,7 +21,7 @@
                 <input name="Email" ng-model="customer.Email" class="form-control" placeholder="Email" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Email.$dirty && formCustomer.Email.$invalid'>Please input Email</div>
+                 ng-show='(isSubmitted && formCustomer.Email.$invalid)'>Email is required</div>
 		</div>
 
 		<div class="form-group">
@@ -30,16 +30,16 @@
                 <input name="Mobile" ng-model="customer.Mobile" class="form-control" placeholder="Mobile" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Mobile.$dirty && formCustomer.Mobile.$invalid'>Please input Mobile</div>
+                 ng-show='(isSubmitted && formCustomer.Mobile.$invalid)'>Mobile is required</div>
 		</div>
 
 		<div class="form-group">
-            <label for="Tel" class="col-sm-2 control-label">Tel</label>
+            <label for="Tel" class="col-sm-2 control-label">Telephone</label>
             <div class="col-sm-6">
-                <input name="Tel" ng-model="customer.Tel" class="form-control" placeholder="Tel" required maxlength="50" />
+                <input name="Tel" ng-model="customer.Tel" class="form-control" placeholder="Telephone" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Tel.$dirty && formCustomer.Tel.$invalid'>Please input Tel</div>
+                 ng-show='(isSubmitted && formCustomer.Tel.$invalid)'>Telephone is required</div>
 		</div>
 
 		<div class="form-group">
@@ -48,7 +48,7 @@
                 <input name="Fax" ng-model="customer.Fax" class="form-control" placeholder="Fax" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Fax.$dirty && formCustomer.Fax.$invalid'>Please input Fax</div>
+                 ng-show='(isSubmitted && formCustomer.Fax.$invalid)'>Fax is required</div>
 		</div>
 
 		<div class="form-group">
@@ -57,7 +57,7 @@
                 <input name="Title" ng-model="customer.Title" class="form-control" placeholder="Title" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Title.$dirty && formCustomer.Title.$invalid'>Please input Title</div>
+                 ng-show='(isSubmitted && formCustomer.Title.$invalid)'>Title is required</div>
 		</div>
 
 		<div class="form-group">
@@ -66,18 +66,16 @@
                 <input name="Address" ng-model="customer.Address" class="form-control" placeholder="Address" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Address.$dirty && formCustomer.Address.$invalid'>Please input Address</div>
+                 ng-show='(isSubmitted && formCustomer.Address.$invalid)'>Address is required</div>
 		</div>
 
 		<div class="form-group">
             <label for="Description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-6">
-                <input name="Description" ng-model="customer.Description" class="form-control" placeholder="Description" required maxlength="50" />
-            </div>
-            <div class='control-label col-sm-8 message-error'
-                 ng-show='formCustomer.Description.$dirty && formCustomer.Description.$invalid'>Please input Description</div>
-		</div>
-
+                <textarea name="Description" ng-model="customer.Description" class="form-control" placeholder="Description" maxlength="250" />
+            </div>            
+        </div>
+        
         <div class="form-group">
             <div class='control-label col-sm-8 message-success'
                  ng-show='(messageSuccess.length > 0)'>{{ messageSuccess }}</div>
@@ -88,13 +86,13 @@
                 <input type="button" 
                        class="btn btn-primary"
                        value="Submit" 
-                       ng-click="save()" 
-                       ng-disabled="disabledButton"/>
+                       ng-click="submit()"
+                       ng-disabled="(formCustomer.$invalid || isSubmitting)"/>
                 <input type="button"
 					   class="btn btn-primary"
                        value="Cancel"
                        ng-click="cancel()"
-                       ng-disabled="disabledButton" />
+                       ng-disabled="isSubmitting" />
             </div>
         </div>
     </form>
