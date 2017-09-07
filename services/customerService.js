@@ -1,7 +1,6 @@
 const _ = require('lodash');
 const Q = require('q');
 const dbContext = require('../lib/dbContext');
-const data = require('../database/sampleData');
 
 // Constructor
 const Factory = function () {
@@ -28,7 +27,6 @@ Factory.prototype.getList = Q.async(function* (){
 })
 
 Factory.prototype.getItem = Q.async(function* (CustomerKey){
-    let customer;
     try
     {        
         let sql = `
@@ -38,7 +36,7 @@ Factory.prototype.getItem = Q.async(function* (CustomerKey){
             WHERE CustomerKey = @CustomerKey AND Deleted = 0
         `;
         yield dbContext.openConnection();
-        customer = yield dbContext.queryItem(sql, CustomerKey);
+        let customer = yield dbContext.queryItem(sql, { CustomerKey: CustomerKey });
         yield dbContext.closeConnection();
         return customer;
     }catch(err){        
@@ -52,10 +50,30 @@ Factory.prototype.create = Q.async(function* (customer){
     return true;
 });
 
-Factory.prototype.update = Q.async(function* (customer){
-    console.log('---- update()');
-    console.log(customer);
-    return true;
+Factory.prototype.update = Q.async(function* (customer){    
+    try
+    {        
+        let sql = `
+            UPDATE Customer
+            SET CustomerName = @CustomerName,
+                Email = @Email,
+                Mobile = @Mobile,
+                Tel = @Tel,
+                Fax = @Fax,
+                Title = @Title,
+                Address = @Address,
+                Description = @Description
+            WHERE CustomerKey = @CustomerKey
+        `;
+        yield dbContext.openConnection();        
+        let data = yield dbContext.queryExecute(sql, customer);
+        yield dbContext.closeConnection();
+
+        if(data.rowsAffected.length > 0) return true;
+        else return false;
+    }catch(err){
+        return err;
+    }
 });
 
 Factory.prototype.delete = Q.async(function* (customerKey){
