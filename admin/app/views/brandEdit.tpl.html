@@ -1,0 +1,57 @@
+<div class="container" ng-cloak>
+	<h2>{{ formTitle }}</h2>
+    <form name="formBrand" class="form-horizontal">
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(messageError.length > 0)'>{{ messageError }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="truckName" class="col-sm-2 control-label">Truck Name</label>
+            <div class="col-sm-6">
+                <input name="truckName" ng-model="truck.TruckName" class="form-control" placeholder="Truck Name" required maxlength="20" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formBrand.truckName.$dirty && formBrand.truckName.$invalid'>Please input Name</div>
+        </div>        
+
+		<div class="form-group">
+            <label for="Number" class="col-sm-2 control-label">Truck Number</label>
+            <div class="col-sm-6">
+                <input name="Number" ng-model="truck.TruckNumber" class="form-control" placeholder="Truck Number" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formBrand.Number.$dirty && formBrand.Number.$invalid'>Please input Number</div>
+        </div>
+
+		<div class="form-group">
+            <label for="Description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-6">
+                <input name="Description" ng-model="truck.Description" class="form-control" placeholder="Description" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formBrand.Description.$dirty && formBrand.Description.$invalid'>Please input Description</div>
+		</div>
+
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-success'
+                 ng-show='(messageSuccess.length > 0)'>{{ messageSuccess }}</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="button" 
+                       class="btn btn-primary"
+                       value="Submit" 
+                       ng-click="save()" 
+                       ng-disabled="disabledButton"/>
+                <input type="button"
+					   class="btn btn-primary"
+                       value="Cancel"
+                       ng-click="cancel()"
+                       ng-disabled="disabledButton" />
+            </div>
+        </div>
+    </form>
+</div>    
+
