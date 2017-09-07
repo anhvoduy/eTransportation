@@ -22,7 +22,7 @@ Factory.prototype.getList = Q.async(function* (){
     }
     catch(err){
         yield dbContext.closeConnection();
-        return err;
+        throw err;
     }
 })
 
@@ -41,7 +41,7 @@ Factory.prototype.getItem = Q.async(function* (CustomerKey){
         return customer;
     }catch(err){
         yield dbContext.closeConnection();        
-        return err;
+        throw err;
     }
 });
 
@@ -74,7 +74,7 @@ Factory.prototype.update = Q.async(function* (customer){
         else return false;
     }catch(err){
         yield dbContext.closeConnection();
-        return err;
+        throw err;
     }
 });
 
