@@ -33,11 +33,6 @@ router.get('/item', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.post('/create', auth.checkAuthentication(), function (req, res, next) {	
-	res.status(200).json(true);
-	next();
-});
-
 router.put('/update', auth.checkAuthentication(), function (req, res, next) {
     res.status(200).json(true);
 	next();

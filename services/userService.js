@@ -19,16 +19,28 @@ Factory.prototype.authenticate = function(username, password){
     return false;
 }
 
-Factory.prototype.getUser = function(){
-    return data.getUser();
-}
-
 Factory.prototype.getUsers = function(){
     return data.getUsers();
 }
 
-Factory.prototype.getUsers = function(){
-    return data.getUsers();
+Factory.prototype.getList = function(){
+    return true;
+}
+
+Factory.prototype.getItem = function(){
+    return true;
+}
+
+Factory.prototype.create = function(){
+    return true;
+}
+
+Factory.prototype.update = function(){
+    return true;
+}
+
+Factory.prototype.delete = function(){
+    return true;
 }
 
 Factory.prototype.getMenus = function(){
