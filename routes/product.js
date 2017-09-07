@@ -6,13 +6,13 @@ const constant = require('../lib/constant');
 const errorHelper = require('../lib/errorHelper');
 const validator = require('../lib/validator');
 const auth = require('../services/authService');
-const brandService = require('../services/brandService');
+const productService = require('../services/productService');
 
 router.get('/list', Q.async(function* (req, res, next) {
 	try
 	{
-		let brands = yield brandService.getList();
-		res.status(200).json(brands);
+		let products = yield productService.getList();
+		res.status(200).json(products);
 	}
 	catch(err){
 		res.status(500).json(err);
@@ -23,9 +23,9 @@ router.get('/list', Q.async(function* (req, res, next) {
 router.get('/item', Q.async(function* (req, res, next) {
 	try
 	{
-		let query = _.pick(req.query, ['BrandKey']);
-		let brand = yield brandService.getItem(query.BrandKey);
-		res.status(200).json(brand);
+		let query = _.pick(req.query, ['ProductKey']);
+		let product = yield productService.getItem(query.ProductKey);
+		res.status(200).json(product);
 	}
 	catch(err){
 		res.status(500).json(err);

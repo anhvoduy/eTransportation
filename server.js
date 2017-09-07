@@ -26,6 +26,8 @@ server.use('/api/brand', require('./routes/brand'));
 server.use('/api/customer', require('./routes/customer'));
 server.use('/api/user', require('./routes/user'));
 server.use('/api/truck', require('./routes/truck'));
+server.use('/api/brand', require('./routes/brand'));
+server.use('/api/product', require('./routes/product'));
 
 /**
  * register site collections

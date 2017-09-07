@@ -11,14 +11,14 @@ Factory.prototype.getList = Q.async(function* (){
     {
         let sql = `
             SELECT * 
-            FROM Brand
+            FROM Product
             WHERE Deleted = 0 
-            ORDER BY BrandId DESC
+            ORDER BY ProductId DESC
         `;
         yield dbContext.openConnection();
-        let brands = yield dbContext.queryList(sql);    
+        let products = yield dbContext.queryList(sql);
         yield dbContext.closeConnection();
-        return brands;
+        return products;
     }
     catch(err){
         yield dbContext.closeConnection();
@@ -26,18 +26,18 @@ Factory.prototype.getList = Q.async(function* (){
     }
 })
 
-Factory.prototype.getItem = Q.async(function* (BrandKey){
+Factory.prototype.getItem = Q.async(function* (ProductKey){
     try
     {        
         let sql = `
             SELECT *
-            FROM Brand
-            WHERE BrandKey = @BrandKey AND Deleted = 0
+            FROM Product
+            WHERE ProductKey = @ProductKey AND Deleted = 0
         `;
         yield dbContext.openConnection();
-        let brand = yield dbContext.queryItem(sql, { BrandKey: BrandKey });
+        let product = yield dbContext.queryItem(sql, { ProductKey: ProductKey });
         yield dbContext.closeConnection();
-        return brand;
+        return product;
     }catch(err){
         yield dbContext.closeConnection();        
         return err;

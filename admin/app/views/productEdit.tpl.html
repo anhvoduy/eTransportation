@@ -1,0 +1,82 @@
+<div class="container" ng-cloak>
+	<h2>{{ formTitle }}</h2>
+    <form name="formProduct" class="form-horizontal">
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(messageError.length > 0)'>{{ messageError }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="productCode" class="col-sm-2 control-label">Product Code</label>
+            <div class="col-sm-6">
+                <input name="productCode" ng-model="product.ProductCode" class="form-control" placeholder="Product Code" required maxlength="20" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formProduct.productCode.$dirty && formProduct.productCode.$invalid'>Please input Code</div>
+        </div>
+
+        <div class="form-group">
+            <label for="productName" class="col-sm-2 control-label">Product Name</label>
+            <div class="col-sm-6">
+                <input name="productName" ng-model="product.ProductName" class="form-control" placeholder="Product Name" required maxlength="20" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formProduct.productName.$dirty && formProduct.productName.$invalid'>Please input Name</div>
+        </div>
+
+        <div class="form-group">
+            <label for="brand" class="col-sm-2 control-label">Brand</label>
+            <div class="col-sm-6">
+                <input name="brand" ng-model="product.Brand" class="form-control" placeholder="Brand" required maxlength="50" />
+            </div>            
+        </div>
+
+		<div class="form-group">
+            <label for="price" class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-6">
+                <input name="price" ng-model="product.Price" class="form-control" placeholder="Price" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formProduct.price.$dirty && formProduct.price.$invalid'>Please input Price</div>
+        </div>
+
+        <div class="form-group">
+            <label for="colour" class="col-sm-2 control-label">Colour</label>
+            <div class="col-sm-6">
+                <input name="colour" ng-model="product.Colour" class="form-control" placeholder="Color" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formProduct.colour.$dirty && formProduct.colour.$invalid'>Please input Colour</div>
+        </div>
+
+		<div class="form-group">
+            <label for="Description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-6">
+                <input name="Description" ng-model="product.Description" class="form-control" placeholder="Description" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='formProduct.Description.$dirty && formProduct.Description.$invalid'>Please input Description</div>
+		</div>
+
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-success'
+                 ng-show='(messageSuccess.length > 0)'>{{ messageSuccess }}</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="button" 
+                       class="btn btn-primary"
+                       value="Submit" 
+                       ng-click="save()" 
+                       ng-disabled="disabledButton"/>
+                <input type="button"
+					   class="btn btn-primary"
+                       value="Cancel"
+                       ng-click="cancel()"
+                       ng-disabled="disabledButton" />
+            </div>
+        </div>
+    </form>
+</div>    
+

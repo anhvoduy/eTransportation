@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Brands
+            </h1>            
+        </div>
+    </div>
+        
+    <!-- Row -->
+    <div class="row">        
+        <div class="col-lg-12">            
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>                            
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="b in brands">
+                            <td>{{ b.BrandId }}</td>                            
+                            <td>{{ b.BrandName }}</td>
+                            <td>{{ b.Description }}</td>
+                            <td><a ui-sref="brandEdit({ brandKey: b.BrandKey, formStatus: 2 })">Edit</a></td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->    
+</div>
+<!-- /.container-fluid -->

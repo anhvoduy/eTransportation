@@ -39,20 +39,21 @@ auth.getInformationSchema = function(){
     .then(function(){
         return dbContext.openConnection();
     })
-    .then(function(pool){
+    .then(function(){
 		let sql = 'SELECT * FROM INFORMATION_SCHEMA.TABLES';
-        return dbContext.queryDatabase(pool, sql)
+        return dbContext.queryList(sql)
 		.then(function(data){
 			tables = data;
         })
         .then(function(){
-            dbContext.closeConnection(pool);
+            dbContext.closeConnection();
         });
     })
     .then(function(){
         deferred.resolve(tables);
     })
     .catch(function(err){
+        dbContext.closeConnection();
         deferred.reject(err);
     });
 

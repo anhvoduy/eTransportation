@@ -73,6 +73,44 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('brand', {
+		url: '/brand',
+		views: {
+			'view': {
+				templateUrl: 'app/views/brand.tpl.html',
+				controller: 'brandController'
+			}
+		}
+	})
+	.state('brandEdit', {
+		url: '/brand/:brandKey',
+		parentState: 'brand',
+		views: {
+			'view': {
+				templateUrl: 'app/views/brandEdit.tpl.html',
+				controller: 'brandEditController'
+			}
+		}
+	})
+	.state('product', {
+		url: '/product',
+		views: {
+			'view': {
+				templateUrl: 'app/views/product.tpl.html',
+				controller: 'productController'
+			}
+		}
+	})
+	.state('productEdit', {
+		url: '/product/:productKey',
+		parentState: 'product',
+		views: {
+			'view': {
+				templateUrl: 'app/views/productEdit.tpl.html',
+				controller: 'productEditController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {
