@@ -7,27 +7,18 @@
         </div>
 
         <div class="form-group">
-            <label for="truckName" class="col-sm-2 control-label">Truck Name</label>
+            <label for="brandName" class="col-sm-2 control-label">Brand Name</label>
             <div class="col-sm-6">
-                <input name="truckName" ng-model="truck.TruckName" class="form-control" placeholder="Truck Name" required maxlength="20" />
+                <input name="brandName" ng-model="brand.BrandName" class="form-control" placeholder="Brand Name" required maxlength="20" />
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='formBrand.truckName.$dirty && formBrand.truckName.$invalid'>Please input Name</div>
-        </div>        
-
-		<div class="form-group">
-            <label for="Number" class="col-sm-2 control-label">Truck Number</label>
-            <div class="col-sm-6">
-                <input name="Number" ng-model="truck.TruckNumber" class="form-control" placeholder="Truck Number" required maxlength="50" />
-            </div>
-            <div class='control-label col-sm-8 message-error'
-                 ng-show='formBrand.Number.$dirty && formBrand.Number.$invalid'>Please input Number</div>
-        </div>
+                 ng-show='formBrand.brandName.$dirty && formBrand.brandName.$invalid'>Please input Name</div>
+        </div>		
 
 		<div class="form-group">
             <label for="Description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-6">
-                <input name="Description" ng-model="truck.Description" class="form-control" placeholder="Description" required maxlength="50" />
+                <input name="Description" ng-model="brand.Description" class="form-control" placeholder="Description" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='formBrand.Description.$dirty && formBrand.Description.$invalid'>Please input Description</div>
@@ -53,5 +44,4 @@
             </div>
         </div>
     </form>
-</div>    
-
+</div>

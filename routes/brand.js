@@ -20,10 +20,18 @@ router.get('/list', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.get('/item', function (req, res, next) {	
-	res.status(200).json({});
-	next();
-});
+router.get('/item', Q.async(function* (req, res, next) {
+	try
+	{
+		let query = _.pick(req.query, ['BrandKey']);
+		let brand = yield brandService.getItem(query.BrandKey);
+		res.status(200).json(brand);
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
+}));
 
 router.post('/create', auth.checkAuthentication(), function (req, res, next) {	
 	res.status(200).json(true);

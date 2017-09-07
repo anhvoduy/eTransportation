@@ -26,9 +26,23 @@ Factory.prototype.getList = Q.async(function* (){
     }
 })
 
-Factory.prototype.getItem = function(BrandKey){
-    return true;
-}
+Factory.prototype.getItem = Q.async(function* (BrandKey){
+    try
+    {        
+        let sql = `
+            SELECT *
+            FROM Brand
+            WHERE BrandKey = @BrandKey AND Deleted = 0
+        `;
+        yield dbContext.openConnection();
+        let brand = yield dbContext.queryItem(sql, { BrandKey: BrandKey });
+        yield dbContext.closeConnection();
+        return brand;
+    }catch(err){
+        yield dbContext.closeConnection();        
+        return err;
+    }
+});
 
 Factory.prototype.create = function(brand){
     return true;

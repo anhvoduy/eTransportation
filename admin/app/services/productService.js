@@ -1,0 +1,40 @@
+(function () {
+    'use strict';
+    app.factory('productService', productService);
+    productService.$inject = ['$q', 'baseService'];
+    function productService($q, baseService) {
+        // constructor
+        var productService = function () {            
+        }
+        productService.prototype = new baseService('api/product');
+        productService.prototype.constructor = productService;
+                
+        // methods
+        productService.prototype.getList = function () {
+            var url = String.format('{0}{1}', this.api, '/list');
+            
+            var q = $q.defer();
+            this.getData(url).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            })
+            return q.promise;
+        }
+
+        productService.prototype.getItem = function (ProductKey) {
+            var url = String.format('{0}{1}{2}{3}', this.api, '/item', '?ProductKey=', ProductKey);
+            
+            var q = $q.defer();
+            this.getData(url).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            })
+            return q.promise;
+        }
+
+        // export
+        return new productService;
+    };
+})();
