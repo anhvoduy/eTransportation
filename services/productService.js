@@ -22,7 +22,7 @@ Factory.prototype.getList = Q.async(function* (){
     }
     catch(err){
         yield dbContext.closeConnection();
-        return err;
+        throw err;
     }
 })
 
@@ -40,7 +40,7 @@ Factory.prototype.getItem = Q.async(function* (ProductKey){
         return product;
     }catch(err){
         yield dbContext.closeConnection();        
-        return err;
+        throw err;
     }
 });
 
