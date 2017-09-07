@@ -1,14 +1,30 @@
 ﻿const _ = require('lodash');
 const Q = require('q');
-const data = require('../database/sampleData');
+const dbContext = require('../lib/dbContext');
 
 // Constructor
 const Factory = function(){	
 }
 
-Factory.prototype.getList = function(){
-    return true;
-}
+Factory.prototype.getList = Q.async(function* (){
+    try
+    {
+        let sql = `
+            SELECT * 
+            FROM Brand
+            WHERE Deleted = 0 
+            ORDER BY BrandId DESC
+        `;
+        yield dbContext.openConnection();
+        let brands = yield dbContext.queryList(sql);    
+        yield dbContext.closeConnection();
+        return brands;
+    }
+    catch(err){
+        yield dbContext.closeConnection();
+        return err;
+    }
+})
 
 Factory.prototype.getItem = function(BrandKey){
     return true;

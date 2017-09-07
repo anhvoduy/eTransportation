@@ -7,7 +7,6 @@ const Factory = function () {
 }
 
 Factory.prototype.getList = Q.async(function* (){
-    let customers;
     try{        
         let sql = `
             SELECT CustomerId, CustomerKey, CustomerName, Description, 
@@ -17,7 +16,7 @@ Factory.prototype.getList = Q.async(function* (){
             ORDER BY CustomerId DESC
         `;
         yield dbContext.openConnection();
-        customers = yield dbContext.queryList(sql);    
+        let customers = yield dbContext.queryList(sql);    
         yield dbContext.closeConnection();
         return customers;
     }
