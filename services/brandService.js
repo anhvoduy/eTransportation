@@ -6,24 +6,24 @@ const data = require('../database/sampleData');
 const Factory = function(){	
 }
 
-Factory.prototype.getBrands = function(){
-    return [
-        {
-            id: 1,
-            title: 'brand 1'
-        },
-        {
-            id: 2,
-            title: 'brand 2'
-        }
-    ]
+Factory.prototype.getList = function(){
+    return true;
 }
 
-Factory.prototype.getBrandById = function(brandId){
-    return {
-        id: 2,
-        title: 'brand 2'
-    }
+Factory.prototype.getItem = function(BrandKey){
+    return true;
+}
+
+Factory.prototype.create = function(brand){
+    return true;
+}
+
+Factory.prototype.update = function(brand){
+    return true;
+}
+
+Factory.prototype.delete = function(BrandKey){
+    return true;
 }
 
 // Export

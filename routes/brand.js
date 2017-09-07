@@ -11,14 +11,13 @@ router.get('/items', function (req, res, next) {
 	next();	
 });
 
-router.get('/items/:id', function (req, res, next) {	
+router.get('/items/:id', function (req, res, next) {
 	var brand = {};
 	res.status(200).json(brand);
 	next();
 });
 
-router.post('/create', auth.checkAuthentication(), function (req, res, next) {
-	// create brand
+router.post('/create', auth.checkAuthentication(), function (req, res, next) {	
 	res.status(200).json({ code: 'CREATE_BRAND_SUCCESS', message: "Create Brand is success." });
 	next();
 });
@@ -28,8 +27,7 @@ router.put('/update', auth.checkAuthentication(), function (req, res, next) {
 	next();
 });
 
-router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {
-	// delete brand
+router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {	
 	res.status(200).json({ code: 'DELETE_BRAND_SUCCESS', message: "Delete Brand is success." });
 	next();
 });

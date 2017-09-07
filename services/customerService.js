@@ -22,6 +22,7 @@ Factory.prototype.getList = Q.async(function* (){
         return customers;
     }
     catch(err){
+        yield dbContext.closeConnection();
         return err;
     }
 })
@@ -39,7 +40,8 @@ Factory.prototype.getItem = Q.async(function* (CustomerKey){
         let customer = yield dbContext.queryItem(sql, { CustomerKey: CustomerKey });
         yield dbContext.closeConnection();
         return customer;
-    }catch(err){        
+    }catch(err){
+        yield dbContext.closeConnection();        
         return err;
     }
 });
@@ -68,10 +70,11 @@ Factory.prototype.update = Q.async(function* (customer){
         yield dbContext.openConnection();        
         let data = yield dbContext.queryExecute(sql, customer);
         yield dbContext.closeConnection();
-
+        
         if(data.rowsAffected.length > 0) return true;
         else return false;
     }catch(err){
+        yield dbContext.closeConnection();
         return err;
     }
 });

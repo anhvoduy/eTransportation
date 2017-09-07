@@ -33,14 +33,14 @@ Factory.prototype.getList = function(){
         deferred.resolve(trucks);
     })
     .catch(function(err){
+        dbContext.closeConnection();
         deferred.reject(err);
     });
 
     return deferred.promise;
 }
 
-Factory.prototype.getItem = Q.async(function* (TruckKey){
-    let truck;
+Factory.prototype.getItem = Q.async(function* (TruckKey){    
     try
     {        
         let sql = `
@@ -49,24 +49,25 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
             WHERE TruckKey = @TruckKey AND Deleted = 0
         `;
         yield dbContext.openConnection();
-        truck = yield dbContext.queryItem(sql, { TruckKey: TruckKey });
+        let truck = yield dbContext.queryItem(sql, { TruckKey: TruckKey });
         yield dbContext.closeConnection();
         return truck;
-    }catch(err){        
+    }catch(err){
+        yield dbContext.closeConnection();
         return err;
     }
 });
 
 Factory.prototype.createTruck = function(Truck){
-    return data.getUsers();
+    return true;
 }
 
 Factory.prototype.updateTruck = function(Truck){
-    return data.getUsers();
+    return true;
 }
 
 Factory.prototype.deleteTruck = function(truckKey){
-    return data.getMenus();
+    return true;
 }
 
 // Export
