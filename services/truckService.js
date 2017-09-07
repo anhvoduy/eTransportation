@@ -49,7 +49,7 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
             WHERE TruckKey = @TruckKey AND Deleted = 0
         `;
         yield dbContext.openConnection();
-        truck = yield dbContext.queryItem2(sql, TruckKey);
+        truck = yield dbContext.queryItem(sql, { TruckKey: TruckKey });
         yield dbContext.closeConnection();
         return truck;
     }catch(err){        
