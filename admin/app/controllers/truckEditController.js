@@ -37,9 +37,10 @@
 
 		// buttons
 		$scope.save = function () {
-			if (angular.isUndefined($scope.truck)) return;
-			
 			$scope.disabledButton = true;
+			if($scope.truck && validateForm()){
+				console.log('submitForm()......');
+			}
 			// brandService.updateBrand($scope.brand).then(function (result) {
 			// 	$scope.messageSuccess = result.message;
 			// 	resetFormStatus();
