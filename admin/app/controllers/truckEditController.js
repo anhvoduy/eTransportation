@@ -31,6 +31,10 @@
 			else return 'Display Truck';			
 		};
 
+		function validateForm(){
+			return false;
+		}
+
 		// buttons
 		$scope.save = function () {
 			if (angular.isUndefined($scope.truck)) return;
