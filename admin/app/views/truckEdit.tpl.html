@@ -1,36 +1,36 @@
 <div class="container" ng-cloak>
 	<h2>{{ formTitle }}</h2>
-    <form name="formTruck" class="form-horizontal">
+    <form name="formTruck" class="form form-horizontal" ng-submit="submit()">
         <div class="form-group">
             <div class='control-label col-sm-8 message-error'
                  ng-show='(messageError.length > 0)'>{{ messageError }}</div>
         </div>
 
         <div class="form-group">
-            <label for="truckName" class="col-sm-2 control-label">Truck Name</label>
+            <label for="TruckName" class="col-sm-2 control-label">Truck Name</label>
             <div class="col-sm-6">
-                <input name="truckName" ng-model="truck.TruckName" class="form-control" placeholder="Truck Name" required maxlength="20" />
-            </div>
-            <div class='control-label col-sm-8 message-error'
-                 ng-show='formTruck.truckName.$dirty && formTruck.truckName.$invalid'>Please input Name</div>
+                <input name="TruckName" ng-model="truck.TruckName" class="form-control" placeholder="Truck Name" minlength="5" maxlength="20" required/>
+            </div>            
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckName.$dirty) && formTruck.TruckName.$error.required)'>Truck Name is required</div>
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckName.$dirty) && formTruck.TruckName.$error.minlength)'>Truck Name is too short</div>
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckName.$dirty) && formTruck.TruckName.$error.maxlength)'>Truck Name is too long</div>
         </div>        
 
 		<div class="form-group">
-            <label for="Number" class="col-sm-2 control-label">Truck Number</label>
+            <label for="TruckNumber" class="col-sm-2 control-label">Truck Number</label>
             <div class="col-sm-6">
-                <input name="Number" ng-model="truck.TruckNumber" class="form-control" placeholder="Truck Number" required maxlength="50" />
+                <input name="TruckNumber" ng-model="truck.TruckNumber" class="form-control" placeholder="Truck Number" minlength="5" maxlength="50" required/>
             </div>
-            <div class='control-label col-sm-8 message-error'
-                 ng-show='formTruck.Number.$dirty && formTruck.Number.$invalid'>Please input Number</div>
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckNumber.$dirty) && formTruck.TruckNumber.$error.required)'>Truck Number is required</div>
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckNumber.$dirty) && formTruck.TruckNumber.$error.minlength)'>Truck Number is too short</div>
+            <div class='control-label col-sm-8 message-error' ng-show='((isSubmitted || formTruck.TruckNumber.$dirty) && formTruck.TruckNumber.$error.maxlength)'>Truck Number is too long</div>
         </div>
 
 		<div class="form-group">
             <label for="Description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-6">
-                <input name="Description" ng-model="truck.Description" class="form-control" placeholder="Description" required maxlength="50" />
+                <textarea name="Description" ng-model="truck.Description" class="form-control" placeholder="Description"/>
             </div>
-            <div class='control-label col-sm-8 message-error'
-                 ng-show='formTruck.Description.$dirty && formTruck.Description.$invalid'>Please input Description</div>
 		</div>
 
         <div class="form-group">
@@ -40,18 +40,14 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="button" 
-                       class="btn btn-primary"
-                       value="Submit" 
-                       ng-click="save()" 
-                       ng-disabled="disabledButton"/>
-                <input type="button"
-					   class="btn btn-primary"
-                       value="Cancel"
-                       ng-click="cancel()"
-                       ng-disabled="disabledButton" />
+                <input type="button" class="btn btn-primary" value="Submit" 
+                       ng-click="submit(truck)" ng-disabled="(isSubmitting)"/>
+                <input type="button" class="btn btn-primary" value="Cancel"
+                       ng-click="cancel()" ng-disabled="(isSubmitted || isSubmitting)"/>
+                <span ng-show="isSubmitting">                
+                    <img ng-if="isSubmitting" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </span>                
             </div>
         </div>
     </form>
-</div>    
-
+</div>

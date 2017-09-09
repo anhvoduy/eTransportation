@@ -68,17 +68,15 @@ Factory.prototype.update = Q.async(function* (customer){
         `;
         yield dbContext.openConnection();        
         let data = yield dbContext.queryExecute(sql, customer);
-        yield dbContext.closeConnection();
-        
-        if(data.rowsAffected.length > 0) return true;
-        else return false;
+        yield dbContext.closeConnection();        
+        return data;
     }catch(err){
         yield dbContext.closeConnection();
         throw err;
     }
 });
 
-Factory.prototype.delete = Q.async(function* (customerKey){
+Factory.prototype.delete = Q.async(function* (CustomerKey){
     console.log(customerKey);
     return true;
 });
