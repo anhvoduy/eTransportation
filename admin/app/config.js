@@ -1,6 +1,7 @@
 var app = angular.module('cargo', [
 	'ngCookies',
 	'ui.router',
+	'ui.bootstrap',
 	'cargo.common',
 	'cargo.directives',
 	'cargo.components.navigation'

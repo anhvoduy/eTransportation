@@ -25,18 +25,13 @@ router.get('/item', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.post('/create', function (req, res, next) {
-	// create truck;
-	next();
-});
-
 router.put('/update', function (req, res, next) {
-	// edit truck;
+	res.status(200).json(true);
 	next();
 });
 
 router.delete('/delete', function (req, res, next) {
-	// edit truck;
+	res.status(200).json(true);
 	next();
 });
 

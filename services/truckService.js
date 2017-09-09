@@ -54,7 +54,7 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
         return truck;
     }catch(err){
         yield dbContext.closeConnection();
-        return err;
+        throw err;
     }
 });
 
