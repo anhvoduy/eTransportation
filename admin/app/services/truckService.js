@@ -18,7 +18,7 @@
                 q.resolve(result);
             }, function (error) {
                 q.reject(error);
-            })
+            });
             return q.promise;
         }
 
@@ -30,7 +30,19 @@
                 q.resolve(result);
             }, function (error) {
                 q.reject(error);
-            })
+            });
+            return q.promise;
+        }
+
+        truckService.prototype.update = function (truck) {
+            var url = String.format('{0}{1}', this.api, '/update');
+            
+            var q = $q.defer();
+            this.postData(url, truck).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            });
             return q.promise;
         }
 

@@ -58,15 +58,31 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
     }
 });
 
-Factory.prototype.createTruck = function(Truck){
+Factory.prototype.create = function(truck){
     return true;
 }
 
-Factory.prototype.updateTruck = function(Truck){
-    return true;
-}
+Factory.prototype.update = Q.async(function* (truck){
+    try
+    {        
+        let sql = `
+            UPDATE Truck
+            SET TruckName = @TruckName, 
+                TruckNumber = @TruckNumber, 
+                Description = @Description            
+            WHERE TruckKey = @TruckKey
+        `;
+        yield dbContext.openConnection();
+        let data = yield dbContext.queryExecute(sql, truck);
+        yield dbContext.closeConnection();
+        return data;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }
+});
 
-Factory.prototype.deleteTruck = function(truckKey){
+Factory.prototype.delete = function(TruckKey){
     return true;
 }
 
