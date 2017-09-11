@@ -41,3 +41,44 @@
         </div>
     </form>
 </div>
+
+<div class="container" ng-cloak>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Permission</h1>
+            <h5><a ui-sref='userEdit({ userKey: null, formStatus: 1 })'>Link User</a></h5>
+        </div>
+    </div>
+
+    <!-- Row -->
+    <div class="row">        
+        <div class="col-lg-12">            
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>DisplayName</th>                            
+                            <th>Cash</th>
+                            <th>Stock</th>
+                            <th>Product</th>                                                                                    
+                            <th>Customer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="u in users">
+                            <td>{{ u.UserId }}</td>
+                            <td>{{ u.UserName }}</td>
+                            <td>{{ u.DisplayName }}</td>
+                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Cash</a></td>
+                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Stock</a></td>
+                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Product</a></td>
+                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Customer</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+</div>
