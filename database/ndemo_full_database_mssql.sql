@@ -452,3 +452,87 @@ INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email,
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'anhvod', NEWID(),'Vo Duy Anh','anhvod@hvn.com','1984-12-24','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'lukaku', NEWID(),'Lukaku','lukaku@sony.com','1982-08-08','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'pogba',  NEWID(),'Pogba','pogba@samsung.com','1985-06-06','SYSTEM','SYSTEM');
+
+
+/****** Object:  Table [dbo].[Group] ******/
+-- DROP TABLE [dbo].[Group];
+CREATE TABLE [dbo].[Group](
+	[GroupId] [int] IDENTITY(1,1) NOT NULL,
+	[GroupKey] [nvarchar](50) NOT NULL,	
+    [GroupName] [nvarchar](50) NULL,
+	[Description] [nvarchar](250) NULL,	
+	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Author] [nvarchar](50) NULL,
+	[Editor] [nvarchar](50) NULL,
+    [Deleted] [int] DEFAULT 0
+ CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+(
+	[GroupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Administrators', 'Administrators Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Sales', 'Sales Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Accountances','Accountances Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Human Resources', 'Human Resources Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Logictics', 'Logictics Group','SYSTEM','SYSTEM');
+
+
+/****** Object:  Table [dbo].[UserGroup] ******/
+-- DROP TABLE [dbo].[UserGroup];
+CREATE TABLE [dbo].[UserGroup](
+	[UserGroupId] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[GroupId] [int] NOT NULL,
+	[isCreate] [int] DEFAULT 0,
+	[isUpdate] [int] DEFAULT 0,
+	[isDelete] [int] DEFAULT 0,
+	[isDisplay] [int] DEFAULT 1,
+	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Author] [nvarchar](50) NULL,
+	[Editor] [nvarchar](50) NULL
+ CONSTRAINT [PK_UserGroup] PRIMARY KEY CLUSTERED 
+(
+	[UserGroupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (2,1,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (3,3,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
+
+
+
+/****** Object:  Table [dbo].[UserGroupSecurity] ******/
+-- this table may be NEED or NO NEED
+-- DROP TABLE [dbo].[UserGroupSecurity];
+-- CREATE TABLE [dbo].[UserGroupSecurity](
+-- 	[UserGroupSecurityId] [int] IDENTITY(1,1) NOT NULL,
+-- 	[UserGroupId] [int] NOT NULL,
+-- 	[Module] [nvarchar](10) NOT NULL,
+-- 	[isCreate] [int] DEFAULT 0,
+-- 	[isUpdate] [int] DEFAULT 0,
+-- 	[isDelete] [int] DEFAULT 0,
+-- 	[isDisplay] [int] DEFAULT 1,
+-- 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+-- 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+-- 	[Author] [nvarchar](50) NULL,
+-- 	[Editor] [nvarchar](50) NULL
+--  CONSTRAINT [PK_UserGroupSecurity] PRIMARY KEY CLUSTERED 
+-- (
+-- 	[UserGroupSecurityId] ASC
+-- )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+-- ) ON [PRIMARY]
+-- GO
+
+-- INSERT INTO [dbo].[UserGroupSecurity] (UserId, GroupId, Module, Author, Editor) VALUES (1,2,'CASH','SYSTEM','SYSTEM');
+-- INSERT INTO [dbo].[UserGroupSecurity] (UserId, GroupId, Module, Author, Editor) VALUES (2,1,'STOCK','SYSTEM','SYSTEM');
+-- INSERT INTO [dbo].[UserGroupSecurity] (UserId, GroupId, Module, Author, Editor) VALUES (3,3,'PRODUCT','SYSTEM','SYSTEM');
+-- INSERT INTO [dbo].[UserGroupSecurity] (UserId, GroupId, Module, Author, Editor) VALUES (1,2,'SALE','SYSTEM','SYSTEM');
+-- INSERT INTO [dbo].[UserGroupSecurity] (UserId, GroupId, Module, Author, Editor) VALUES (1,2,'HUMAN','SYSTEM','SYSTEM');

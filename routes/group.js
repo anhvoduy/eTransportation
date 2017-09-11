@@ -6,47 +6,26 @@ const constant = require('../lib/constant');
 const errorHelper = require('../lib/errorHelper');
 const validator = require('../lib/validator');
 const auth = require('../services/authService');
-const userService = require('../services/userService');
+const groupService = require('../services/groupService');
 
 // Routers
-router.get('/profile', Q.async(function* (req, res, next) {
-    var myProfile = userService.myProfile();
-    res.status(200).json(myProfile);
-    next();
-}));
-
-router.get('/menu', Q.async(function* (req, res, next) {
-	var menus = userService.getMenus();
-	res.status(200).json(menus);
-	next();
-}));
-
-
-
-
 router.get('/list', Q.async(function* (req, res, next) {
-	let users;
-	Q.when()
-	.then(function(){
-		return userService.getList().then(function(data){
-			users = data;
-		});
-	})
-	.then(function(){		
-		res.status(200).json(users);
-	})
-	.catch(function(err){		
+	try{
+		var groups = yield groupService.getList();
+		res.status(200).json(groups);
+	}
+	catch(err){
 		res.status(500).json(err);
 		next(err);
-	});
+	}
 }));
 
 router.get('/item', Q.async(function* (req, res, next) {
 	try
 	{
-		let query = _.pick(req.query, ['UserKey']);	
-		var user = yield userService.getItem(query.UserKey);		
-		res.status(200).json(user);
+		let query = _.pick(req.query, ['GroupKey']);	
+		let truck = yield groupService.getItem(query.GroupKey);
+		res.status(200).json(truck);
 	}
 	catch(err){
 		res.status(500).json(err);
@@ -57,31 +36,33 @@ router.get('/item', Q.async(function* (req, res, next) {
 router.post('/update', Q.async(function* (req, res, next) {
 	try
 	{
-		let user = _.pick(req.body, ['UserKey', 'UserName', 'DisplayName', 'Email', 'Mobile', 'Tel', 'Title']);
-		if(!user) throw errorHelper.ERROR_INVALID_USER;
-				
+		let group = _.pick(req.body, ['GroupKey', 'GroupName', 'Description']);
+		if(!group) throw errorHelper.ERROR_INVALID_GROUP;
+
 		let result;
-		if(user.UserKey){
-			let data = yield userService.update(user);
+		if(group.GroupKey){
+			let data = yield groupService.update(group);
 			if(data.rowsAffected.length > 0) result = true;
 			else result = false;
 		}
 		else {
-			let data = yield userService.create(user);
+			let data = yield groupService.create(group);
 			if(data.rowsAffected.length > 0) result = true;
 			else result = false;
 		}
 		res.status(200).json(result);
-	}catch(err){
+	}
+	catch(err){
 		res.status(500).json(err);
 		next(err);
-	}
+	}	
 }));
+
 
 router.delete('/delete', Q.async(function* (req, res, next) {
 	res.status(200).json(true);
 	next();
 }));
 
-// export Router
+// return Router
 module.exports = router;

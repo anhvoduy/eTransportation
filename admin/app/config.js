@@ -112,6 +112,44 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('user', {
+		url: '/user',
+		views: {
+			'view': {
+				templateUrl: 'app/views/user.tpl.html',
+				controller: 'userController'
+			}
+		}
+	})
+	.state('userEdit', {
+		url: '/user/:userKey',
+		parentState: 'user',
+		views: {
+			'view': {
+				templateUrl: 'app/views/userEdit.tpl.html',
+				controller: 'userEditController'
+			}
+		}
+	})	
+	.state('group', {
+		url: '/group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/group.tpl.html',
+				controller: 'groupController'
+			}
+		}
+	})	
+	.state('groupEdit', {
+		url: '/group/:groupKey',
+		parentState: 'group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/groupEdit.tpl.html',
+				controller: 'groupEditController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {
