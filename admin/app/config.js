@@ -130,17 +130,7 @@ app.config(function ($stateProvider) {
 				controller: 'userEditController'
 			}
 		}
-	})
-	.state('userGroup', {
-		url: '/user/:userKey',
-		parentState: 'user',
-		views: {
-			'view': {
-				templateUrl: 'app/views/userGroup.tpl.html',
-				controller: 'userGroupController'
-			}
-		}
-	})
+	})	
 	.state('group', {
 		url: '/group',
 		views: {
@@ -159,7 +149,7 @@ app.config(function ($stateProvider) {
 				controller: 'groupEditController'
 			}
 		}
-	})	
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {
