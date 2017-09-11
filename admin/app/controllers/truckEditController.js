@@ -71,7 +71,7 @@
 					} else if($scope.formStatus === appCommon.formStatus.isEdit){
 						$scope.isSubmitted = false;
 						$scope.isSubmitting = false;
-					}					
+					}
 				}, function(error){
 					//console.log(error);
 					$scope.isSubmitted = false;
