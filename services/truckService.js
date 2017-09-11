@@ -58,9 +58,22 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
     }
 });
 
-Factory.prototype.create = function(truck){
-    return true;
-}
+Factory.prototype.create = Q.async(function* (truck){
+    try
+    {        
+        let sql = `
+            INSERT INTO Truck(TruckKey, TruckName, TruckNumber, Description, Author, Editor)
+            VALUES (NEWID(), @TruckName, @TruckNumber, @Description, 'SYSTEM', 'SYSTEM');
+        `;
+        yield dbContext.openConnection();
+        let data = yield dbContext.queryExecute(sql, truck);
+        yield dbContext.closeConnection();
+        return data;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }    
+});
 
 Factory.prototype.update = Q.async(function* (truck){
     try

@@ -8,7 +8,7 @@
 		$scope.isSubmitting = false;
 		$scope.productKey = $stateParams.productKey;
 		$scope.master = {}; // https://docs.angularjs.org/guide/forms
-		$scope.formStatus = angular.isUndefined($scope.productKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = appCommon.isUndefined($scope.productKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = {};
 		$scope.messageError = {};
 

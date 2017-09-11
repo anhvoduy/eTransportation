@@ -5,7 +5,7 @@
 	function brandEditController($rootScope, $scope, $state, $stateParams, appCommon, brandService) {
 		// models
 		$scope.brandKey = $stateParams.brandKey;
-		$scope.formStatus = angular.isUndefined($scope.brandKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = appCommon.isUndefined($scope.brandKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 
 		// function
 		function activate() {
