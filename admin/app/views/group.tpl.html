@@ -18,7 +18,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Permission</th>
-                            <th>Edit</th>                            
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,8 +26,8 @@
                             <td>{{ g.GroupId }}</td>
                             <td>{{ g.GroupName }}</td>
                             <td>{{ g.Description }}</td>                            
-                            <td><a ui-sref="groupUsers({ groupKey: u.groupKey, formStatus: 2 })">Permission</a></td>
-                            <td><a ui-sref="groupEdit({ groupKey: u.groupKey, formStatus: 2 })">Edit</a></td>
+                            <td><a ui-sref="groupEdit({ groupKey: g.GroupKey, formStatus: 2 })">Permission</a></td>
+                            <td><a ui-sref="groupEdit({ groupKey: g.GroupKey, formStatus: 2 })">Edit</a></td>
                         </tr>
                     </tbody>
                 </table>

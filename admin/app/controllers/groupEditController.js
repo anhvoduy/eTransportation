@@ -1,14 +1,14 @@
 (function () {
 	'use strict';
-	app.controller('userEditController', userEditController);
-	userEditController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', '$timeout', 'appCommon', 'userService'];
-	function userEditController($rootScope, $scope, $state, $stateParams, $timeout, appCommon, userService) {
+	app.controller('groupEditController', groupEditController);
+	groupEditController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', '$timeout', 'appCommon', 'userService', 'groupService'];
+	function groupEditController($rootScope, $scope, $state, $stateParams, $timeout, appCommon, userService, groupService) {
 		// models
 		$scope.isSubmitted = false;
 		$scope.isSubmitting = false;
-		$scope.userKey = $stateParams.userKey;
+		$scope.groupKey = $stateParams.groupKey;
 		$scope.formStatus = $stateParams.formStatus;
-		$scope.formStatus = appCommon.isUndefined($scope.userKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = appCommon.isUndefined($scope.groupKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = [];
 		$scope.messageError = [];
 
@@ -17,8 +17,8 @@
 			setFormTitle();
 			if($scope.formStatus === appCommon.formStatus.isNew) return;
 
-			userService.getItem($scope.userKey).then(function (result) {
-				$scope.user = result;				
+			groupService.getItem($scope.groupKey).then(function (result) {
+				$scope.group = result;				
 			}, function (error) {
 				$scope.messageError.push(error);
 			});
@@ -26,21 +26,18 @@
 
 		function setFormTitle(){
 			if($scope.formStatus === appCommon.formStatus.isNew)
-				$scope.formTitle = 'Create User';
+				$scope.formTitle = 'Create Group';
 			else if ($scope.formStatus === appCommon.formStatus.isEdit)
-				$scope.formTitle = 'Edit User';
+				$scope.formTitle = 'Edit Group';
 			else
-				$scope.formTitle = 'Display User';
+				$scope.formTitle = 'Display Group';
 		};
 
 		function validateMaster(master){
 			if(!master){
 				return false;
 			}
-			else if(angular.isUndefined(master.UserName) || formUser.UserName.$invalid){
-				return false;
-			}
-			else if(angular.isUndefined(master.Email) || formUser.Email.$invalid){
+			else if(angular.isUndefined(master.GroupName) || formGroup.GroupName.$invalid){
 				return false;
 			}
 			else{
@@ -48,9 +45,9 @@
 			}			
 		}
 		// buttons
-		$scope.submit = function (user) {
+		$scope.submit = function (group) {
 			$scope.isSubmitted = true; // validate UI
-			$scope.master = angular.copy(user); // clone new object
+			$scope.master = angular.copy(group); // clone new object
 			if(!$scope.master || !validateMaster($scope.master)) // validate business rules
 			{ 
 				$scope.isSubmitted = false;
@@ -58,7 +55,7 @@
 			}
 			// start submit to server
 			$scope.isSubmitting = true;			
-			userService.update($scope.master).then(function(result){
+			groupService.update($scope.master).then(function(result){
 				//console.log(result);
 				if($scope.formStatus === appCommon.formStatus.isNew){
 					$state.go($state.current.parentState);

@@ -22,8 +22,8 @@
             return q.promise;
         }
 
-        groupService.prototype.getItem = function (userKey) {
-            var url = String.format('{0}{1}{2}{3}', this.api, '/item', '?UserKey=', userKey);
+        groupService.prototype.getItem = function (groupKey) {
+            var url = String.format('{0}{1}{2}{3}', this.api, '/item', '?GroupKey=', groupKey);
             
             var q = $q.defer();
             this.getData(url).then(function (result) {
