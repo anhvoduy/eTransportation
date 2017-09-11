@@ -33,7 +33,7 @@ router.get('/item', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.put('/update', auth.checkAuthentication(), Q.async(function* (req, res, next) {
+router.post('/update', Q.async(function* (req, res, next) {
     try
 	{
 		let product = _.pick(req.body, ['ProductKey', 'ProductCode', 'ProductName', 'Description']);

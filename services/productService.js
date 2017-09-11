@@ -74,7 +74,7 @@ Factory.prototype.update = Q.async(function* (product){
             WHERE ProductKey = @ProductKey
         `;
         yield dbContext.openConnection();
-        let result = yield dbContext.queryItem(sql, product);
+        let result = yield dbContext.queryExecute(sql, product);
         yield dbContext.closeConnection();
         return result;
     }

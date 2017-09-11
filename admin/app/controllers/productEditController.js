@@ -8,7 +8,7 @@
 		$scope.isSubmitting = false;
 		$scope.productKey = $stateParams.productKey;
 		$scope.master = {}; // https://docs.angularjs.org/guide/forms
-		$scope.formStatus = angular.isUndefined($scope.truckKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = angular.isUndefined($scope.productKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = {};
 		$scope.messageError = {};
 
@@ -52,7 +52,7 @@
 		}
 
 		// buttons
-		$scope.submit = function () {
+		$scope.submit = function (product) {
 			$scope.isSubmitted = true; // validate UI
 			$scope.master = angular.copy(product); // clone new object
 			if(!$scope.master || !validateMaster($scope.master)) // validate business rules
@@ -60,15 +60,15 @@
 				$scope.isSubmitted = false;
 				return;
 			}
-			
-			
-			// brandService.updateBrand($scope.brand).then(function (result) {
-			// 	$scope.messageSuccess = result.message;
-			// 	resetFormStatus();
-			// }, function (error) {
-			// 	$scope.messageError = error.message;
-			// 	resetFormStatus();
-			// });
+			// start submit to server
+			$scope.isSubmitting = true;
+			productService.update($scope.master).then(function(result){				
+				$scope.isSubmitted = false;
+				$scope.isSubmitting = false;
+			}, function(error){				
+				$scope.isSubmitted = false;
+				$scope.isSubmitting = false;
+			});
 		}
 
 		$scope.cancel = function() {            
