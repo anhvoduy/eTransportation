@@ -34,6 +34,18 @@
             return q.promise;
         }
 
+        productService.prototype.update = function (product) {
+            var url = String.format('{0}{1}', this.api, '/update');
+            
+            var q = $q.defer();
+            this.postData(url, product).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            });
+            return q.promise;
+        }
+
         // export
         return new productService;
     };

@@ -65,11 +65,11 @@
 				// start submit to server
 				$scope.isSubmitting = true;
 				truckService.update($scope.master).then(function(result){
-					console.log(result);
+					//console.log(result);
 					$scope.isSubmitted = false;
 					$scope.isSubmitting = false;
 				}, function(error){
-					console.log(error);
+					//console.log(error);
 					$scope.isSubmitted = false;
 					$scope.isSubmitting = false;
 				});

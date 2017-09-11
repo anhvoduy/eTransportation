@@ -33,14 +33,33 @@ router.get('/item', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.put('/update', auth.checkAuthentication(), function (req, res, next) {
-    res.status(200).json(true);
-	next();
-});
+router.put('/update', auth.checkAuthentication(), Q.async(function* (req, res, next) {
+    try
+	{
+		let product = _.pick(req.body, ['ProductKey', 'ProductCode', 'ProductName', 'Description']);
+		if(!product) throw errorHelper.ERROR_INVALID_PRODUCT;
 
-router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {	
+		let result;
+		if(product.ProductKey){
+			let data = yield productService.update(product);
+			if(data.rowsAffected.length > 0) result = true;
+			else result = false;
+		}
+		else {
+			let data = yield productService.create(product);
+			result = false
+		}
+		res.status(200).json(result);
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
+}));
+
+router.delete('/delete', auth.checkAuthentication(), Q.async(function* (req, res, next) {
 	res.status(200).json(true);
 	next();
-});
+}));
 
 module.exports = router;
