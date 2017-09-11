@@ -34,11 +34,11 @@
             return q.promise;
         }
                 
-        userService.prototype.update = function (customer) {
+        userService.prototype.update = function (user) {
             var url = String.format('{0}{1}', this.api, '/update');
             
             var q = $q.defer();
-            this.postData(url, customer).then(function (result) {
+            this.postData(url, user).then(function (result) {
                 q.resolve(result);
             }, function (error) {
                 q.reject(error);

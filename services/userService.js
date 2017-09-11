@@ -1,5 +1,6 @@
 ﻿const _ = require('lodash');
 const Q = require('q');
+const crypto = require('crypto');
 const dbContext = require('../lib/dbContext');
 
 const data = require('../database/sampleData');
@@ -76,17 +77,53 @@ Factory.prototype.getItem = Q.async(function* (UserKey){
     }
 });
 
-Factory.prototype.create = function(){
-    return true;
-}
+Factory.prototype.create = Q.async(function* (user){
+    try
+    {        
+        let sql = `
+            INSERT INTO [User] (UserKey, UserName, DisplayName, UserType, 
+                Hash, Email, Mobile, Tel, Title, Author, Editor)
+            VALUES (NEWID(), @UserName, @DisplayName, @UserType,
+                @Hash, @Email, @Mobile, @Tel, @Title, 'SYSTEM', 'SYSTEM')
+        `;        
+        user.Hash = crypto.createHash('sha1');
+        user.UserType = 'USER';
+        yield dbContext.openConnection();        
+        let data = yield dbContext.queryExecute(sql, user);
+        yield dbContext.closeConnection();        
+        return data;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }
+});
 
-Factory.prototype.update = function(){
-    return true;
-}
+Factory.prototype.update = Q.async(function* (user){
+    try
+    {        
+        let sql = `
+            UPDATE [User]
+            SET UserName = @UserName,
+                DisplayName = @DisplayName,
+                Email = @Email,
+                Mobile = @Mobile,
+                Tel = @Tel,                
+                Title = @Title                                
+            WHERE UserKey = @UserKey
+        `;
+        yield dbContext.openConnection();        
+        let data = yield dbContext.queryExecute(sql, user);
+        yield dbContext.closeConnection();        
+        return data;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }
+});
 
-Factory.prototype.delete = function(){
+Factory.prototype.delete = Q.async(function* (userKey){
     return true;
-}
+});
 
 Factory.prototype.getMenus = function(){
     return data.getMenus();
