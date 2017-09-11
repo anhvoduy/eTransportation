@@ -43,6 +43,28 @@ Factory.prototype.getItem = Q.async(function* (GroupKey){
     }
 });
 
+Factory.prototype.getGroupUsers = Q.async(function* (GroupKey){
+    try
+    {        
+        let sql = `
+            SELECT G.GroupId, G.GroupName, U.UserName, U.DisplayName, 
+                UG.IsCreate, UG.IsUpdate, UG.IsDelete, UG.IsDisplay
+            FROM [UserGroup] UG 
+                INNER JOIN [GROUP] G ON UG.GroupId = G.GroupId
+                INNER JOIN [User] U ON UG.UserId = U.UserId
+            WHERE G.GroupKey = @GroupKey
+            ORDER BY U.UserId;
+        `;
+        yield dbContext.openConnection();
+        let truck = yield dbContext.queryList(sql, { GroupKey: GroupKey });
+        yield dbContext.closeConnection();
+        return truck;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }
+});
+
 Factory.prototype.create = Q.async(function* (group){
     try
     {        
@@ -57,6 +79,16 @@ Factory.prototype.create = Q.async(function* (group){
     }
     catch(err){
         yield dbContext.closeConnection();        
+        throw err;
+    }
+});
+
+Factory.prototype.linkUserToGroup = Q.async(function* (groupKey, userKey){
+    try
+    {        
+        return true;
+    }
+    catch(err){
         throw err;
     }
 });
