@@ -27,10 +27,18 @@
 			</a>
         </li>
         <li>
-            <a ui-sref="user">
-                <i class="fa fa-fw fa-table"></i> Users
+            <a data-toggle="collapse" data-target="#ManageUsers">
+                <i class="fa fa-fw fa-arrows-v"></i> Manage Users<i class="fa fa-fw fa-caret-down"></i>
             </a>
-        </li>
+            <ul id="ManageUsers" class="collapse">
+                <li>
+                    <a ui-sref="permission">Groups</a>
+                </li>
+                <li>
+                    <a ui-sref="user">Users</a>
+                </li>
+            </ul>
+        </li>        
         <li>
             <a ui-sref="chart">
 				<i class="fa fa-fw fa-bar-chart-o"></i> Charts
@@ -57,28 +65,28 @@
 			</a>
         </li>
         
-		<!-- <li> -->
-            <!-- <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a> -->
-            <!-- <ul id="demo" class="collapse"> -->
-                <!-- <li> -->
-                    <!-- <a href="#">Dropdown Item</a> -->
-                <!-- </li> -->
-                <!-- <li> -->
-                    <!-- <a href="#">Dropdown Item</a> -->
-                <!-- </li> -->
-            <!-- </ul> -->
-        <!-- </li> -->
+		<li ng-hide="true">
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo" class="collapse">
+                <li>
+                    <a href="#">Dropdown Item</a>
+                </li>
+                <li>
+                    <a href="#">Dropdown Item</a>
+                </li>
+            </ul>
+        </li>
         
-		<li>
+		<li ng-hide="true">
             <a ui-sref="blank">
 				<i class="fa fa-fw fa-file"></i> Blank Page
 			</a>
         </li>
 		
-        <!-- <li> -->
-            <!-- <a href="index-rtl.html"> -->
-				<!-- <i class="fa fa-fw fa-dashboard"></i> RTL Dashboard -->
-			<!-- </a> -->
-        <!-- </li> -->
+        <li ng-hide="true">
+            <a href="index-rtl.html">
+				<i class="fa fa-fw fa-dashboard"></i> RTL Dashboard
+			</a>
+        </li>
     </ul>
 </div>

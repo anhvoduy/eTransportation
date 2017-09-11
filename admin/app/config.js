@@ -131,6 +131,25 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('userPermission', {
+		url: '/user/:userKey',
+		parentState: 'user',
+		views: {
+			'view': {
+				templateUrl: 'app/views/userPermission.tpl.html',
+				controller: 'userPermissionController'
+			}
+		}
+	})
+	.state('group', {
+		url: '/group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/group.tpl.html',
+				controller: 'groupController'
+			}
+		}
+	})	
 	.state('chart', {
 		url: '/chart',
 		views: {

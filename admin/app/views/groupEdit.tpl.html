@@ -1,0 +1,110 @@
+<div class="container" ng-cloak>
+	<h2>{{ formTitle }}</h2>
+    <form name="formUser" class="form form-horizontal">
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(messageError.length > 0)'>{{ messageError }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="UserName" class="col-sm-2 control-label">User Name</label>
+            <div class="col-sm-6">
+                <input name="UserName" ng-model="user.UserName" class="form-control" placeholder="User Name" maxlength="20" required/>
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(isSubmitted && formUser.UserName.$error.required) || (formUser.UserName.$dirty && formUser.UserName.$error.required)'>
+                 User Name is required
+            </div>
+        </div>
+
+        <div class="form-group">
+                <label for="DisplayName" class="col-sm-2 control-label">Display Name</label>
+                <div class="col-sm-6">
+                    <input name="DisplayName" ng-model="user.DisplayName" class="form-control" placeholder="Display Name" maxlength="50" required/>
+                </div>
+                <div class='control-label col-sm-8 message-error'
+                     ng-show='(isSubmitted && formUser.DisplayName.$error.required) || (formUser.DisplayName.$dirty && formUser.DisplayName.$error.required)'>
+                     User Name is required
+                </div>
+            </div>
+
+		<div class="form-group">
+            <label for="Email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-6">
+                <input name="Email" ng-model="user.Email" class="form-control" placeholder="Email" maxlength="50" required/>
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(isSubmitted && formUser.Email.$error.required) || (formUser.Email.$dirty && formUser.Email.$error.required)'>
+                 Email is required
+            </div>
+		</div>
+
+		<div class="form-group">
+            <label for="Mobile" class="col-sm-2 control-label">Mobile</label>
+            <div class="col-sm-6">
+                <input name="Mobile" ng-model="user.Mobile" class="form-control" placeholder="Mobile" maxlength="50" required/>
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(isSubmitted && formUser.Mobile.$error.required) || (formUser.Mobile.$dirty && formUser.Mobile.$error.required)'>
+                 Mobile is required
+            </div>
+		</div>
+
+		<div class="form-group">
+            <label for="Tel" class="col-sm-2 control-label">Telephone</label>
+            <div class="col-sm-6">
+                <input name="Tel" ng-model="user.Tel" class="form-control" placeholder="Telephone" required maxlength="50" />
+            </div>
+            <div class='control-label col-sm-8 message-error'                 
+                 ng-show='(isSubmitted && formUser.Tel.$error.required) || (formUser.Tel.$dirty && formUser.Tel.$error.required)'>
+                 Telephone is required
+            </div>
+		</div>
+		
+		<div class="form-group">
+            <label for="Title" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-6">
+                <input name="Title" ng-model="user.Title" class="form-control" placeholder="Title" maxlength="50" required/>
+            </div>
+            <div class='control-label col-sm-8 message-error'                 
+                 ng-show='(isSubmitted && formUser.Title.$error.required) || (formUser.Title.$dirty && formUser.Title.$error.required)'>
+                 Title is required
+            </div>
+		</div>
+
+		<div class="form-group">
+            <label for="DateOfBirth" class="col-sm-2 control-label">Date Of Birth</label>
+            <div class="col-sm-6">
+                <input name="DateOfBirth" ng-model="user.DateOfBirth" class="form-control" placeholder="Date Of Birth" maxlength="50" required/>
+            </div>
+            <div class='control-label col-sm-8 message-error'
+                 ng-show='(isSubmitted && formUser.DateOfBirth.$error.required) || (formUser.DateOfBirth.$dirty && formUser.DateOfBirth.$error.required)'>
+                 DateOfBirth is required
+            </div>
+		</div>
+
+		<div class="form-group">
+            <label for="Description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-6">
+                <textarea name="Description" ng-model="User.Description" class="form-control" placeholder="Description" maxlength="250" />
+            </div>            
+        </div>
+        
+        <div class="form-group">
+            <div class='control-label col-sm-8 message-success'
+                 ng-show='(messageSuccess.length > 0)'>{{ messageSuccess }}</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="button" class="btn btn-primary" value="Submit" 
+                    ng-click="submit(User)" ng-disabled="(isSubmitting)"/>
+                <input type="button" class="btn btn-primary" value="Cancel"
+                        ng-click="cancel()" ng-disabled="(isSubmitted || isSubmitting)"/>
+                <span ng-show="isSubmitting">                
+                    <img ng-if="isSubmitting" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
