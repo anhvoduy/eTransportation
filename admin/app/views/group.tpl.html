@@ -2,8 +2,8 @@
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Users</h1>
-            <h5><a ui-sref='userEdit({ userKey: null, formStatus: 1 })'>Create User</a></h5>
+            <h1 class="page-header">Groups</h1>
+            <h5><a ui-sref='userEdit({ userKey: null, formStatus: 1 })'>Create Group</a></h5>
         </div>
     </div>
         
@@ -20,6 +20,7 @@
                             <th>Mobile</th>
                             <th>Email</th>
                             <th>Edit</th>
+                            <th>Permission</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,7 @@
                             <td>{{ u.DisplayName }}</td>
                             <td>{{ u.Mobile }}</td>
                             <td>{{ u.Email }}</td>
+                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Edit</a></td>
                             <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Edit</a></td>
                         </tr>
                     </tbody>

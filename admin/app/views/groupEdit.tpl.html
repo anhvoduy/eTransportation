@@ -1,6 +1,6 @@
 <div class="container" ng-cloak>
 	<h2>{{ formTitle }}</h2>
-    <form name="formUser" class="form form-horizontal">
+    <form name="formGroup" class="form form-horizontal">
         <div class="form-group">
             <div class='control-label col-sm-8 message-error'
                  ng-show='(messageError.length > 0)'>{{ messageError }}</div>
@@ -12,7 +12,7 @@
                 <input name="UserName" ng-model="user.UserName" class="form-control" placeholder="User Name" maxlength="20" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='(isSubmitted && formUser.UserName.$error.required) || (formUser.UserName.$dirty && formUser.UserName.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.UserName.$error.required) || (formGroup.UserName.$dirty && formGroup.UserName.$error.required)'>
                  User Name is required
             </div>
         </div>
@@ -23,7 +23,7 @@
                     <input name="DisplayName" ng-model="user.DisplayName" class="form-control" placeholder="Display Name" maxlength="50" required/>
                 </div>
                 <div class='control-label col-sm-8 message-error'
-                     ng-show='(isSubmitted && formUser.DisplayName.$error.required) || (formUser.DisplayName.$dirty && formUser.DisplayName.$error.required)'>
+                     ng-show='(isSubmitted && formGroup.DisplayName.$error.required) || (formGroup.DisplayName.$dirty && formGroup.DisplayName.$error.required)'>
                      User Name is required
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <input name="Email" ng-model="user.Email" class="form-control" placeholder="Email" maxlength="50" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='(isSubmitted && formUser.Email.$error.required) || (formUser.Email.$dirty && formUser.Email.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.Email.$error.required) || (formGroup.Email.$dirty && formGroup.Email.$error.required)'>
                  Email is required
             </div>
 		</div>
@@ -45,7 +45,7 @@
                 <input name="Mobile" ng-model="user.Mobile" class="form-control" placeholder="Mobile" maxlength="50" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='(isSubmitted && formUser.Mobile.$error.required) || (formUser.Mobile.$dirty && formUser.Mobile.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.Mobile.$error.required) || (formGroup.Mobile.$dirty && formGroup.Mobile.$error.required)'>
                  Mobile is required
             </div>
 		</div>
@@ -56,7 +56,7 @@
                 <input name="Tel" ng-model="user.Tel" class="form-control" placeholder="Telephone" required maxlength="50" />
             </div>
             <div class='control-label col-sm-8 message-error'                 
-                 ng-show='(isSubmitted && formUser.Tel.$error.required) || (formUser.Tel.$dirty && formUser.Tel.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.Tel.$error.required) || (formGroup.Tel.$dirty && formGroup.Tel.$error.required)'>
                  Telephone is required
             </div>
 		</div>
@@ -67,7 +67,7 @@
                 <input name="Title" ng-model="user.Title" class="form-control" placeholder="Title" maxlength="50" required/>
             </div>
             <div class='control-label col-sm-8 message-error'                 
-                 ng-show='(isSubmitted && formUser.Title.$error.required) || (formUser.Title.$dirty && formUser.Title.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.Title.$error.required) || (formGroup.Title.$dirty && formGroup.Title.$error.required)'>
                  Title is required
             </div>
 		</div>
@@ -78,7 +78,7 @@
                 <input name="DateOfBirth" ng-model="user.DateOfBirth" class="form-control" placeholder="Date Of Birth" maxlength="50" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
-                 ng-show='(isSubmitted && formUser.DateOfBirth.$error.required) || (formUser.DateOfBirth.$dirty && formUser.DateOfBirth.$error.required)'>
+                 ng-show='(isSubmitted && formGroup.DateOfBirth.$error.required) || (formGroup.DateOfBirth.$dirty && formGroup.DateOfBirth.$error.required)'>
                  DateOfBirth is required
             </div>
 		</div>

@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
-	app.controller('userController', userController);
-	userController.$inject = ['$rootScope', '$scope', 'userService'];
-	function userController($rootScope, $scope, userService) {
+	app.controller('groupController', groupController);
+	groupController.$inject = ['$rootScope', '$scope', 'userService', 'groupService'];
+	function groupController($rootScope, $scope, userService, groupService) {
 		
 		// functions
 		function activate() {			
