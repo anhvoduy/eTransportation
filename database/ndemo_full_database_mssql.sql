@@ -452,3 +452,29 @@ INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email,
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'anhvod', NEWID(),'Vo Duy Anh','anhvod@hvn.com','1984-12-24','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'lukaku', NEWID(),'Lukaku','lukaku@sony.com','1982-08-08','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) VALUES (NEWID(),'USER', 'pogba',  NEWID(),'Pogba','pogba@samsung.com','1985-06-06','SYSTEM','SYSTEM');
+
+
+/****** Object:  Table [dbo].[Group] ******/
+-- DROP TABLE [dbo].[Group];
+CREATE TABLE [dbo].[Group](
+	[GroupId] [int] IDENTITY(1,1) NOT NULL,
+	[GroupKey] [nvarchar](50) NOT NULL,	
+    [GroupName] [nvarchar](50) NULL,
+	[Description] [nvarchar](250) NULL,	
+	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+	[Author] [nvarchar](50) NULL,
+	[Editor] [nvarchar](50) NULL,
+    [Deleted] [int] DEFAULT 0
+ CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+(
+	[GroupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Administrators', 'Administrators Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Sales', 'Sales Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Accountances','Accountances Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Human Resources', 'Human Resources Group','SYSTEM','SYSTEM');
+INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) VALUES (NEWID(),'Logictics', 'Logictics Group','SYSTEM','SYSTEM');
