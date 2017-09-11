@@ -10,7 +10,7 @@ Factory.prototype.getList = Q.async(function* (){
     try
     {
         let sql = `
-            SELECT BrandId, BrandKey, BrandName, Description, Create, Updated, Author, Editor 
+            SELECT BrandId, BrandKey, BrandName, Description, Author, Editor 
             FROM Brand
             WHERE Deleted = 0 
             ORDER BY BrandId DESC
@@ -30,7 +30,7 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
     try
     {        
         let sql = `
-            SELECT BrandId, BrandKey, BrandName, Description, Create, Updated, Author, Editor
+            SELECT BrandId, BrandKey, BrandName, Description, Author, Editor
             FROM Brand
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;
@@ -44,17 +44,47 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
     }
 });
 
-Factory.prototype.create = function(brand){
-    return true;
-}
+Factory.prototype.create = Q.async(function* (brand){
+    try
+    {        
+        let sql = `
+            INSERT INTO Brand(BrandKey, BrandName, Description, Author, Editor)
+            VALUES (NEWID(), @BrandName, @Description, 'SYSTEM', 'SYSTEM');
+        `;
+        yield dbContext.openConnection();
+        let result = yield dbContext.queryExecute(sql, brand);
+        yield dbContext.closeConnection();
+        return result;
+    }
+    catch(err){
+        yield dbContext.closeConnection();        
+        throw err;
+    }
+});
 
-Factory.prototype.update = function(brand){
-    return true;
-}
+Factory.prototype.update = Q.async(function* (brand){
+    try
+    {        
+        let sql = `
+            UPDATE Brand
+            SET BrandName = @BrandName,                 
+                Description = @Description
+            WHERE BrandKey = @BrandKey
+        `;
+        yield dbContext.openConnection();
+        let result = yield dbContext.queryExecute(sql, brand);
+        yield dbContext.closeConnection();
+        return result;
+    }
+    catch(err){
+        yield dbContext.closeConnection();        
+        throw err;
+    }
+});
 
-Factory.prototype.delete = function(BrandKey){
+Factory.prototype.delete = Q.async(function* (BrandKey){
     return true;
-}
+});
 
 // Export
 module.exports = new Factory;

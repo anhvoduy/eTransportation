@@ -31,18 +31,45 @@
 			else return 'Display Brand';			
 		};
 
+		function validateMaster(master){
+			if(!master){
+				return false;
+			}
+			else if(angular.isUndefined(master.BrandName) || formBrand.BrandName.$invalid){
+				return false;
+			}			
+			else{
+				return true;
+			}			
+		}
+
 		// buttons
-		$scope.save = function () {
-			if (angular.isUndefined($scope.brand)) return;
-			
-			$scope.disabledButton = true;
-			// brandService.updateBrand($scope.brand).then(function (result) {
-			// 	$scope.messageSuccess = result.message;
-			// 	resetFormStatus();
-			// }, function (error) {
-			// 	$scope.messageError = error.message;
-			// 	resetFormStatus();
-			// });
+		$scope.submit = function (brand) {
+			$scope.isSubmitted = true; // validate UI
+			$scope.master = angular.copy(brand); // clone new object
+			if(!$scope.master || !validateMaster($scope.master)) // validate business rules
+			{ 
+				$scope.isSubmitted = false;
+				return;
+			}
+			else
+			{
+				// start submit to server
+				$scope.isSubmitting = true;
+				brandService.update($scope.master).then(function(result){
+					//console.log(result);
+					if($scope.formStatus === appCommon.formStatus.isNew){
+						$state.go($state.current.parentState);
+					} else if($scope.formStatus === appCommon.formStatus.isEdit){
+						$scope.isSubmitted = false;
+						$scope.isSubmitting = false;
+					}
+				}, function(error){
+					//console.log(error);
+					$scope.isSubmitted = false;
+					$scope.isSubmitting = false;
+				});
+			}
 		}
 
 		$scope.cancel = function() {            

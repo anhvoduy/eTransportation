@@ -46,12 +46,17 @@ router.post('/update', Q.async(function* (req, res, next) {
 		if(!customer) throw errorHelper.ERROR_INVALID_CUSTOMER;
 				
 		let result;
-		if(customer.CustomerKey)
-			result = yield customerService.update(customer);
-		else 
-			result = yield customerService.create(customer);
-
-		res.status(200).json(true);
+		if(customer.CustomerKey){
+			let data = yield customerService.update(customer);
+			if(data.rowsAffected.length > 0) result = true;
+			else result = false;
+		}
+		else {
+			let data = yield customerService.create(customer);
+			if(data.rowsAffected.length > 0) result = true;
+			else result = false;
+		}
+		res.status(200).json(result);
 	}catch(err){
 		res.status(500).json(err);
 		next(err);

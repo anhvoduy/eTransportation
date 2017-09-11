@@ -34,7 +34,7 @@
 		<div class="form-group">
             <label for="Price" class="col-sm-2 control-label">Price</label>
             <div class="col-sm-6">
-                <input name="Price" ng-model="product.Price" class="form-control" placeholder="Price" required maxlength="50" />
+                <input name="Price" ng-model="product.Price" class="form-control" placeholder="Price" maxlength="50" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='formProduct.Price.$dirty && formProduct.Price.$invalid'>Please input Price</div>
@@ -43,7 +43,7 @@
         <div class="form-group">
             <label for="Colour" class="col-sm-2 control-label">Colour</label>
             <div class="col-sm-6">
-                <input name="Colour" ng-model="product.Colour" class="form-control" placeholder="Color" required maxlength="50" />
+                <input name="Colour" ng-model="product.Colour" class="form-control" placeholder="Color" maxlength="10" required/>
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='formProduct.Colour.$dirty && formProduct.Colour.$invalid'>Please input Colour</div>

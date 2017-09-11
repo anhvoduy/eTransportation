@@ -62,10 +62,16 @@
 			}
 			// start submit to server
 			$scope.isSubmitting = true;
-			productService.update($scope.master).then(function(result){				
-				$scope.isSubmitted = false;
-				$scope.isSubmitting = false;
-			}, function(error){				
+			productService.update($scope.master).then(function(result){
+				//console.log(result);
+				if($scope.formStatus === appCommon.formStatus.isNew){
+					$state.go($state.current.parentState);
+				} else if($scope.formStatus === appCommon.formStatus.isEdit){
+					$scope.isSubmitted = false;
+					$scope.isSubmitting = false;
+				}
+			}, function(error){
+				//console.log(error);
 				$scope.isSubmitted = false;
 				$scope.isSubmitting = false;
 			});

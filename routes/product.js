@@ -36,8 +36,10 @@ router.get('/item', Q.async(function* (req, res, next) {
 router.post('/update', Q.async(function* (req, res, next) {
     try
 	{
-		let product = _.pick(req.body, ['ProductKey', 'ProductCode', 'ProductName', 'Description']);
+		let product = _.pick(req.body, ['ProductKey', 'ProductCode', 'ProductName', 'Description', 'BrandId', 'Price', 'Colour']);
 		if(!product) throw errorHelper.ERROR_INVALID_PRODUCT;
+		product.BrandId = Number(product.BrandId);
+		product.Price = Number(product.Price);
 
 		let result;
 		if(product.ProductKey){
@@ -47,7 +49,8 @@ router.post('/update', Q.async(function* (req, res, next) {
 		}
 		else {
 			let data = yield productService.create(product);
-			result = false
+			if(data.rowsAffected.length > 0) result = true;
+			else result = false;
 		}
 		res.status(200).json(result);
 	}

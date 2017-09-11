@@ -38,35 +38,44 @@
 				$scope.formTitle = 'Display Customer';
 		};
 
-		function validateForm(){			
-			if(!$scope.customer.CustomerName)
+		function validateMaster(master){
+			if(!master){
 				return false;
-			if(!$scope.customer.Email)
+			}
+			else if(angular.isUndefined(master.CustomerName) || formCustomer.CustomerName.$invalid){
 				return false;
-			return true;
+			}
+			else if(angular.isUndefined(master.Email) || formCustomer.Email.$invalid){
+				return false;
+			}
+			else{
+				return true;
+			}			
 		}
-
 		// buttons
-		$scope.submit = function () {
-			$scope.isSubmitted = true;
-			if($scope.customer && validateForm()){
-				//$scope.isSubmitting = true;
-				// $timeout(function(){
-				// 	console.log('timeout.....');
-				// 	console.log($scope.customer);
-				// 	$scope.isSubmitted = false;
-				// 	$scope.isSubmitting = false;
-				// }, 5000);
-				customerService.update($scope.customer).then(function(result){
-					$scope.messageSuccess = result.message;
+		$scope.submit = function (customer) {
+			$scope.isSubmitted = true; // validate UI
+			$scope.master = angular.copy(customer); // clone new object
+			if(!$scope.master || !validateMaster($scope.master)) // validate business rules
+			{ 
+				$scope.isSubmitted = false;
+				return;
+			}
+			// start submit to server
+			$scope.isSubmitting = true;			
+			customerService.update($scope.master).then(function(result){
+				//console.log(result);
+				if($scope.formStatus === appCommon.formStatus.isNew){
+					$state.go($state.current.parentState);
+				} else if($scope.formStatus === appCommon.formStatus.isEdit){
 					$scope.isSubmitted = false;
-					//resetFormStatus();
-				}, function(error){
-					$scope.messageError = error.message;
-					$scope.isSubmitted = false;
-					// resetFormStatus();
-				})
-			}					
+					$scope.isSubmitting = false;
+				}
+			}, function(error){
+				//console.log(error);
+				$scope.isSubmitted = false;
+				$scope.isSubmitting = false;				
+			});			
 		}
 
 		$scope.cancel = function() {

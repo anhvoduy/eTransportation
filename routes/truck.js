@@ -42,7 +42,8 @@ router.post('/update', Q.async(function* (req, res, next) {
 		}
 		else {
 			let data = yield truckService.create(truck);
-			result = false
+			if(data.rowsAffected.length > 0) result = true;
+			else result = false;
 		}
 		res.status(200).json(result);
 	}

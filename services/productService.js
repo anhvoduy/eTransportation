@@ -50,10 +50,10 @@ Factory.prototype.create = Q.async(function* (product){
     {        
         let sql = `
             INSERT INTO Product(ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author, Editor)
-            VALUES (NEWID(), @ProductCode, @ProductName, @Description, 2, 100, 'Black', 2,'SYSTEM','SYSTEM');
+            VALUES (NEWID(), @ProductCode, @ProductName, @Description, @BrandId, @Price, @Colour, 2, 'SYSTEM', 'SYSTEM');
         `;
         yield dbContext.openConnection();
-        let result = yield dbContext.queryItem(sql, product);
+        let result = yield dbContext.queryExecute(sql, product);
         yield dbContext.closeConnection();
         return result;
     }
@@ -69,7 +69,10 @@ Factory.prototype.update = Q.async(function* (product){
         let sql = `
             UPDATE Product
             SET ProductCode = @ProductCode, 
-                ProductName = @ProductName, 
+                ProductName = @ProductName,
+                BrandId     = @BrandId, 
+                Price       = @Price, 
+                Colour      = @Colour,
                 Description = @Description
             WHERE ProductKey = @ProductKey
         `;

@@ -46,9 +46,22 @@ Factory.prototype.getItem = Q.async(function* (CustomerKey){
 });
 
 Factory.prototype.create = Q.async(function* (customer){
-    console.log('---- create()');
-    console.log(customer);
-    return true;
+    try
+    {        
+        let sql = `
+            INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Description, 
+                Email, Mobile, Tel, Fax, Title, Address, Author, Editor)
+            VALUES (NEWID(), @CustomerName, @Description, 
+                @Email, @Mobile, @Tel, @Fax, @Title, @Address, 'SYSTEM', 'SYSTEM')
+        `;
+        yield dbContext.openConnection();        
+        let data = yield dbContext.queryExecute(sql, customer);
+        yield dbContext.closeConnection();        
+        return data;
+    }catch(err){
+        yield dbContext.closeConnection();
+        throw err;
+    }
 });
 
 Factory.prototype.update = Q.async(function* (customer){    
