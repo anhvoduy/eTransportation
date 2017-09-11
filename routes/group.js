@@ -36,17 +36,17 @@ router.get('/item', Q.async(function* (req, res, next) {
 router.post('/update', Q.async(function* (req, res, next) {
 	try
 	{
-		let truck = _.pick(req.body, ['TruckKey', 'TruckName', 'TruckNumber', 'Description']);
-		if(!truck) throw errorHelper.ERROR_INVALID_TRUCK;
+		let group = _.pick(req.body, ['GroupKey', 'GroupName', 'Description']);
+		if(!group) throw errorHelper.ERROR_INVALID_GROUP;
 
 		let result;
-		if(truck.TruckKey){
-			let data = yield truckService.update(truck);
+		if(group.GroupKey){
+			let data = yield groupService.update(group);
 			if(data.rowsAffected.length > 0) result = true;
 			else result = false;
 		}
 		else {
-			let data = yield truckService.create(truck);
+			let data = yield groupService.create(group);
 			if(data.rowsAffected.length > 0) result = true;
 			else result = false;
 		}
@@ -58,10 +58,11 @@ router.post('/update', Q.async(function* (req, res, next) {
 	}	
 }));
 
-router.delete('/delete', function (req, res, next) {
+
+router.delete('/delete', Q.async(function* (req, res, next) {
 	res.status(200).json(true);
 	next();
-});
+}));
 
 // return Router
 module.exports = router;
