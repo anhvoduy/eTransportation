@@ -1,13 +1,13 @@
 (function () {
 	'use strict';
 	app.controller('groupController', groupController);
-	groupController.$inject = ['$rootScope', '$scope', 'userService', 'groupService'];
-	function groupController($rootScope, $scope, userService, groupService) {
+	groupController.$inject = ['$rootScope', '$scope', 'groupService'];
+	function groupController($rootScope, $scope, groupService) {
 		
 		// functions
 		function activate() {			
-			userService.getList().then(function(data){
-				$scope.users = data;
+			groupService.getList().then(function(data){
+				$scope.groups = data;
 			}, function(err){
 				console.log(err);
 			});
