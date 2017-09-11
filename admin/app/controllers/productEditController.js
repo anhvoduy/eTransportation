@@ -40,10 +40,10 @@
 			if(!master){
 				return false;
 			}
-			else if(angular.isUndefined(master.ProductCode) || formTruck.ProductCode.$invalid){
+			else if(angular.isUndefined(master.ProductCode) || formProduct.ProductCode.$invalid){
 				return false;
 			}
-			else if(angular.isUndefined(master.ProductName) || formTruck.ProductName.$invalid){
+			else if(angular.isUndefined(master.ProductName) || formProduct.ProductName.$invalid){
 				return false;
 			}
 			else{
