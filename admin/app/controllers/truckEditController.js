@@ -8,7 +8,7 @@
 		$scope.isSubmitting = false;
 		$scope.truckKey = $stateParams.truckKey;
 		$scope.master = {}; // https://docs.angularjs.org/guide/forms
-		$scope.formStatus = angular.isUndefined($scope.truckKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
+		$scope.formStatus = appCommon.isUndefined($scope.truckKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = {};
 		$scope.messageError = {};
 
@@ -65,29 +65,19 @@
 				// start submit to server
 				$scope.isSubmitting = true;
 				truckService.update($scope.master).then(function(result){
-					console.log(result);
-					$scope.isSubmitted = false;
-					$scope.isSubmitting = false;
+					//console.log(result);
+					if($scope.formStatus === appCommon.formStatus.isNew){
+						$state.go($state.current.parentState);
+					} else if($scope.formStatus === appCommon.formStatus.isEdit){
+						$scope.isSubmitted = false;
+						$scope.isSubmitting = false;
+					}
 				}, function(error){
-					console.log(error);
+					//console.log(error);
 					$scope.isSubmitted = false;
 					$scope.isSubmitting = false;
 				});
-				// $timeout(function(){
-				// 	console.log('submitForm()......');
-				// 	truckService.
-				// 	$scope.isSubmitted = false;
-				// 	$scope.isSubmitting = false;
-				// }, 3000);
 			}
-
-			// brandService.updateBrand($scope.brand).then(function (result) {
-			// 	$scope.messageSuccess = result.message;
-			// 	resetFormStatus();
-			// }, function (error) {
-			// 	$scope.messageError = error.message;
-			// 	resetFormStatus();
-			// });
 		}
 
 		$scope.cancel = function() {
