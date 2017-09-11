@@ -131,13 +131,13 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
-	.state('userPermission', {
+	.state('userGroup', {
 		url: '/user/:userKey',
 		parentState: 'user',
 		views: {
 			'view': {
-				templateUrl: 'app/views/userPermission.tpl.html',
-				controller: 'userPermissionController'
+				templateUrl: 'app/views/userGroup.tpl.html',
+				controller: 'userGroupController'
 			}
 		}
 	})
@@ -147,6 +147,16 @@ app.config(function ($stateProvider) {
 			'view': {
 				templateUrl: 'app/views/group.tpl.html',
 				controller: 'groupController'
+			}
+		}
+	})	
+	.state('groupEdit', {
+		url: '/group/:groupKey',
+		parentState: 'group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/groupEdit.tpl.html',
+				controller: 'groupEditController'
 			}
 		}
 	})	
