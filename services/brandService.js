@@ -10,7 +10,7 @@ Factory.prototype.getList = Q.async(function* (){
     try
     {
         let sql = `
-            SELECT * 
+            SELECT BrandId, BrandKey, BrandName, Description, Create, Updated, Author, Editor 
             FROM Brand
             WHERE Deleted = 0 
             ORDER BY BrandId DESC
@@ -30,7 +30,7 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
     try
     {        
         let sql = `
-            SELECT *
+            SELECT BrandId, BrandKey, BrandName, Description, Create, Updated, Author, Editor
             FROM Brand
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;

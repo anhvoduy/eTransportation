@@ -66,28 +66,18 @@
 				$scope.isSubmitting = true;
 				truckService.update($scope.master).then(function(result){
 					//console.log(result);
-					$scope.isSubmitted = false;
-					$scope.isSubmitting = false;
+					if($scope.formStatus === appCommon.formStatus.isNew){
+						$state.go($state.current.parentState);
+					} else if($scope.formStatus === appCommon.formStatus.isEdit){
+						$scope.isSubmitted = false;
+						$scope.isSubmitting = false;
+					}					
 				}, function(error){
 					//console.log(error);
 					$scope.isSubmitted = false;
 					$scope.isSubmitting = false;
 				});
-				// $timeout(function(){
-				// 	console.log('submitForm()......');
-				// 	truckService.
-				// 	$scope.isSubmitted = false;
-				// 	$scope.isSubmitting = false;
-				// }, 3000);
 			}
-
-			// brandService.updateBrand($scope.brand).then(function (result) {
-			// 	$scope.messageSuccess = result.message;
-			// 	resetFormStatus();
-			// }, function (error) {
-			// 	$scope.messageError = error.message;
-			// 	resetFormStatus();
-			// });
 		}
 
 		$scope.cancel = function() {
