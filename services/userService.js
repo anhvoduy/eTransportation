@@ -42,8 +42,8 @@ Factory.prototype.getUsers = function(){
 Factory.prototype.getList = Q.async(function* (){
     try{        
         let sql = `
-            SELECT *
-            FROM User
+            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
+            FROM [User]
             WHERE Deleted = 0 
             ORDER BY UserId DESC
         `;
@@ -58,15 +58,15 @@ Factory.prototype.getList = Q.async(function* (){
     }
 });
 
-Factory.prototype.getItem = Q.async(function* (){
+Factory.prototype.getItem = Q.async(function* (UserKey){
     try{        
         let sql = `
-            SELECT *
-            FROM User
+            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
+            FROM [User]
             WHERE UserKey = @UserKey AND Deleted = 0
         `;
         yield dbContext.openConnection();
-        let user = yield dbContext.queryItem(sql);    
+        let user = yield dbContext.queryItem(sql, {UserKey: UserKey});    
         yield dbContext.closeConnection();
         return user;
     }

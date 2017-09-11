@@ -112,6 +112,25 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('user', {
+		url: '/user',
+		views: {
+			'view': {
+				templateUrl: 'app/views/user.tpl.html',
+				controller: 'userController'
+			}
+		}
+	})
+	.state('userEdit', {
+		url: '/user/:userKey',
+		parentState: 'user',
+		views: {
+			'view': {
+				templateUrl: 'app/views/userEdit.tpl.html',
+				controller: 'userEditController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {
