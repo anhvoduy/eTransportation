@@ -11,8 +11,7 @@
 		$scope.formStatus = $stateParams.formStatus;
 		$scope.formStatus = appCommon.isUndefined($scope.userKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = [];
-		$scope.messageError = [];
-		$scope.getDateOfBirth = new Date('2010-Oct-17');		
+		$scope.messageError = [];		
 
 		// function
 		function activate() {
@@ -21,8 +20,7 @@
 
 			if(!appCommon.isUndefined($scope.userKey)){
 				userService.getItem($scope.userKey).then(function (result) {
-					$scope.user = result;
-					$scope.getDateOfBirth = moment($scope.user.DateOfBirth);
+					$scope.user = result;					
 				}, function (error) {
 					$scope.messageError.push(error);
 				});
