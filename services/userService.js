@@ -47,14 +47,11 @@ Factory.prototype.getList = Q.async(function* (){
             FROM [User]
             WHERE Deleted = 0 
             ORDER BY UserId DESC
-        `;
-        yield dbContext.openConnection();
-        let users = yield dbContext.queryList(sql);    
-        yield dbContext.closeConnection();
+        `;        
+        let users = yield dbContext.queryList(sql);
         return users;
     }
-    catch(err){
-        yield dbContext.closeConnection();
+    catch(err){        
         throw err;
     }
 });
@@ -65,14 +62,11 @@ Factory.prototype.getItem = Q.async(function* (UserKey){
             SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
             FROM [User]
             WHERE UserKey = @UserKey AND Deleted = 0
-        `;
-        yield dbContext.openConnection();
-        let user = yield dbContext.queryItem(sql, {UserKey: UserKey});    
-        yield dbContext.closeConnection();
+        `;        
+        let user = yield dbContext.queryItem(sql, {UserKey: UserKey});
         return user;
     }
     catch(err){
-        yield dbContext.closeConnection();
         throw err;
     }
 });
@@ -88,12 +82,10 @@ Factory.prototype.create = Q.async(function* (user){
         `;        
         user.Hash = crypto.createHash('sha1');
         user.UserType = 'USER';
-        yield dbContext.openConnection();        
-        let data = yield dbContext.queryExecute(sql, user);
-        yield dbContext.closeConnection();        
+
+        let data = yield dbContext.queryExecute(sql, user);        
         return data;
     }catch(err){
-        yield dbContext.closeConnection();
         throw err;
     }
 });
@@ -111,12 +103,10 @@ Factory.prototype.update = Q.async(function* (user){
                 Title = @Title                                
             WHERE UserKey = @UserKey
         `;
-        yield dbContext.openConnection();        
-        let data = yield dbContext.queryExecute(sql, user);
-        yield dbContext.closeConnection();        
+
+        let data = yield dbContext.queryExecute(sql, user);        
         return data;
-    }catch(err){
-        yield dbContext.closeConnection();
+    }catch(err){        
         throw err;
     }
 });
