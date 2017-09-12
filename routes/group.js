@@ -78,8 +78,13 @@ router.get('/permission', Q.async(function* (req, res, next) {
 
 router.post('/assignPermission', Q.async(function* (req, res, next) {
 	try
-	{		
-		res.status(200).json(true);
+	{
+		let groupPermission = _.map(req.body);
+		let result = false;
+		if(groupPermission && Array.isArray(groupPermission) && groupPermission.length > 0){
+			result = yield groupService.saveUserGroupPermission(groupPermission);			
+		}		
+		res.status(200).json(result);
 	}
 	catch(err){
 		res.status(500).json(err);

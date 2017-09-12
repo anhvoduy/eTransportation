@@ -141,7 +141,7 @@ app.config(function ($stateProvider) {
 		}
 	})	
 	.state('groupEdit', {
-		url: '/group/:groupKey',
+		url: '/group/groupEdit/:groupKey',
 		parentState: 'group',
 		views: {
 			'view': {
@@ -151,7 +151,7 @@ app.config(function ($stateProvider) {
 		}
 	})
 	.state('groupPermission', {
-		url: '/group/:groupKey',
+		url: '/group/groupPermission/:groupKey',
 		parentState: 'group',
 		views: {
 			'view': {

@@ -38,7 +38,13 @@
             var url = String.format('{0}{1}{2}{3}', this.api, '/permission', '?GroupKey=', groupKey);
             
             var q = $q.defer();
-            this.getData(url).then(function (result) {
+            this.getData(url).then(function (result) {                
+                angular.forEach(result, function(item){
+                    item.IsCreate = item.IsCreate === 0 ? false : true;
+                    item.IsUpdate = item.IsUpdate === 0 ? false : true;
+                    item.IsDelete = item.IsDelete === 0 ? false : true;
+                    item.IsDisplay = item.IsDisplay === 0 ? false : true;
+                });
                 q.resolve(result);
             }, function (error) {
                 q.reject(error);
