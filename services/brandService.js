@@ -15,7 +15,7 @@ Factory.prototype.getList = Q.async(function* (){
             WHERE Deleted = 0 
             ORDER BY BrandId DESC
         `;
-        return dbContext.queryDatabaseList(sql);
+        return dbContext.queryList(sql);
     }
     catch(err){
         throw err;
@@ -30,7 +30,7 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
             FROM Brand
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;
-        return dbContext.queryDatabaseItem(sql, { BrandKey: BrandKey });
+        return dbContext.queryItem(sql, { BrandKey: BrandKey });
     }catch(err){
         throw err;
     }

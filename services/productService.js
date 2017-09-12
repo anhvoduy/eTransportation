@@ -15,7 +15,7 @@ Factory.prototype.getList = Q.async(function* (){
             WHERE Deleted = 0 
             ORDER BY ProductId DESC
         `;
-        return dbContext.queryDatabaseList(sql);
+        return dbContext.queryList(sql);
     }
     catch(err){
         throw err;
@@ -30,7 +30,7 @@ Factory.prototype.getItem = Q.async(function* (ProductKey){
             FROM Product
             WHERE ProductKey = @ProductKey AND Deleted = 0
         `;
-        return dbContext.queryDatabaseItem(sql, { ProductKey: ProductKey });
+        return dbContext.queryItem(sql, { ProductKey: ProductKey });
     }
     catch(err){
         throw err;
@@ -43,14 +43,11 @@ Factory.prototype.create = Q.async(function* (product){
         let sql = `
             INSERT INTO Product(ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author, Editor)
             VALUES (NEWID(), @ProductCode, @ProductName, @Description, @BrandId, @Price, @Colour, 2, 'SYSTEM', 'SYSTEM');
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, product);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, product);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
@@ -67,14 +64,11 @@ Factory.prototype.update = Q.async(function* (product){
                 Colour      = @Colour,
                 Description = @Description
             WHERE ProductKey = @ProductKey
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, product);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, product);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
