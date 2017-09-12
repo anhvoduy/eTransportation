@@ -16,7 +16,8 @@ Factory.prototype.getList = Q.async(function* (){
             ORDER BY GroupId DESC
         `;
         return dbContext.queryList(sql);
-    }catch(err){        
+    }
+    catch(err){        
         throw err;
     }
 });
@@ -30,7 +31,8 @@ Factory.prototype.getItem = Q.async(function* (GroupKey){
             WHERE GroupKey = @GroupKey AND Deleted = 0
         `;
         return dbContext.queryItem(sql, { GroupKey: GroupKey });
-    }catch(err){        
+    }
+    catch(err){
         throw err;
     }
 });
