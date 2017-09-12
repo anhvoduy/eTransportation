@@ -10,10 +10,13 @@ Factory.prototype.getList = Q.async(function* (){
     try
     {
         let sql = `
-            SELECT * 
-            FROM Product
-            WHERE Deleted = 0 
-            ORDER BY ProductId DESC
+            SELECT P.ProductId, P.ProductName, P.ProductCode, P.Description,
+                P.BrandId, B.BrandName, 
+                P.Price, P.Colour, P.Status, P.LatestReviewInfo 
+            FROM Product P INNER JOIN Brand B
+                ON P.BrandId = B.BrandId
+            WHERE P.Deleted = 0
+            ORDER BY P.ProductId DESC
         `;
         return dbContext.queryList(sql);
     }
