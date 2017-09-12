@@ -57,7 +57,7 @@ router.get('/item', Q.async(function* (req, res, next) {
 router.post('/update', Q.async(function* (req, res, next) {
 	try
 	{
-		let user = _.pick(req.body, ['UserKey', 'UserName', 'DisplayName', 'Email', 'Mobile', 'Tel', 'Title']);
+		let user = _.pick(req.body, ['UserKey', 'UserName', 'DisplayName', 'Email', 'Mobile', 'Tel', 'Title', 'DateOfBirth']);
 		if(!user) throw errorHelper.ERROR_INVALID_USER;
 				
 		let result;

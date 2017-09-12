@@ -6,22 +6,24 @@
 		// models
 		$scope.isSubmitted = false;
 		$scope.isSubmitting = false;
-		$scope.userKey = $stateParams.userKey;
+		$scope.userKey = $stateParams.userKey;		
 		$scope.formStatus = $stateParams.formStatus;
 		$scope.formStatus = appCommon.isUndefined($scope.userKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = [];
 		$scope.messageError = [];
-
+		
 		// function
 		function activate() {
 			setFormTitle();
 			if($scope.formStatus === appCommon.formStatus.isNew) return;
 
-			userService.getItem($scope.userKey).then(function (result) {
-				$scope.user = result;				
-			}, function (error) {
-				$scope.messageError.push(error);
-			});
+			if(!appCommon.isUndefined($scope.userKey)){
+				userService.getItem($scope.userKey).then(function (result) {
+					$scope.user = result;					
+				}, function (error) {
+					$scope.messageError.push(error);
+				});
+			}			
 		}
 
 		function setFormTitle(){
@@ -47,6 +49,9 @@
 				return true;
 			}			
 		}
+
+
+
 		// buttons
 		$scope.submit = function (user) {
 			$scope.isSubmitted = true; // validate UI

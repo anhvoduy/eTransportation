@@ -74,14 +74,17 @@
 
 		<div class="form-group">
             <label for="DateOfBirth" class="col-sm-2 control-label">Date Of Birth</label>
-            <div class="col-sm-6">
-                <input name="DateOfBirth" ng-model="user.DateOfBirth" class="form-control" placeholder="Date Of Birth" maxlength="50" required/>
+            <div class="col-sm-6">                
+                <ng-input-date  name='DateOfBirth' 
+                                value='user.DateOfBirth'
+                                format='yyyy/MM/dd' 
+                                required/>
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='(isSubmitted && formUser.DateOfBirth.$error.required) || (formUser.DateOfBirth.$dirty && formUser.DateOfBirth.$error.required)'>
                  DateOfBirth is required
             </div>
-		</div>		
+		</div>
         
         <div class="form-group">
             <div class='control-label col-sm-8 message-success'
