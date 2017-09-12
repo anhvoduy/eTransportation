@@ -42,14 +42,11 @@ Factory.prototype.create = Q.async(function* (brand){
         let sql = `
             INSERT INTO Brand(BrandKey, BrandName, Description, Author, Editor)
             VALUES (NEWID(), @BrandName, @Description, 'SYSTEM', 'SYSTEM');
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, brand);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, brand);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
@@ -62,14 +59,11 @@ Factory.prototype.update = Q.async(function* (brand){
             SET BrandName = @BrandName,                 
                 Description = @Description
             WHERE BrandKey = @BrandKey
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, brand);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, brand);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
