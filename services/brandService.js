@@ -15,13 +15,9 @@ Factory.prototype.getList = Q.async(function* (){
             WHERE Deleted = 0 
             ORDER BY BrandId DESC
         `;
-        yield dbContext.openConnection();
-        let brands = yield dbContext.queryList(sql);    
-        yield dbContext.closeConnection();
-        return brands;
+        return dbContext.queryDatabaseList(sql);
     }
     catch(err){
-        yield dbContext.closeConnection();
         throw err;
     }
 })
@@ -34,12 +30,8 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
             FROM Brand
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;
-        yield dbContext.openConnection();
-        let brand = yield dbContext.queryItem(sql, { BrandKey: BrandKey });
-        yield dbContext.closeConnection();
-        return brand;
+        return dbContext.queryDatabaseItem(sql, { BrandKey: BrandKey });
     }catch(err){
-        yield dbContext.closeConnection();        
         throw err;
     }
 });

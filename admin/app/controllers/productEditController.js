@@ -17,11 +17,11 @@
 			$scope.formTitle = setFormTitle();
 
 			// check connection pool
-			// brandService.getList().then(function(result){
-			// 	$scope.brands = result;
-			// }, function(error){
-			// 	$scope.messageError.push(error);
-			// });
+			brandService.getList().then(function(result){
+				$scope.brands = result;
+			}, function(error){
+				$scope.messageError.push(error);
+			});
 
 			productService.getItem($scope.productKey).then(function (result) {
 				$scope.product = result;

@@ -27,12 +27,10 @@
         <div class="form-group">
             <label for="BrandId" class="col-sm-2 control-label">Brand</label>
             <div class="col-sm-6">
-                <input name="BrandId" ng-model="product.BrandId" class="form-control" placeholder="BrandId" maxlength="50" required/>
-                <!-- 
-                <select name="BrandId" ng-model="product.BrandId" class="form-control">
-                    <option ng-repeat="b in brands" value="{{b.BrandId}}">{{b.BrandName}}</option>
-                </select> 
-                -->
+                <!-- <input name="BrandId" ng-model="product.BrandId" class="form-control" placeholder="BrandId" maxlength="50" required/> -->                
+                <select name="BrandId" class="form-control" ng-model="product.BrandId">
+                    <option ng-repeat="b in brands" ng-value="{{b.BrandId}}" ng-selected="{{product.BrandId == b.BrandId}}">{{b.BrandName}}</option>
+                </select>
             </div>
         </div>
 

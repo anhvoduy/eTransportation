@@ -15,13 +15,9 @@ Factory.prototype.getList = Q.async(function* (){
             WHERE Deleted = 0 
             ORDER BY ProductId DESC
         `;
-        yield dbContext.openConnection();
-        let products = yield dbContext.queryList(sql);
-        yield dbContext.closeConnection();
-        return products;
+        return dbContext.queryDatabaseList(sql);
     }
     catch(err){
-        yield dbContext.closeConnection();
         throw err;
     }
 })
@@ -34,13 +30,9 @@ Factory.prototype.getItem = Q.async(function* (ProductKey){
             FROM Product
             WHERE ProductKey = @ProductKey AND Deleted = 0
         `;
-        yield dbContext.openConnection();
-        let product = yield dbContext.queryItem(sql, { ProductKey: ProductKey });
-        yield dbContext.closeConnection();
-        return product;
+        return dbContext.queryDatabaseItem(sql, { ProductKey: ProductKey });
     }
     catch(err){
-        yield dbContext.closeConnection();        
         throw err;
     }
 });
