@@ -35,25 +35,18 @@ auth.getInformationSchema = function(){
     let deferred  = Q.defer();
     let tables;
 
-    Q.when()
-    .then(function(){
-        return dbContext.openConnection();
-    })
+    Q.when()    
     .then(function(){
 		let sql = 'SELECT * FROM INFORMATION_SCHEMA.TABLES';
         return dbContext.queryList(sql)
 		.then(function(data){
 			tables = data;
-        })
-        .then(function(){
-            dbContext.closeConnection();
         });
     })
     .then(function(){
         deferred.resolve(tables);
     })
-    .catch(function(err){
-        dbContext.closeConnection();
+    .catch(function(err){        
         deferred.reject(err);
     });
 

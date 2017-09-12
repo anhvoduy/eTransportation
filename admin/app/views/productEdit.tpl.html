@@ -26,13 +26,15 @@
 
         <div class="form-group">
             <label for="BrandId" class="col-sm-2 control-label">Brand</label>
-            <div class="col-sm-6">
-                <input name="BrandId" ng-model="product.BrandId" class="form-control" placeholder="BrandId" maxlength="50" required/>
-                <!-- 
-                <select name="BrandId" ng-model="product.BrandId" class="form-control">
-                    <option ng-repeat="b in brands" value="{{b.BrandId}}">{{b.BrandName}}</option>
-                </select> 
-                -->
+            <div class="col-sm-6">                
+                <select name="BrandId" 
+                        class="form-control"                        
+                        ng-model="product.BrandId"
+                        ng-change="changeSelectedBrand()"                        
+                        ng-options="item.BrandId as item.BrandName for item in brands"
+                        required>
+                    <option value="">---Please select---</option>
+                </select>
             </div>
         </div>
 
@@ -57,7 +59,7 @@
 		<div class="form-group">
             <label for="Description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-6">
-                <input name="Description" ng-model="product.Description" class="form-control" placeholder="Description" maxlength="50" required/>
+                <textarea name="Description" ng-model="product.Description" class="form-control" placeholder="Description" maxlength="250"/>
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='formProduct.Description.$dirty && formProduct.Description.$invalid'>Please input Description</div>

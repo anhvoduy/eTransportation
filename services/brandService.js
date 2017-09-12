@@ -15,13 +15,9 @@ Factory.prototype.getList = Q.async(function* (){
             WHERE Deleted = 0 
             ORDER BY BrandId DESC
         `;
-        yield dbContext.openConnection();
-        let brands = yield dbContext.queryList(sql);    
-        yield dbContext.closeConnection();
-        return brands;
+        return dbContext.queryList(sql);
     }
     catch(err){
-        yield dbContext.closeConnection();
         throw err;
     }
 })
@@ -34,12 +30,8 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
             FROM Brand
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;
-        yield dbContext.openConnection();
-        let brand = yield dbContext.queryItem(sql, { BrandKey: BrandKey });
-        yield dbContext.closeConnection();
-        return brand;
+        return dbContext.queryItem(sql, { BrandKey: BrandKey });
     }catch(err){
-        yield dbContext.closeConnection();        
         throw err;
     }
 });
@@ -50,14 +42,11 @@ Factory.prototype.create = Q.async(function* (brand){
         let sql = `
             INSERT INTO Brand(BrandKey, BrandName, Description, Author, Editor)
             VALUES (NEWID(), @BrandName, @Description, 'SYSTEM', 'SYSTEM');
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, brand);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, brand);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
@@ -70,14 +59,11 @@ Factory.prototype.update = Q.async(function* (brand){
             SET BrandName = @BrandName,                 
                 Description = @Description
             WHERE BrandKey = @BrandKey
-        `;
-        yield dbContext.openConnection();
-        let result = yield dbContext.queryExecute(sql, brand);
-        yield dbContext.closeConnection();
+        `;        
+        let result = yield dbContext.queryExecute(sql, brand);        
         return result;
     }
-    catch(err){
-        yield dbContext.closeConnection();        
+    catch(err){        
         throw err;
     }
 });
