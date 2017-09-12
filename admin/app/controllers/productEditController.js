@@ -23,17 +23,19 @@
 				$scope.messageError.push(error);
 			});
 
-			productService.getItem($scope.productKey).then(function (result) {
-				$scope.product = result;
-			}, function (error) {
-				$scope.messageError.push(error);
-			});
+			if(!appCommon.isUndefined($scope.productKey)){
+				productService.getItem($scope.productKey).then(function (result) {
+					$scope.product = result;
+				}, function (error) {
+					$scope.messageError.push(error);
+				});
+			}
 		}
 
 		function setFormTitle(){
 			if($scope.formStatus === appCommon.formStatus.isNew) return 'Create Product';
 			else if ($scope.formStatus === appCommon.formStatus.isEdit) return 'Edit Product';
-			else return 'Display Product';			
+			else return 'Display Product';
 		};
 
 		function validateMaster(master){
