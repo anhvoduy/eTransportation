@@ -6,13 +6,12 @@
 		// models
 		$scope.isSubmitted = false;
 		$scope.isSubmitting = false;
-		$scope.userKey = $stateParams.userKey;
-		$scope.user = {};
+		$scope.userKey = $stateParams.userKey;		
 		$scope.formStatus = $stateParams.formStatus;
 		$scope.formStatus = appCommon.isUndefined($scope.userKey) ? appCommon.formStatus.isNew : appCommon.formStatus.isEdit;
 		$scope.messageSuccess = [];
-		$scope.messageError = [];		
-
+		$scope.messageError = [];
+		
 		// function
 		function activate() {
 			setFormTitle();
