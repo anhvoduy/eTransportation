@@ -8,6 +8,11 @@ const validator = require('../lib/validator');
 const auth = require('../services/authService');
 const productService = require('../services/productService');
 
+// upload image
+router.post('/upload', Q.async(function* (req, res, next) {
+	return true;	
+}));
+
 router.get('/list', Q.async(function* (req, res, next) {
 	try
 	{

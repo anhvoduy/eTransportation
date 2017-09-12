@@ -141,12 +141,22 @@ app.config(function ($stateProvider) {
 		}
 	})	
 	.state('groupEdit', {
-		url: '/group/:groupKey',
+		url: '/group/groupEdit/:groupKey',
 		parentState: 'group',
 		views: {
 			'view': {
 				templateUrl: 'app/views/groupEdit.tpl.html',
 				controller: 'groupEditController'
+			}
+		}
+	})
+	.state('groupPermission', {
+		url: '/group/groupPermission/:groupKey',
+		parentState: 'group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/groupPermission.tpl.html',
+				controller: 'groupPermissionController'
 			}
 		}
 	})
