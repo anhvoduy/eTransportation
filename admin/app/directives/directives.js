@@ -25,5 +25,50 @@
             link: function (scope, element, attrs, modelCtrl) {                                   
             }
         };
+    })
+    .directive('ngInputDate', function(){
+        return {            
+            restrict: 'EA',
+            replace: true,
+            transclude: true,
+            scope: {
+                name:  '@',
+                value: '=',
+                format: '@',
+                required: '@'
+            },
+            template: function() {
+                var template = 
+                '<p class="input-group">' + 
+                    '<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />' +
+                    '<span class="input-group-btn">' +
+                        '<button type="button" class="btn btn-default" ng-click="openDate()"><i class="glyphicon glyphicon-calendar"></i></button>' +
+                    '</span>'
+                '</p>';
+                return template;
+            },
+            link: function (scope, element, attrs, modelCtrl) {
+                // console.log(scope.name);
+                // console.log(scope.value);
+                // console.log(scope.format);
+                // console.log(scope.required);                
+                scope.dt = scope.value;
+
+                scope.popup = {
+                    opened: false
+                };
+
+                scope.openDate = function(){                    
+                    scope.popup.opened = true;                    
+                }
+
+
+                scope.$watch('value', function(newVal, oldVal) {
+                    if(oldVal != newVal){                        
+                        scope.dt = new Date(moment(newVal).toISOString().substring(0, 10));
+                    }                    
+                });
+            }
+        };
     });
 })();
