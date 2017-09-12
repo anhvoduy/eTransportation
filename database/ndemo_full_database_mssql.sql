@@ -486,10 +486,11 @@ CREATE TABLE [dbo].[UserGroup](
 	[UserGroupId] [int] IDENTITY(1,1) NOT NULL,
 	[UserId] [int] NOT NULL,
 	[GroupId] [int] NOT NULL,
-	[isCreate] [int] DEFAULT 0,
-	[isUpdate] [int] DEFAULT 0,
-	[isDelete] [int] DEFAULT 0,
-	[isDisplay] [int] DEFAULT 1,
+	[ModuleId] [int] NOT NULL,
+	[IsCreate] [int] DEFAULT 0,
+	[IsUpdate] [int] DEFAULT 0,
+	[IsDelete] [int] DEFAULT 0,
+	[IsDisplay] [int] DEFAULT 1,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Author] [nvarchar](50) NULL,
@@ -501,11 +502,11 @@ CREATE TABLE [dbo].[UserGroup](
 ) ON [PRIMARY]
 GO
 
-INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
-INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (2,1,'SYSTEM','SYSTEM');
-INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (3,3,'SYSTEM','SYSTEM');
-INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
-INSERT INTO [dbo].[UserGroup] (UserId, GroupId, Author, Editor) VALUES (1,2,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,2,1,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,1,2,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (3,3,3,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,2,4,'SYSTEM','SYSTEM');
+INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,2,5,'SYSTEM','SYSTEM');
 
 
 
