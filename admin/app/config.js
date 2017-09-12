@@ -150,6 +150,16 @@ app.config(function ($stateProvider) {
 			}
 		}
 	})
+	.state('groupPermission', {
+		url: '/group/:groupKey',
+		parentState: 'group',
+		views: {
+			'view': {
+				templateUrl: 'app/views/groupPermission.tpl.html',
+				controller: 'groupPermissionController'
+			}
+		}
+	})
 	.state('chart', {
 		url: '/chart',
 		views: {
