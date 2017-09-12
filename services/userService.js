@@ -79,12 +79,10 @@ Factory.prototype.create = Q.async(function* (user){
                 Hash, Email, Mobile, Tel, Title, Author, Editor)
             VALUES (NEWID(), @UserName, @DisplayName, @UserType,
                 @Hash, @Email, @Mobile, @Tel, @Title, 'SYSTEM', 'SYSTEM')
-        `;        
+        `;
         user.Hash = crypto.createHash('sha1');
         user.UserType = 'USER';
-
-        let data = yield dbContext.queryExecute(sql, user);        
-        return data;
+        return yield dbContext.queryExecute(sql, user);
     }catch(err){
         throw err;
     }
@@ -100,12 +98,11 @@ Factory.prototype.update = Q.async(function* (user){
                 Email = @Email,
                 Mobile = @Mobile,
                 Tel = @Tel,                
-                Title = @Title                                
+                Title = @Title,
+                DateOfBirth = @DateOfBirth                                
             WHERE UserKey = @UserKey
         `;
-
-        let data = yield dbContext.queryExecute(sql, user);        
-        return data;
+        return yield dbContext.queryExecute(sql, user);
     }catch(err){        
         throw err;
     }

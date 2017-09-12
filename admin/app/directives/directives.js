@@ -40,7 +40,7 @@
             template: function() {
                 var template = 
                 '<p class="input-group">' + 
-                    '<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />' +
+                    '<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dtValue" ng-change="changeSelectedDate()" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />' +
                     '<span class="input-group-btn">' +
                         '<button type="button" class="btn btn-default" ng-click="openDate()"><i class="glyphicon glyphicon-calendar"></i></button>' +
                     '</span>'
@@ -48,25 +48,20 @@
                 return template;
             },
             link: function (scope, element, attrs, modelCtrl) {
-                // console.log(scope.name);
-                // console.log(scope.value);
-                // console.log(scope.format);
-                // console.log(scope.required);                
-                scope.dt = scope.value;
-
+                scope.dtValue = scope.value;
                 scope.popup = {
                     opened: false
                 };
-
-                scope.openDate = function(){                    
-                    scope.popup.opened = true;                    
+                scope.openDate = function(){
+                    scope.popup.opened = true;
+                };
+                scope.changeSelectedDate = function(){
+                    scope.value = new Date(moment(scope.dtValue).toISOString().substring(0, 10));
                 }
-
-
                 scope.$watch('value', function(newVal, oldVal) {
-                    if(oldVal != newVal){                        
-                        scope.dt = new Date(moment(newVal).toISOString().substring(0, 10));
-                    }                    
+                    if(oldVal != newVal){
+                        scope.dtValue = new Date(moment(newVal).toISOString().substring(0, 10));
+                    }
                 });
             }
         };
