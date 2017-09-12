@@ -45,6 +45,18 @@
             })
             return q.promise;
         }
+
+        groupService.prototype.assignPermission = function (groupPermission) {
+            var url = String.format('{0}{1}', this.api, '/assignPermission');
+            
+            var q = $q.defer();
+            this.postData(url, groupPermission).then(function (result) {
+                q.resolve(result);
+            }, function (error) {
+                q.reject(error);
+            })
+            return q.promise;
+        }
                 
         groupService.prototype.update = function (customer) {
             var url = String.format('{0}{1}', this.api, '/update');

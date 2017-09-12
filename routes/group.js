@@ -76,5 +76,16 @@ router.get('/permission', Q.async(function* (req, res, next) {
 	}
 }));
 
+router.post('/assignPermission', Q.async(function* (req, res, next) {
+	try
+	{		
+		res.status(200).json(true);
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
+}));
+
 // return Router
 module.exports = router;
