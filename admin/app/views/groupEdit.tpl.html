@@ -1,3 +1,4 @@
+<!-- Group Panel -->
 <div class="container" ng-cloak>
 	<h2>{{ formTitle }}</h2>
     <form name="formGroup" class="form form-horizontal">
@@ -42,6 +43,8 @@
     </form>
 </div>
 
+
+<!-- User/Group Permission Panel -->
 <div class="container" ng-cloak>
     <div class="row">
         <div class="col-lg-12">
@@ -59,22 +62,22 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>DisplayName</th>                            
-                            <th>Cash</th>
-                            <th>Stock</th>
-                            <th>Product</th>                                                                                    
-                            <th>Customer</th>
+                            <th>Display Name</th>
+                            <th>Create</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                            <th>Display</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="u in users">
-                            <td>{{ u.UserId }}</td>
-                            <td>{{ u.UserName }}</td>
-                            <td>{{ u.DisplayName }}</td>
-                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Cash</a></td>
-                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Stock</a></td>
-                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Product</a></td>
-                            <td><a ui-sref="userEdit({ userKey: u.UserKey, formStatus: 2 })">Customer</a></td>
+                        <tr ng-repeat="p in permission">
+                            <td>{{ p.UserId }}</td>
+                            <td>{{ p.UserName }}</td>
+                            <td>{{ p.DisplayName }}</td>
+                            <td><input type="checkbox" ng-checked="{{ p.IsCreated }}" ></td>
+                            <td><input type="checkbox" ng-checked="{{ p.IsUpdate }}"></td>
+                            <td><input type="checkbox" ng-checked="{{ p.IsDelete }}"></td>
+                            <td><input type="checkbox" ng-checked="{{ p.IsDisplay }}"></td>                            
                         </tr>
                     </tbody>
                 </table>

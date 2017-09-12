@@ -16,12 +16,20 @@
 		function activate() {
 			setFormTitle();
 			if($scope.formStatus === appCommon.formStatus.isNew) return;
+			
+			if(!appCommon.isUndefined($scope.groupKey)){
+				groupService.getItem($scope.groupKey).then(function (result) {
+					$scope.group = result;
+				}, function (error) {
+					$scope.messageError.push(error);
+				});
 
-			groupService.getItem($scope.groupKey).then(function (result) {
-				$scope.group = result;				
-			}, function (error) {
-				$scope.messageError.push(error);
-			});
+				groupService.getPermission($scope.groupKey).then(function(result){
+					$scope.permission = result					
+				}, function(error){
+					$scope.messageError.push(error);
+				})
+			}
 		}
 
 		function setFormTitle(){

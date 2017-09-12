@@ -58,10 +58,22 @@ router.post('/update', Q.async(function* (req, res, next) {
 	}	
 }));
 
-
 router.delete('/delete', Q.async(function* (req, res, next) {
 	res.status(200).json(true);
 	next();
+}));
+
+router.get('/permission', Q.async(function* (req, res, next) {
+	try
+	{
+		let query = _.pick(req.query, ['GroupKey']);
+		let permission = yield groupService.getUserGroupPermission(query.GroupKey);
+		res.status(200).json(permission);
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
 }));
 
 // return Router
