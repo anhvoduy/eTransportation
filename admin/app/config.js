@@ -4,7 +4,8 @@ var app = angular.module('cargo', [
 	'ui.bootstrap',
 	'cargo.common',
 	'cargo.directives',
-	'cargo.components.navigation'
+	'cargo.components.navigation',
+	'cargo.components.instantSearch'
 ]);
 
 app.config(function ($stateProvider) {
