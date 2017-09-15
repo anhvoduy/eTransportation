@@ -70,7 +70,11 @@
 
 		$scope.cancel = function() {
             $state.go($state.current.parentState);
-        }
+		}
+		
+		$scope.linkUser = function(){
+			console.log('link User.....');
+		}
 		
 		/* start */
 		activate();
