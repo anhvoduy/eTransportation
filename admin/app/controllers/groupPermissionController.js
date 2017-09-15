@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 	app.controller('groupPermissionController', groupPermissionController);
-	groupPermissionController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', '$timeout', 'appCommon', 'groupService'];
-	function groupPermissionController($rootScope, $scope, $state, $stateParams, $timeout, appCommon, groupService) {
+	groupPermissionController.$inject = ['$rootScope', '$scope', '$state', '$stateParams', '$timeout', 'appCommon', 'groupService', 'dialogService'];
+	function groupPermissionController($rootScope, $scope, $state, $stateParams, $timeout, appCommon, groupService, dialogService) {
 		// models
 		$scope.isSubmitted = false;
 		$scope.isSubmitting = false;
@@ -72,11 +72,51 @@
             $state.go($state.current.parentState);
 		}
 		
-		$scope.linkUser = function(){
-			console.log('link User.....');
-		}
+		$scope.linkUser = function(){			
+			dialogService.showModal({
+                templateUrl: 'app/components/instantSearch/dialogSearch.tpl.html',
+                controller: "dialogController"
+            }).then(function (modal) {
+                // open dialog
+                if (angular.element(window).width() <= 640) {
+                    modal.element.modal({
+                        backdrop: "static"
+                    });
+                } else {
+                    modal.element.modal({
+                        backdrop: true
+                    });
+                };
+                // close dialog
+                modal.close.then(function (result) {
+                    $scope.resultMessage = "You said " + result;
+                });
+            });
+		}		
 		
 		/* start */
+		activate();
+	}
+})();
+
+
+(function () {
+	'use strict';
+	app.controller('dialogController', dialogController);
+	dialogController.$inject = ['$rootScope', '$scope', 'close'];
+	function dialogController($rootScope, $scope, close){
+		// models
+
+		// functions
+		var activate = function(){
+
+		}
+
+		$scope.close = function (result) {
+            close(result, 500); // close, but give 500ms for bootstrap to animate
+        };
+		
+		// start
 		activate();
 	}
 })();

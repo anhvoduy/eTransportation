@@ -83,16 +83,18 @@
 		// start
         activate();
 	}
-	
 
-	// create the instant search filter
+})();
+
+
+// create the instant search filter
+(function () {	
 	app.filter('searchFor', function(){
 		// all filters must return a function. The first parameter is the data that is to be filtered, 
 		// and the second is an argument that may be passed with a colon (searchFor:searchString)
 		return function(arr, searchString){
-			if(!searchString){
-				return arr;
-			}
+			if(!searchString) return arr;
+			
 			var result = [];
 			searchString = searchString.toLowerCase();
 			// Using the forEach helper method to loop through the array
