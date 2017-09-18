@@ -23,7 +23,7 @@
                 return String.format('{0}{1}', appCommon.baseUrl, 'admin/app/components/instantSearch/instantSearch.tpl.html');
             },
             link: function (scope, element, attrs, ngCtrl) {
-                console.log('init instantSearch.....');
+                console.log('init directive instant-search.....');
             }
         };
     };
@@ -73,13 +73,8 @@
 
 		// functions
         var activate = function(){
-            console.log('--- activate: InstantSearchController ');
-		}
-
-		$scope.filter = function(){
-			return function(arr, searchString){
-			};
-		};
+            console.log('--- activate: instantSearchController ');
+		}		
 		
 		// start
         activate();
