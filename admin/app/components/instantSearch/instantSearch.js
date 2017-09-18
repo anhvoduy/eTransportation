@@ -2,7 +2,8 @@
     'use strict';
     angular.module('cargo.components.instantSearch', ['cargo.common'])
     .directive('instantSearch', instantSearch)    
-    .controller('instantSearchController', instantSearchController);
+	.controller('instantSearchController', instantSearchController)
+	.filter('searchFor', searchFor);
 
 	/* 	
 	Link References
@@ -84,17 +85,14 @@
         activate();
 	}
 
-})();
-
-
-// create the instant search filter
-(function () {	
-	app.filter('searchFor', function(){
+	
+	// instance search filter
+	function searchFor(){
 		// all filters must return a function. The first parameter is the data that is to be filtered, 
 		// and the second is an argument that may be passed with a colon (searchFor:searchString)
 		return function(arr, searchString){
 			if(!searchString) return arr;
-			
+
 			var result = [];
 			searchString = searchString.toLowerCase();
 			// Using the forEach helper method to loop through the array
@@ -105,5 +103,5 @@
 			});
 			return result;
 		}
-	});
+	};
 })();
