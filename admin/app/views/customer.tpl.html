@@ -35,7 +35,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <ul uib-pagination 
                 boundary-links="true" 
                 total-items="pagination.hitsTotal" 
@@ -48,6 +48,13 @@
                 first-text="&laquo;" 
                 last-text="&raquo;">
             </ul>            
+        </div>
+        <div class="col-lg-6">
+            <select name="pageSize" id="pageSize" ng-model="pagination.pageSize">
+                <option value="10">10</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
         </div>
     </div>
     <!-- /.row -->    
