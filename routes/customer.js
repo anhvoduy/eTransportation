@@ -10,10 +10,11 @@ const customerService = require('../services/customerService');
 
 router.get('/list', function (req, res, next) {
 	let customers;
+	let query = _.pick(req.query, ['PageCurrent', 'PageSize']);
 
     Q.when()
-	.then(function(){
-		return customerService.getList().then(function(data){
+	.then(function(){		
+		return customerService.getList(query).then(function(data){
 			customers = data;
 		});
 	})

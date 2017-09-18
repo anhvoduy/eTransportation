@@ -38,8 +38,8 @@
         <div class="col-lg-12">
             <ul uib-pagination 
                 boundary-links="true" 
-                total-items="totalItems" 
-                ng-model="currentPage" 
+                total-items="pageTotal" 
+                ng-model="pageCurrent" 
                 ng-change="pageChanged()"
                 class="pagination-sm" 
                 previous-text="&lsaquo;" 

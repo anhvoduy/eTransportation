@@ -50,6 +50,297 @@ VALUES (NEWID(), 'SMC Steel Company', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
 VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
 
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba HK', 'Alibaba HK', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Japan Co. Ltd.', 'Japan', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Adnotrium', 'Adnotrium', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba VN', 'Alibaba VN', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Fast & Furious Ltd.', 'Fast & Furious', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'BMW', 'BMW', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba Europe', 'Alibaba Europe', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba North America', 'Alibaba North America', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM Quatro', 'IBM Quatro', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Taobao', 'Taobao', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Infosys Technologies', 'Infosys Technologies', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba UK', 'Alibaba UK', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Sub Microsystems', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Cossack', 'Cossack', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Digital China Holdings', 'Digital China Holdings', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dimension Data', 'Dimension Data', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Wipro Limited.', 'Wipro Limited', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Google Asisa', 'Google Asisa', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Hongleong Bank', 'Hongleong Bank', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Thomsons', 'Thomsons', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'CGI Group', 'CGI Group', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Amdocs', 'Amdocs', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Dimension Data', 'Dimension Data', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Wipro Hong Kong', 'Wipro Hong Kong', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Google Asisa', 'Google Asisa', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Trump Organization', 'Trump Organization', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Hololens Asisa', 'Hololens Asisa', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'CSC Group', 'CSC Group', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Microsoft China', 'Microsoft China', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Hongleong Bank', 'Hongleong Bank', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Publicity Shin', 'Publicity Shin', '1234567890', 'SYSTEM', 'SYSTEM')
+
+INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
+VALUES (NEWID(), 'Alibaba in Turkey', 'Alibaba in Turkey', '1234567890', 'SYSTEM', 'SYSTEM')
+
 GO
 
 
