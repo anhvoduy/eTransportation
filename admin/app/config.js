@@ -5,7 +5,7 @@ var app = angular.module('cargo', [
 	'cargo.common',
 	'cargo.directives',
 	'cargo.components.navigation',
-	'cargo.components.instantSearch'
+	'cargo.components.search'
 ]);
 
 app.config(function ($stateProvider) {

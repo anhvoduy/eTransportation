@@ -74,7 +74,7 @@
 		
 		$scope.linkUser = function(){			
 			dialogService.showModal({
-                templateUrl: 'app/components/instantSearch/dialogSearch.tpl.html',
+                templateUrl: 'app/components/search/dialogSearch.tpl.html',
                 controller: "dialogController"
             }).then(function (modal) {
                 // open dialog
@@ -95,28 +95,6 @@
 		}		
 		
 		/* start */
-		activate();
-	}
-})();
-
-
-(function () {
-	'use strict';
-	app.controller('dialogController', dialogController);
-	dialogController.$inject = ['$rootScope', '$scope', 'close'];
-	function dialogController($rootScope, $scope, close){
-		// models
-
-		// functions
-		var activate = function(){
-
-		}
-
-		$scope.close = function (result) {
-            close(result, 500); // close, but give 500ms for bootstrap to animate
-        };
-		
-		// start
 		activate();
 	}
 })();
