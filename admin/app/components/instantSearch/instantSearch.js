@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular.module('cargo.components.instantSearch', ['cargo.common'])
-    .directive('instantSearch', instantSearch)    
-	.controller('instantSearchController', instantSearchController)
+    .directive('userSearch', userSearch)    
+	.controller('userSearchController', userSearchController)
 	.filter('searchFor', searchFor);
 
 	/* 	
@@ -12,68 +12,49 @@
 	*/
 
     // directives    
-    instantSearch.$inject = ['appCommon'];
-    function instantSearch(appCommon){
+    userSearch.$inject = ['appCommon'];
+    function userSearch(appCommon){
         return {
             restrict: 'EA',
             replace: true,
             transclude: true,
-            controller: 'instantSearchController',
-            templateUrl: function () {				
-                return String.format('{0}{1}', appCommon.baseUrl, 'admin/app/components/instantSearch/instantSearch.tpl.html');
+            controller: 'userSearchController',
+            templateUrl: function () {
+                return String.format('{0}{1}', appCommon.baseUrl, 'admin/app/components/instantSearch/userSearch.tpl.html');
             },
             link: function (scope, element, attrs, ngCtrl) {
-                console.log('init directive instant-search.....');
+                console.log('init directive user-search.....');
             }
         };
     };
 
     // controllers
-    instantSearchController.$inject = ['$scope', 'appCommon'];
-    function instantSearchController($scope, appCommon){
+    userSearchController.$inject = ['$scope', 'appCommon', 'userService'];
+    function userSearchController($scope, appCommon, userService){
 		// models
 		$scope.searchString = '';
-		$scope.items = [
-			{
-				url: '/admin/img/logo.png',
-				title: '50 Must-have plugins for extending Twitter Bootstrap',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'Making a Super Simple Registration System With PHP and MySQL',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'Create a slide-out footer with this neat z-index trick',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'How to Make a Digital Clock with jQuery and CSS3',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'Smooth Diagonal Fade Gallery with CSS3 Transitions',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'Mini AJAX File Upload Form',
-				image: '/admin/img/logo.png'
-			},
-			{
-				url: '/admin/img/logo.png',
-				title: 'Your First Backbone.js App – Service Chooser',
-				image: '/admin/img/logo.png'
-			}
-		];
+		$scope.items = [];
+		// $scope.items = [
+		// 	{
+		// 		url: '/admin/img/logo.png',
+		// 		title: '50 Must-have plugins for extending Twitter Bootstrap',
+		// 		image: '/admin/img/logo.png'
+		// 	}
+		// ];
 
 		// functions
         var activate = function(){
-            console.log('--- activate: instantSearchController ');
+			console.log('--- activate: userSearchController ');
+
+			userService.getList().then(function(data){
+				$scope.items = data;
+				angular.forEach($scope.items, function(item){
+					item.url = '/admin/img/logo.png';
+					item.image = '/admin/img/logo.png';
+				});				
+			}, function(err){
+				console.log(err);
+			});
 		}		
 		
 		// start
@@ -92,7 +73,7 @@
 			searchString = searchString.toLowerCase();
 			// Using the forEach helper method to loop through the array
 			angular.forEach(arr, function(item){
-				if(item.title.toLowerCase().indexOf(searchString) !== -1){
+				if(item.DisplayName.toLowerCase().indexOf(searchString) !== -1){
 					result.push(item);
 				}
 			});
