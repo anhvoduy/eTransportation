@@ -4,22 +4,27 @@
 	customerController.$inject = ['$rootScope', '$scope', '$log', 'customerService'];
 	function customerController($rootScope, $scope, $log, customerService) {
 		// models
-		$scope.pageTotal = 100;
-		$scope.pageCurrent = 1;
-		$scope.pageSize = 10;
+		$scope.pagination = {
+			hitsTotal: 10,
+			pageCurrent: 1,
+			pageSize: 10,
+			maxSize: 5
+		}
 		
 		$scope.setPage = function (pageNo) {
-			$scope.pageCurrent = pageNo;
+			$scope.pagination.pageCurrent = pageNo;
 		};		
 		$scope.pageChanged = function() {
-			$log.log('Page changed to: ' + $scope.pageCurrent);
+			$log.log('Page changed to: ' + $scope.pagination.pageCurrent);
 			getCustomer();
 		};
 		
 		// functions
 		function getCustomer(){
-			customerService.getList($scope.pageCurrent, $scope.pageSize).then(function(data){
-				$scope.customers = data;				
+			customerService.getList($scope.pagination.pageCurrent, $scope.pagination.pageSize)
+			.then(function(data){
+				$scope.customers = data.PageData;
+				$scope.pagination.hitsTotal = data.HitsTotal;
 			}, function(err){
 				console.log(err);
 			});

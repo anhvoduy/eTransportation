@@ -19,20 +19,37 @@ Factory.prototype.getList = Q.async(function* (query){
         let PageSize = parseInt(query.PageSize);
         let PageOffset = PageCurrent * PageSize;
         
-        let sql = `
+        // get hits total
+        let sqlTotal = `
+            SELECT COUNT(*) AS Total
+            FROM Customer
+            WHERE Deleted = 0
+        `;
+        let totalRows = (yield dbContext.queryItem(sqlTotal)).Total;
+
+        // get data
+        let sqlQuery = `
             SELECT CustomerId, CustomerKey, CustomerName, Description, 
                 Email, Mobile, Tel, Fax, Title, Address 
             FROM Customer
             WHERE Deleted = 0 
             ORDER BY CustomerId DESC
             OFFSET (@PageOffset) ROWS
-            FETCH NEXT @PageSize ROWS ONLY;
+            FETCH NEXT @PageSize ROWS ONLY
         `;
-        let customers = yield dbContext.queryList(sql, {
+        let customers = yield dbContext.queryList(sqlQuery, {
             PageOffset: PageOffset,
             PageSize: PageSize
-        });
-        return customers;
+        });                
+
+        let result = {
+            HitsTotal: parseInt(totalRows),
+            PageTotal: parseInt(Math.ceil(totalRows / PageSize)),
+            PageSize: parseInt(PageSize),
+            PageCurrent: parseInt(PageCurrent) + 1,
+            PageData: customers
+        }
+        return result;
     }
     catch(err){
         throw err;
