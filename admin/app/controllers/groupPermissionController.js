@@ -74,7 +74,7 @@
 		
 		$scope.linkUser = function(){			
 			dialogService.showModal({
-                templateUrl: 'app/components/instantSearch/dialogSearch.tpl.html',
+                templateUrl: 'app/components/search/dialogSearch.tpl.html',
                 controller: "dialogController"
             }).then(function (modal) {
                 // open dialog

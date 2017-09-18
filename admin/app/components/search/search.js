@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('cargo.components.instantSearch', ['cargo.common'])
+    angular.module('cargo.components.search', ['cargo.common'])
     .directive('userSearch', userSearch)    
 	.controller('userSearchController', userSearchController)
 	.filter('searchFor', searchFor);
@@ -20,7 +20,7 @@
             transclude: true,
             controller: 'userSearchController',
             templateUrl: function () {
-                return String.format('{0}{1}', appCommon.baseUrl, 'admin/app/components/instantSearch/userSearch.tpl.html');
+                return String.format('{0}{1}', appCommon.baseUrl, 'admin/app/components/search/userSearch.tpl.html');
             },
             link: function (scope, element, attrs, ngCtrl) {
                 console.log('init directive user-search.....');
