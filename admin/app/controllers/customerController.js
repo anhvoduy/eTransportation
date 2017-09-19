@@ -9,6 +9,10 @@
 		$scope.messageError = [];
 		
 		// functions
+		function activate() {
+			$scope.getCustomer();
+		}
+		
 		$scope.getCustomer = function(){
 			customerService.getList($scope.pagination.pageCurrent, $scope.pagination.pageSize)
 			.then(function(data){
@@ -21,11 +25,7 @@
 			}, function(err){
 				console.log(err);
 			});
-		}
-		
-		function activate() {
-			$scope.getCustomer();
-		}
+		}			
 		
 		/* start */
 		activate();

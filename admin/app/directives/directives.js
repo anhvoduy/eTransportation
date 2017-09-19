@@ -73,7 +73,7 @@
             transclude: true,
             scope: {
                 pagination: '=',
-                onGetCustomer: '&'
+                onGetData: '&'
             },
             templateUrl: function() {
                 return String.format('{0}{1}', appCommon.baseUrl, "admin/app/directives/ngPagination.tpl.html");
@@ -84,11 +84,11 @@
                 };
                 scope.changePageCurrent = function() {
                     //console.log('- changePageCurrent(): ' + scope.pagination.pageCurrent);
-                    scope.onGetCustomer();
+                    scope.onGetData();
                 };
                 scope.changePageSize = function(){
                     //console.log('- changePageSize(): ' + scope.pagination.pageSize);
-                    scope.onGetCustomer();
+                    scope.onGetData();
                 }
             }
         };
