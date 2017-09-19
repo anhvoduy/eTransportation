@@ -28,9 +28,9 @@
             <label for="BrandId" class="col-sm-2 control-label">Brand</label>
             <div class="col-sm-6">                
                 <select name="BrandId" 
-                        class="form-control"                        
+                        class="form-control"
                         ng-model="product.BrandId"
-                        ng-change="changeSelectedBrand()"                        
+                        ng-change="changeSelectedBrand()"
                         ng-options="item.BrandId as item.BrandName for item in brands"
                         required>
                     <option value="">---Please select---</option>

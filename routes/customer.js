@@ -8,17 +8,15 @@ const validator = require('../lib/validator');
 const auth = require('../services/authService');
 const customerService = require('../services/customerService');
 
-router.get('/list', function (req, res, next) {
-	let customers;
+router.get('/list', function (req, res, next) {	
+	let query = _.pick(req.query, ['PageCurrent', 'PageSize']);
 
     Q.when()
-	.then(function(){
-		return customerService.getList().then(function(data){
-			customers = data;
-		});
-	})
 	.then(function(){		
-		res.status(200).json(customers);
+		return customerService.getList(query);
+	})
+	.then(function(data){		
+		res.status(200).json(data);
 	})
 	.catch(function(err){		
 		res.status(500).json(err);
