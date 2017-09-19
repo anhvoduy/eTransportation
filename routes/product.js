@@ -13,10 +13,11 @@ router.post('/upload', Q.async(function* (req, res, next) {
 	return true;	
 }));
 
-router.get('/list', Q.async(function* (req, res, next) {
+router.get('/list', Q.async(function* (req, res, next) {	
 	try
 	{
-		let products = yield productService.getList();
+		let query = _.pick(req.query, ['PageCurrent', 'PageSize']);
+		let products = yield productService.getList(query);
 		res.status(200).json(products);
 	}
 	catch(err){

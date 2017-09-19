@@ -6,9 +6,16 @@ const dbContext = require('../lib/dbContext');
 const Factory = function(){	
 }
 
-Factory.prototype.getList = Q.async(function* (){
+Factory.prototype.getList = Q.async(function* (query){
     try
     {
+        let TotalSize = 0;
+        let PageTotal = 0;
+        let PageCurrent = parseInt(query.PageCurrent) - 1;
+        let PageSize = parseInt(query.PageSize);
+        let PageOffset = PageCurrent * PageSize;
+
+        // ------------ continue -------------------
         let sql = `
             SELECT P.ProductId, P.ProductName, P.ProductCode, P.Description,
                 P.BrandId, B.BrandName, 
