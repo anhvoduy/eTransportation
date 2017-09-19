@@ -6,10 +6,26 @@ const dbContext = require('../lib/dbContext');
 const Factory = function(){	
 }
 
-Factory.prototype.getList = Q.async(function* (){
+Factory.prototype.getList = Q.async(function* (query){
     try
     {
-        let sql = `
+        let TotalSize = 0;
+        let PageTotal = 0;
+        let PageCurrent = parseInt(query.PageCurrent) - 1;
+        let PageSize = parseInt(query.PageSize);
+        let PageOffset = PageCurrent * PageSize;
+
+        // get hits total
+        let sqlTotal = `
+            SELECT COUNT(P.ProductId) AS Total
+            FROM Product P INNER JOIN Brand B
+                ON P.BrandId = B.BrandId
+            WHERE P.Deleted = 0
+        `;
+        let totalRows = (yield dbContext.queryItem(sqlTotal)).Total;
+
+        // get data
+        let sqlQuery = `
             SELECT P.ProductId, P.ProductName, P.ProductCode, P.Description,
                 P.BrandId, B.BrandName, 
                 P.Price, P.Colour, P.Status, P.LatestReviewInfo 
@@ -17,8 +33,22 @@ Factory.prototype.getList = Q.async(function* (){
                 ON P.BrandId = B.BrandId
             WHERE P.Deleted = 0
             ORDER BY P.ProductId DESC
+            OFFSET (@PageOffset) ROWS
+            FETCH NEXT @PageSize ROWS ONLY
         `;
-        return dbContext.queryList(sql);
+        let products = yield dbContext.queryList(sqlQuery, {
+            PageOffset: PageOffset,
+            PageSize: PageSize
+        });
+
+        let result = {
+            HitsTotal: parseInt(totalRows),
+            PageTotal: parseInt(Math.ceil(totalRows / PageSize)),
+            PageSize: parseInt(PageSize),
+            PageCurrent: parseInt(PageCurrent) + 1,
+            PageData: products
+        }
+        return result;
     }
     catch(err){
         throw err;
