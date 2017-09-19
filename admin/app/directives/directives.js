@@ -65,5 +65,32 @@
                 });
             }
         };
-    });
+    })
+    .directive('ngPagination', ['appCommon', function(appCommon){
+        return {
+            restrict: 'EA',
+            replace: true,
+            transclude: true,
+            scope: {
+                pagination: '=',
+                onGetCustomer: '&'
+            },
+            templateUrl: function() {
+                return String.format('{0}{1}', appCommon.baseUrl, "admin/app/directives/ngPagination.tpl.html");
+            },
+            link: function (scope, element, attrs, modelCtrl) {
+                scope.setPage = function (pageNo) {
+                    scope.pagination.pageCurrent = pageNo;
+                };
+                scope.changePageCurrent = function() {
+                    //console.log('- changePageCurrent(): ' + scope.pagination.pageCurrent);
+                    scope.onGetCustomer();
+                };
+                scope.changePageSize = function(){
+                    //console.log('- changePageSize(): ' + scope.pagination.pageSize);
+                    scope.onGetCustomer();
+                }
+            }
+        };
+    }]);
 })();

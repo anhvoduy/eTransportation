@@ -14,24 +14,33 @@
         appCommon.prototype.isUndefined = function(value){
             if(value === undefined || value === null){
                 return true;
-            }else if(value === 'undefined' || value === 'null' || value === ''){
+            }
+            else if(value === 'undefined' || value === 'null' || value === ''){
                 return true;
-            }else{
+            }
+            else{
                 return false;
             }
         }
 
-        // constanst
+        // CONSTANST
+        appCommon.prototype.baseUrl = '/'; // dev local mode
+
         appCommon.prototype.formStatus = {
             isNew: 1,
             isEdit: 2,
             isView: 3
         };
 
-        appCommon.prototype.baseUrl = function(){            
-            return '/'; // dev local mode
+        appCommon.prototype.defaultPagination = {
+            hitsTotal: 100,
+            pageTotal: 10,
+			pageCurrent: 1,
+			pageSize: 10,
+			maxSize: 5,
+			lstPageSize: [10, 50, 100]
         };
-
+        
         return new appCommon;
-    };        
+    };
 })();
