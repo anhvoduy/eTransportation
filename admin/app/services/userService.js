@@ -10,11 +10,15 @@
         userService.prototype.constructor = userService;
                 
         // methods
-        userService.prototype.getList = function () {
+        userService.prototype.getList = function (pageCurrent, pageSize) {
             var url = String.format('{0}{1}', this.api, '/list');
+            var params = {
+                PageCurrent: pageCurrent,
+                PageSize: pageSize
+            }
             
             var q = $q.defer();
-            this.getData(url).then(function (result) {
+            this.getData(url, params).then(function (result) {
                 q.resolve(result);
             }, function (error) {
                 q.reject(error);

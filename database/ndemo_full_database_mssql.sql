@@ -1106,7 +1106,10 @@ INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email,
 VALUES (NEWID(),'USER', 'batistuta', NEWID(),'Gabriel Batistuta','batistuta@sony.com','1982-08-08','SYSTEM','SYSTEM');
 
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) 
-VALUES (NEWID(),'USER', 'ronaldo',  NEWID(),'Pogba','pogba@manchester.com','1985-06-06','SYSTEM','SYSTEM');
+VALUES (NEWID(),'USER', 'ronaldo',  NEWID(),'ronaldo','ronaldo@manchester.com','1985-06-06','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) 
+VALUES (NEWID(),'USER', 'messi',  NEWID(),'messi','messi@manchester.com','1987-07-07','SYSTEM','SYSTEM');
 
 
 /****** Object:  Table [dbo].[Group] ******/
