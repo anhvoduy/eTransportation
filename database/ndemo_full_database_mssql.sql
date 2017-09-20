@@ -382,7 +382,7 @@ INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author
 VALUES (NEWID(), 'TRUCK - EVEREST', 'T-EVEREST-852741963', 'Everest 2018', 'SYSTEM', 'SYSTEM');
 
 INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author, Editor)
-VALUES (NEWID(), 'TRUCK - Land Cruiser', 'T-LAND-123456789', 'Land Cruiser 2015', 'SYSTEM', 'SYSTEM');
+VALUES (NEWID(), 'TRUCK - Honda Civic', 'CIVIC-123456789', 'Honda Civic 2015', 'SYSTEM', 'SYSTEM');
 
 INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author, Editor)
 VALUES (NEWID(), 'TRUCK - Mercedez', 'T-MERC-123456789', 'Mercedez 2017', 'SYSTEM', 'SYSTEM');

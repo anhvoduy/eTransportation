@@ -6,34 +6,51 @@ const dbContext = require('../lib/dbContext');
 const Factory = function () { 
 }
 
-Factory.prototype.getList = function(){
-    let deferred  = Q.defer();
-    let trucks;
+Factory.prototype.getList = Q.async(function* (query){
+    try{
+        let TotalSize = 0;
+        let PageTotal = 0;
+        let PageCurrent = parseInt(query.PageCurrent) - 1;
+        let PageSize = parseInt(query.PageSize);
+        let PageOffset = PageCurrent * PageSize;
 
-    Q.when()    
-    .then(function(){
-        let sql = `
+        // get hits total
+        let sqlTotal = `
+            SELECT COUNT(*) AS Total
+            FROM Truck
+            WHERE Deleted = 0
+        `;
+        let totalRows = (yield dbContext.queryItem(sqlTotal)).Total;
+
+        // get data
+        let sqlQuery = `
             SELECT TruckId, TruckKey, TruckName, TruckNumber, Description
             FROM Truck
             WHERE Deleted = 0
             ORDER BY TruckId DESC
+            OFFSET (@PageOffset) ROWS
+            FETCH NEXT @PageSize ROWS ONLY
         `;
-        return dbContext.queryList(sql)
-		.then(function(data){
-			trucks = data;
+        let trucks = yield dbContext.queryList(sqlQuery, {
+            PageOffset: PageOffset,
+            PageSize: PageSize
         });
-    })    
-    .then(function(){
-        deferred.resolve(trucks);
-    })
-    .catch(function(err){        
-        deferred.reject(err);
-    });
 
-    return deferred.promise;
-}
+        let result = {
+            HitsTotal: parseInt(totalRows),
+            PageTotal: parseInt(Math.ceil(totalRows / PageSize)),
+            PageSize: parseInt(PageSize),
+            PageCurrent: parseInt(PageCurrent) + 1,
+            PageData: trucks
+        }
+        return result;
+    }
+    catch(err){
+        throw err;
+    }    
+});
 
-Factory.prototype.getItem = Q.async(function* (TruckKey){    
+Factory.prototype.getItem = Q.async(function* (TruckKey){
     try
     {        
         let sql = `
