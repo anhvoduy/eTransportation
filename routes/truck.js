@@ -9,10 +9,18 @@ const auth = require('../services/authService');
 const truckService = require('../services/truckService');
 
 // Routers
-router.get('/list', Q.async(function* (req, res, next) {
-	var trucks = yield truckService.getList();
-	res.status(200).json(trucks);
-	next();
+router.get('/list', Q.async(function* (req, res, next) {	
+	try
+	{
+		let query = _.pick(req.query, ['PageCurrent', 'PageSize']);
+		let trucks = yield truckService.getList(query);
+		res.status(200).json(trucks);
+		next();
+	}
+	catch(err){
+		res.status(500).json(err);
+		next(err);
+	}
 }));
 
 router.get('/item', Q.async(function* (req, res, next) {
