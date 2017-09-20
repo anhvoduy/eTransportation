@@ -9,7 +9,14 @@
         <div class="form-group">
             <label for="ProductCode" class="col-sm-2 control-label">Product Image</label>
             <div class="col-sm-6">
-                <input name="ProductCode" ng-model="product.ProductCode" class="form-control" placeholder="Product Code" maxlength="20" required/>
+                <div class="input-group">
+                    <input id="inputFileControl" name="inputFile" type='file' class="form-control file" ng-file-model="selectFile" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary form-control" type="button" ng-click="addFile()">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </div>
             </div>
             <div class='control-label col-sm-8 message-error'
                  ng-show='formProduct.ProductCode.$dirty && formProduct.ProductCode.$invalid'>Please choose attach file</div>
