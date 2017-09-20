@@ -40,18 +40,47 @@ Factory.prototype.getUsers = function(){
     return data.getUsers();
 }
 
-Factory.prototype.getList = Q.async(function* (){
-    try{        
-        let sql = `
+Factory.prototype.getList = Q.async(function* (query){
+    try
+    {
+        let TotalSize = 0;
+        let PageTotal = 0;
+        let PageCurrent = parseInt(query.PageCurrent) - 1;
+        let PageSize = parseInt(query.PageSize);
+        let PageOffset = PageCurrent * PageSize;
+
+        // get hits total
+        let sqlTotal = `
+            SELECT COUNT(*) AS Total
+            FROM [User]
+            WHERE Deleted = 0
+        `;
+        let totalRows = (yield dbContext.queryItem(sqlTotal)).Total;
+
+        // get data
+        let sqlQuery = `
             SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
             FROM [User]
             WHERE Deleted = 0 
             ORDER BY UserId DESC
-        `;        
-        let users = yield dbContext.queryList(sql);
-        return users;
+            OFFSET (@PageOffset) ROWS
+            FETCH NEXT @PageSize ROWS ONLY
+        `;
+        let users = yield dbContext.queryList(sqlQuery, {
+            PageOffset: PageOffset,
+            PageSize: PageSize
+        });
+
+        let result = {
+            HitsTotal: parseInt(totalRows),
+            PageTotal: parseInt(Math.ceil(totalRows / PageSize)),
+            PageSize: parseInt(PageSize),
+            PageCurrent: parseInt(PageCurrent) + 1,
+            PageData: users
+        }
+        return result;
     }
-    catch(err){        
+    catch(err){
         throw err;
     }
 });
