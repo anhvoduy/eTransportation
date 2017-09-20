@@ -23,29 +23,24 @@ router.get('/menu', Q.async(function* (req, res, next) {
 
 
 
-
 router.get('/list', Q.async(function* (req, res, next) {
-	let users;
-	Q.when()
-	.then(function(){
-		return userService.getList().then(function(data){
-			users = data;
-		});
-	})
-	.then(function(){		
-		res.status(200).json(users);
-	})
-	.catch(function(err){		
+	try
+	{
+		let query = _.pick(req.query, ['PageCurrent', 'PageSize']);
+		let data = yield userService.getList(query);
+		res.status(200).json(data);
+	}
+	catch(err){
 		res.status(500).json(err);
 		next(err);
-	});
+	}
 }));
 
 router.get('/item', Q.async(function* (req, res, next) {
 	try
 	{
-		let query = _.pick(req.query, ['UserKey']);	
-		var user = yield userService.getItem(query.UserKey);		
+		let query = _.pick(req.query, ['UserKey']);
+		var user = yield userService.getItem(query.UserKey);
 		res.status(200).json(user);
 	}
 	catch(err){
