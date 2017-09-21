@@ -18,6 +18,7 @@ auth.setup(server);
 server.set('port', 3000);
 server.set('secretKey', constant.secretKey); // secret variable
 
+
 /**
  * register API 
  */
