@@ -44,4 +44,15 @@ server.use('/contact-us', express.static(webpath, { index: 'contact-us.html' }))
 server.use('/service-us', express.static(webpath, { index: 'service-us.html' }));
 server.use('/login', express.static(webpath, { index: 'login.html' }));
 
+
+const webpath2 = path.join(__dirname, 'shopping');
+server.use('/shopping', express.static(webpath2, { index: 'index.html' }));
+server.use('/shopping/cart', express.static(webpath2, { index: 'cart.html' }));
+server.use('/shopping/checkout', express.static(webpath2, { index: 'checkout.html' }));
+server.use('/shopping/contact', express.static(webpath2, { index: 'contact.html' }));
+server.use('/shopping/index', express.static(webpath2, { index: 'index.html' }));
+server.use('/shopping/sample', express.static(webpath2, { index: 'sample.html' }));
+server.use('/shopping/shop', express.static(webpath2, { index: 'shop.html' }));
+server.use('/shopping/single-product', express.static(webpath2, { index: 'single-product.html' }));
+
 module.exports = server;
