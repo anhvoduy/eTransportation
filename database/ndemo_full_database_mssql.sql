@@ -352,8 +352,8 @@ CREATE TABLE [dbo].[Truck](
     [TruckKey] [nvarchar](50) NOT NULL,
 	[TruckName] [nvarchar](50) NULL,
 	[TruckNumber] [nvarchar](50) NULL,
-	[Description] [nvarchar](250) NULL,
 	[ImageKey] [nvarchar](250) NULL,
+	[Description] [nvarchar](250) NULL,	
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Author] [nvarchar](50) NOT NULL,
@@ -566,7 +566,7 @@ CREATE TABLE [dbo].[TransactionDetail](
 	[Currency] [nvarchar](3) NOT NULL,
 	[Quantity] [int] NOT NULL DEFAULT 0,
 	[Price] [decimal](12,4) NOT NULL DEFAULT 0,
-	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,			
+	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Author] [nvarchar](50) NOT NULL,
@@ -584,15 +584,14 @@ GO
 -- DROP TABLE [dbo].[Inventory];
 CREATE TABLE [dbo].[Inventory](
 	[InventoryId] [int] IDENTITY(1,1) NOT NULL,	
-	[StockId] [int] NOT NULL,
-    [StockDate] [datetime] NOT NULL,
+	[StockId] [int] NOT NULL,    
 	[ProductId] [int] NOT NULL,
 	[ProductName] [nvarchar](50) NOT NULL,	
-	[QuantityInput] [int] NOT NULL DEFAULT 0,
-	[QuantityOutput] [int] NOT NULL DEFAULT 0,
-	[QuantityBalance] [int] NOT NULL DEFAULT 0,
+	[QtyInput] [int] NOT NULL DEFAULT 0,
+	[QtyOutput] [int] NOT NULL DEFAULT 0,
+	[QtyBalance] [int] NOT NULL DEFAULT 0,
 	[IsPerpetual] [int] NOT NULL DEFAULT 0,	
-	[Currency] [nvarchar](3) NOT NULL,
+	[Currency] [nvarchar](3) DEFAULT NULL,
 	[Price] [decimal](12,4) NOT NULL DEFAULT 0,
 	[TotalAmount] [decimal](12,4) NOT NULL DEFAULT 0,		
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
@@ -606,6 +605,9 @@ CREATE TABLE [dbo].[Inventory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+-- Sample data for table `Inventory`
+
 
 
 /****** Object:  Table [dbo].[Stock] ******/
@@ -665,12 +667,12 @@ CREATE TABLE [dbo].[Journal](
 	[JournalId] [int] IDENTITY(1,1) NOT NULL,	
 	[JournalKey] [nvarchar](50) NOT NULL,
 	[JournalType] [nvarchar](20) NOT NULL,
-	[JournalDate] [datetime] NULL,
-	[Description] [nvarchar](250) NULL,
+	[JournalDate] [datetime] NULL,	
+	[DebitAcctNo] [nvarchar](20) NULL,
+	[CreditAcctNo] [nvarchar](20) NULL,
 	[Currency] [nvarchar](3) NOT NULL,
-	[TotalAmount] [decimal](12,4) NOT NULL DEFAULT 0,
-	[DebitAcctNo] [nvarchar](20) NOT NULL,
-	[CreditAcctNo] [nvarchar](20) NOT NULL,	
+	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,	
+	[Description] [nvarchar](250) NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Author] [nvarchar](50) NOT NULL,
@@ -732,8 +734,9 @@ INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES 
 CREATE TABLE [dbo].[Product](
 	[ProductId] [int] IDENTITY(1,1) NOT NULL,	
 	[ProductKey] [nvarchar](50) NOT NULL,
-	[ProductCode] [nvarchar](50) NOT NULL,
-	[ProductName] [nvarchar](50) NOT NULL,	
+	[ProductCode] [nvarchar](20) NOT NULL,
+	[ProductName] [nvarchar](50) NOT NULL,
+	[ProductImage] [nvarchar](50) DEFAULT NULL,
 	[Description] [nvarchar](250) NULL,
 	[BrandId] [int] NOT NULL DEFAULT 0,
 	[Price] [decimal](12,4) NOT NULL DEFAULT 0,
