@@ -7,8 +7,12 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-/****** Object:  Table [dbo].[Customer] ******/
--- DROP TABLE [dbo].[Customer];
+--
+--  Table [dbo].[Customer]
+--
+DROP TABLE [dbo].[Customer]
+GO
+
 CREATE TABLE [dbo].[Customer](
 	[CustomerId] [INT] IDENTITY(1,1) NOT NULL,
     [CustomerKey] [nvarchar](50) NOT NULL,
@@ -68,13 +72,13 @@ INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author
 VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
-VALUES (NEWID(), 'Alibaba HK', 'Alibaba HK', '1234567890', 'SYSTEM', 'SYSTEM')
+VALUES (NEWID(), 'Trung Nguyen Coffee', '125 John Jose Avenue, Sai Gon city', '+86 1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
-VALUES (NEWID(), 'Marubeni Itochu Steel Japan Co. Ltd.', 'Japan', '1234567890', 'SYSTEM', 'SYSTEM')
+VALUES (NEWID(), 'Marubeni Itochu Steel Japan Co. Ltd.', 'Japan', '+45 1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
-VALUES (NEWID(), 'IBM', 'IBM', '1234567890', 'SYSTEM', 'SYSTEM')
+VALUES (NEWID(), 'IBM Corporation', '365 Seatle Finance Town, New York', '+01 5234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
 VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
@@ -227,7 +231,7 @@ INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author
 VALUES (NEWID(), 'Northrop Grumman', 'Northrop Grumman', '1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
-VALUES (NEWID(), 'Microsoft', 'Microsoft', '1234567890', 'SYSTEM', 'SYSTEM')
+VALUES (NEWID(), 'Microsoft', '25 Avenue Seatle', '1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
 VALUES (NEWID(), 'Dell', 'Dell', '1234567890', 'SYSTEM', 'SYSTEM')
@@ -236,7 +240,7 @@ INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author
 VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
-VALUES (NEWID(), 'Alibaba', 'Alibaba', '1234567890', 'SYSTEM', 'SYSTEM')
+VALUES (NEWID(), 'Lipton Tea', '142 Phung Khac Khoan, District 3, Ho Chi Minh city', '1234567890', 'SYSTEM', 'SYSTEM')
 
 INSERT INTO [dbo].[Customer] (CustomerKey, CustomerName, Address, Mobile, Author, Editor)
 VALUES (NEWID(), 'Marubeni Itochu Steel Vietnam Co. Ltd.', 'PSG', '1234567890', 'SYSTEM', 'SYSTEM')
@@ -345,9 +349,12 @@ VALUES (NEWID(), 'Alibaba in Turkey', 'Alibaba in Turkey', '1234567890', 'SYSTEM
 
 GO
 
+--
+-- Table [dbo].[Truck]
+--
+DROP TABLE [dbo].[Truck]
+GO
 
-/****** Object:  Table [dbo].[Truck] ******/
--- DROP TABLE [dbo].[Truck];
 CREATE TABLE [dbo].[Truck](
 	[TruckId] [int] IDENTITY(1,1) NOT NULL,
     [TruckKey] [nvarchar](50) NOT NULL,
@@ -474,8 +481,13 @@ INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author
 VALUES (NEWID(), 'TRUCK - FORD', 'T-FORD-852741963', 'FORD 2018', 'SYSTEM', 'SYSTEM');
 
 
-/****** Object:  Table [dbo].[Account] ******/
--- DROP TABLE [dbo].[Account];
+
+--
+-- Table [dbo].[Account]
+--
+DROP TABLE [dbo].[Account]
+GO
+
 CREATE TABLE [dbo].[Account](
 	[AccountId] [int] IDENTITY(1,1) NOT NULL,
 	[AccountKey] [nvarchar](50) NOT NULL,
@@ -531,8 +543,13 @@ INSERT INTO [dbo].[Account] (AccountKey, AccountNo,AccountName,Author,Editor)
 VALUES (NEWID(), '911','911','SYSTEM','SYSTEM');
 
 
-/****** Object:  Table [dbo].[Transaction] ******/
--- DROP TABLE [dbo].[Transaction];
+
+--
+-- Table [dbo].[Transaction]
+--
+DROP TABLE [dbo].[Transaction]
+GO
+
 CREATE TABLE [dbo].[Transaction](
 	[TransactionId] [int] IDENTITY(1,1) NOT NULL,
 	[TransactionKey] [nvarchar](50) NOT NULL,
@@ -580,37 +597,13 @@ INSERT INTO [dbo].[Transaction] (TransactionKey, TransactionNo, TransactionDate,
 VALUES (NEWID(),'CASHOUT-000003', '2016-11-07','CASHOUT','Cash Out', '111', '532', 'USD', 500, 1, 'SYSTEM', 'SYSTEM');
 
 
-/****** Object:  Table [dbo].[TransactionDetail] ******/
--- Might be no need table `TransactionDetail`
-/*
--- DROP TABLE [dbo].[TransactionDetail];
-CREATE TABLE [dbo].[TransactionDetail](
-	[TransactionDetailId] [int] IDENTITY(1,1) NOT NULL,	
-	[TransactionId] [int] NOT NULL,
-    [ProductId] [int] NOT NULL DEFAULT 0,
-	[ProductName] [nvarchar](50) NULL,
-	[Description] [nvarchar](250) NULL,
-	[Currency] [nvarchar](3) NOT NULL,
-	[Quantity] [int] NOT NULL DEFAULT 0,
-	[Price] [decimal](12,4) NOT NULL DEFAULT 0,
-	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_TransactionDetail] PRIMARY KEY CLUSTERED 
-(
-	[TransactionDetailId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+
+--
+-- Table [dbo].[Inventory]
+--
+DROP TABLE [dbo].[Inventory]
 GO
-*/
 
-
-
-/****** Object:  Table [dbo].[Inventory] ******/
--- DROP TABLE [dbo].[Inventory];
 CREATE TABLE [dbo].[Inventory](
 	[InventoryId] [int] IDENTITY(1,1) NOT NULL,
 	[InventoryKey] [nvarchar](50) DEFAULT NULL,
@@ -644,9 +637,11 @@ VALUES (NEWID(),'Shop Store','450 A Ngu Hanh Son street','Da Nang city', 'SYSTEM
 
 
 --
--- Table structure for table [dbo].[InventoryBalance]
+-- Table [dbo].[InventoryBalance]
 --
--- DROP TABLE [dbo].[InventoryBalance];
+DROP TABLE [dbo].[InventoryBalance]
+GO
+
 CREATE TABLE [dbo].[InventoryBalance](
 	[InventoryBalanceId] [int] IDENTITY(1,1) NOT NULL,
 	[InventoryId] [int] DEFAULT NULL,
@@ -695,7 +690,9 @@ VALUES (2, 3, 2, 1, 50, 'SYSTEM', 'SYSTEM');
 --
 -- Table structure for table [dbo].[Stock]
 --
--- DROP TABLE [dbo].[Stock];
+DROP TABLE [dbo].[Stock]
+GO
+
 CREATE TABLE [dbo].[Stock](
 	[StockId] [int] IDENTITY(1,1) NOT NULL,
 	[StockKey] [nvarchar](50) NOT NULL,
@@ -746,9 +743,11 @@ VALUES (NEWID(), '2016-12-12', 'STOCKOUT', 'Output Goods', 'USD', '150', '2', 'F
 
 
 --
--- Table structure for table [dbo].[StockDetail]
+-- Table [dbo].[StockDetail]
 --
--- DROP TABLE [dbo].[StockDetail];
+DROP TABLE [dbo].[StockDetail]
+GO
+
 CREATE TABLE [dbo].[StockDetail](
 	[StockDetailId] [int] IDENTITY(1,1) NOT NULL,	
 	[StockId] [int] DEFAULT 0,
@@ -794,9 +793,11 @@ VALUES (2, 3, 'Product 3', ' Desc 3', 25, 200, 5000, 'SYSTEM', 'SYSTEM');
 
 
 --
--- Table structure for table [dbo].[Journal]
+-- Table [dbo].[Journal]
 --
--- DROP TABLE [dbo].[Journal];
+DROP TABLE [dbo].[Journal]
+GO
+
 CREATE TABLE [dbo].[Journal](
 	[JournalId] [int] IDENTITY(1,1) NOT NULL,
 	[JournalKey] [nvarchar](50) NOT NULL,
@@ -840,9 +841,11 @@ VALUES (NEWID(), 'STOCK', '2017-08-09', '156', '632', 'VND', 150, ' Import Produ
 
 
 --
--- Table structure for table [dbo].[Brand]
+-- Table [dbo].[Brand]
 --
--- DROP TABLE [dbo].[Brand];
+DROP TABLE [dbo].[Brand]
+GO
+
 CREATE TABLE [dbo].[Brand](
 	[BrandId] [int] IDENTITY(1,1) NOT NULL,
 	[BrandKey] [nvarchar](50) NOT NULL,
@@ -884,11 +887,12 @@ INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES 
 INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES (NEWID(),'Facebook','The Facebook','SYSTEM','SYSTEM');
 
 
+--
+-- Table [dbo].[Product]
+--
+DROP TABLE [dbo].[Product]
+GO
 
---
--- Table structure for table [dbo].[Product]
---
--- DROP TABLE [dbo].[Product];
 CREATE TABLE [dbo].[Product](
 	[ProductId] [int] IDENTITY(1,1) NOT NULL,
 	[ProductKey] [nvarchar](50) NOT NULL,
@@ -1136,7 +1140,7 @@ INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, B
 VALUES (NEWID(), 'SONY-2020', 'Sony Vaio 2020', 'DESC: Laptop Sony Vaio 2020', 1, 100, 'While', 2,'SYSTEM','SYSTEM');
 
 INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author,Editor) 
-VALUES (NEWID(), 'IBMX-2020', 'IBM Lenovo X 2020', 'DESC: IBM Lenovo X 2020', 2, 1000, 'While', 2,'SYSTEM','SYSTEM');
+VALUES (NEWID(), 'IBMX-2021', 'IBM Lenovo X 2021', 'DESC: IBM Lenovo X 2020', 2, 1000, 'While', 2,'SYSTEM','SYSTEM');
 
 INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author,Editor) 
 VALUES (NEWID(), 'SONY-2015', 'Sony Vaio 2015', 'DESC: Laptop Sony Vaio 2015', 1, 100, 'Yellow', 2,'SYSTEM','SYSTEM');
@@ -1151,7 +1155,7 @@ INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, B
 VALUES (NEWID(), 'IBM-2016', 'IBM Lenovo 2016', 'DESC: Laptop IBM Lenovo 2016', 2, 100, 'Black', 2,'SYSTEM','SYSTEM');
 
 INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author,Editor) 
-VALUES (NEWID(), 'SONY-2020', 'Sony Vaio 2020', 'DESC: Laptop Sony Vaio 2020', 1, 100, 'While', 2,'SYSTEM','SYSTEM');
+VALUES (NEWID(), 'SONY-2022', 'Sony Vaio 2022', 'DESC: Laptop Sony Vaio 2020', 1, 100, 'While', 2,'SYSTEM','SYSTEM');
 
 INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author,Editor) 
 VALUES (NEWID(), 'IBMX-2020', 'IBM Lenovo X 2020', 'DESC: IBM Lenovo X 2020', 2, 1000, 'While', 2,'SYSTEM','SYSTEM');
@@ -1247,7 +1251,9 @@ VALUES (NEWID(), 'TIGER-2012', 'TIGER BEER 2012', 'DESC: TIGER BEER 2012', 2, 10
 --
 -- Table structure for table `Review`
 --
--- DROP TABLE [dbo].[Review];
+DROP TABLE [dbo].[Review]
+GO
+
 CREATE TABLE [dbo].[Review](
 	[ReviewId] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](50) DEFAULT NULL,
@@ -1280,7 +1286,9 @@ INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,E
 --
 -- Table structure for table [dbo].[User]
 --
--- DROP TABLE [dbo].[User];
+DROP TABLE [dbo].[User]
+GO
+
 CREATE TABLE [dbo].[User](
 	[UserId] [int] IDENTITY(1,1) NOT NULL,
 	[UserKey] [nvarchar](50) NOT NULL,	
@@ -1346,7 +1354,9 @@ VALUES (NEWID(),'USER', 'messi',  NEWID(),'messi','messi@manchester.com','1987-0
 --
 -- Table structure for table [dbo].[Group]
 --
--- DROP TABLE [dbo].[Group];
+DROP TABLE [dbo].[Group]
+GO
+
 CREATE TABLE [dbo].[Group](
 	[GroupId] [int] IDENTITY(1,1) NOT NULL,
 	[GroupKey] [nvarchar](50) DEFAULT NULL,	
@@ -1385,9 +1395,11 @@ VALUES (NEWID(),'Logictics', 'Logictics Group','SYSTEM','SYSTEM');
 
 
 --
--- Table structure for table [dbo].[UserGroup]
+-- Table [dbo].[UserGroup]
 --
--- DROP TABLE [dbo].[UserGroup];
+DROP TABLE [dbo].[UserGroup]
+GO
+
 CREATE TABLE [dbo].[UserGroup](
 	[UserGroupId] [int] IDENTITY(1,1) NOT NULL,
 	[UserId] [int] NOT NULL,
