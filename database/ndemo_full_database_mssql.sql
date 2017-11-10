@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[Customer](
 	[CustomerId] [INT] IDENTITY(1,1) NOT NULL,
     [CustomerKey] [nvarchar](50) NOT NULL,
 	[CustomerName] [nvarchar](50) NOT NULL,
-    [Description] [nvarchar](250) NULL,
+    [Description] [nvarchar](250) DEFAULT NULL,
     [Email] [nvarchar](50) NULL,
     [Mobile] [nvarchar](50) NULL,
     [Tel] [nvarchar](50) NULL,
@@ -27,8 +27,8 @@ CREATE TABLE [dbo].[Customer](
 	[ImageKey] [nvarchar](250) NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,	
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,	
     [Deleted] [INT] DEFAULT 0
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED
 (
@@ -361,11 +361,11 @@ CREATE TABLE [dbo].[Truck](
 	[TruckName] [nvarchar](50) NULL,
 	[TruckNumber] [nvarchar](50) NULL,
 	[ImageKey] [nvarchar](250) NULL,
-	[Description] [nvarchar](250) NULL,	
+	[Description] [nvarchar](250) DEFAULT NULL,	
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [INT] DEFAULT 0
  CONSTRAINT [PK_Truck] PRIMARY KEY CLUSTERED 
 (
@@ -493,11 +493,12 @@ CREATE TABLE [dbo].[Account](
 	[AccountKey] [nvarchar](50) NOT NULL,
 	[AccountNo] [nvarchar](20) NOT NULL,
     [AccountName] [nvarchar](100) NULL,	
-	[Description] [nvarchar](250) NULL,
+	[Description] [nvarchar](250) DEFAULT NULL,
+	[DebitOrCredit] [INT] DEFAULT 0,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [INT] DEFAULT 0
  CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
 (
@@ -556,7 +557,7 @@ CREATE TABLE [dbo].[Transaction](
 	[TransactionNo] [nvarchar](50) DEFAULT NULL,
 	[TransactionDate] [datetime] DEFAULT NULL,	 -- ngay hach toan
     [TransactionType] [nvarchar](20) NULL,
-	[Description] [nvarchar](250) NULL,
+	[Description] [nvarchar](250) DEFAULT NULL,
 	[DebitAcctNo] [nvarchar](20) NOT NULL,
 	[CreditAcctNo] [nvarchar](20) NOT NULL,
 	[Currency] [nvarchar](3) NOT NULL,
@@ -568,8 +569,8 @@ CREATE TABLE [dbo].[Transaction](
 	[InvoiceDesc] [nvarchar](250) DEFAULT NULL,  
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED 
 (
@@ -612,8 +613,8 @@ CREATE TABLE [dbo].[Inventory](
 	[Description] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
 CONSTRAINT [PK_InventoryId] PRIMARY KEY CLUSTERED 
 (
@@ -653,8 +654,8 @@ CREATE TABLE [dbo].[InventoryBalance](
 	[Price] [decimal](12,4) NOT NULL DEFAULT 0,	
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
 CONSTRAINT [PK_InventoryBalanceId] PRIMARY KEY CLUSTERED 
 (
@@ -709,8 +710,8 @@ CREATE TABLE [dbo].[Stock](
 	[InvoiceDesc] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_StockId] PRIMARY KEY CLUSTERED
 (
@@ -753,14 +754,14 @@ CREATE TABLE [dbo].[StockDetail](
 	[StockId] [int] DEFAULT 0,
 	[ProductId] [int] DEFAULT 0,
   	[ProductName] [nvarchar](50) NULL,
-    [Description] [nvarchar](250) NULL,
+    [Description] [nvarchar](250) DEFAULT NULL,
 	[Quantity] [int] DEFAULT 0,
 	[Price] [decimal](12,4) DEFAULT 0,
 	[Amount] [decimal](12,4) DEFAULT 0,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_StockDetailId] PRIMARY KEY CLUSTERED
 (
@@ -807,11 +808,11 @@ CREATE TABLE [dbo].[Journal](
 	[CreditAcctNo] [nvarchar](20) NULL,
 	[Currency] [nvarchar](3) NOT NULL,
 	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
-	[Description] [nvarchar](250) NULL,
+	[Description] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_JournalId] PRIMARY KEY CLUSTERED
 (
@@ -850,11 +851,11 @@ CREATE TABLE [dbo].[Brand](
 	[BrandId] [int] IDENTITY(1,1) NOT NULL,
 	[BrandKey] [nvarchar](50) NOT NULL,
 	[BrandName] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](250) NULL,
+	[Description] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_BrandId] PRIMARY KEY CLUSTERED
 (
@@ -907,8 +908,8 @@ CREATE TABLE [dbo].[Product](
 	[LatestReviewInfo] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_ProductId] PRIMARY KEY CLUSTERED
 (
@@ -1263,8 +1264,8 @@ CREATE TABLE [dbo].[Review](
 	[Email] [nvarchar](50) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NOT NULL,
-	[Editor] [nvarchar](50) NOT NULL,
+	[Author] [nvarchar](50) DEFAULT NULL,
+	[Editor] [nvarchar](50) DEFAULT NULL,
     [Deleted] [int] DEFAULT 0
  CONSTRAINT [PK_ReviewId] PRIMARY KEY CLUSTERED
 (
