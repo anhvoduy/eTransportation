@@ -903,7 +903,7 @@ CREATE TABLE [dbo].[Product](
 	[Description] [nvarchar](250) DEFAULT NULL,
 	[BrandId] [int] NOT NULL DEFAULT 0,
 	[Price] [decimal](12,4) DEFAULT 0,
-	[Colour] [nvarchar](10) DEFAULT NULL,
+	[Colour] [nvarchar](10) DEFAULT NULL, -- should be ColorCode
 	[Status] [nvarchar](10) DEFAULT NULL,
 	[LatestReviewInfo] [nvarchar](250) DEFAULT NULL,
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
