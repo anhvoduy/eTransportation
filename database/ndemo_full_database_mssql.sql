@@ -494,7 +494,7 @@ CREATE TABLE [dbo].[Account](
 	[AccountNo] [nvarchar](20) NOT NULL,
     [AccountName] [nvarchar](100) NULL,	
 	[Description] [nvarchar](250) DEFAULT NULL,
-	[DebitOrCredit] [INT] DEFAULT 0,
+	[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update DR || CR
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Author] [nvarchar](50) DEFAULT NULL,
