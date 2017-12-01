@@ -1302,6 +1302,7 @@ CREATE TABLE [dbo].[User](
 	[Email] [nvarchar](50) DEFAULT NULL,
 	[Mobile] [nvarchar](50) DEFAULT NULL,	
 	[Title] [nvarchar](50) DEFAULT NULL,
+	[Description] [nvarchar](250) DEFAULT NULL,
 	[DateOfBirth] [datetime] DEFAULT NULL,	
 	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
