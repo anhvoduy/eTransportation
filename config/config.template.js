@@ -1,15 +1,12 @@
 const mssql = require('mssql');
 
-const configMySql = {
-    provider: 'mysql'
-}
-
 const configMsSql = {
     provider: mssql,
-    user: 'sa',
-    password: 's@',    
-    server: 'SONYVAIO\\SQL_2014',
-    database: 'ndemo',    
+    user: 'user',
+    password: 'password',    
+    server: 'server',
+    database: 'database',
+    port: 1433,    
     pool: {
         max: 10,
         min: 0,
@@ -19,14 +16,14 @@ const configMsSql = {
 
 const configAzure = {
     provider: mssql,
-    user: 'invdemo',
-    password: 'inv@demo2017',
-    server: 'invdemo.database.windows.net',
-    database: 'ndemo',
+    user: 'user',
+    password: 'password',
+    server: 'server',
+    database: 'database',
     port: 1433,
     options: {        
         encrypt: true
     }
 }
 
-module.exports = configAzure;
+module.exports = configAzure; // configMsSql on local || configAzure on cloud
