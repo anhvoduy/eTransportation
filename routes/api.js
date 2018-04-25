@@ -11,10 +11,19 @@ const errorHelper = require('../lib/errorHelper');
 const auth = require('../services/authService');
 const userService = require('../services/userService');
 
-// GET: test api
+/**
+ * APIs: using for testing
+ * GET & POST simple + test database connection
+ */
 router.get('/', function (req, res, next) {
-    res.json({ message: 'eTransport method GET() is success' });
+    res.json({ message: 'Transportation API method GET() is success' });
     console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
+    next();
+});
+
+router.post('/', function (req, res, next) {
+    res.json({ message: 'Transportation API method POST() is success' });
+    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);
     next();
 });
 
@@ -22,19 +31,14 @@ router.get('/connection', Q.async(function* (req, res, next) {
 	let tables = yield auth.getInformationSchema();
     res.json({ 
 		code: 'CONNECTION_SUCCESS', 
-		message: 'eTransport make connection to database is success',
+		message: 'Transportation API make connection to database is success',
 		data: tables
 	});
     console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
     next();
 }));
 
-// POST: test api
-router.post('/', function (req, res, next) {
-    res.json({ message: 'eTransport method POST() is success' });
-    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);
-    next();
-});
+
 
 // routers: use to authenticate
 router.post('/login', function (req, res, next) {
