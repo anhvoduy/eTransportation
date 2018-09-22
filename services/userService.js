@@ -59,7 +59,7 @@ Factory.prototype.getList = Q.async(function* (query){
 
         // get data
         let sqlQuery = `
-            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
+            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Title, DateOfBirth, Author, Editor
             FROM [User]
             WHERE Deleted = 0 
             ORDER BY UserId DESC
@@ -88,7 +88,7 @@ Factory.prototype.getList = Q.async(function* (query){
 Factory.prototype.getItem = Q.async(function* (UserKey){
     try{        
         let sql = `
-            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Tel, Title, DateOfBirth, Author, Editor
+            SELECT UserId, UserKey, UserType, UserName, DisplayName, Email, Mobile, Title, DateOfBirth, Author, Editor
             FROM [User]
             WHERE UserKey = @UserKey AND Deleted = 0
         `;        
@@ -105,9 +105,9 @@ Factory.prototype.create = Q.async(function* (user){
     {        
         let sql = `
             INSERT INTO [User] (UserKey, UserName, DisplayName, UserType, 
-                Hash, Email, Mobile, Tel, Title, Author, Editor)
+                Hash, Email, Mobile, Title, Author, Editor)
             VALUES (NEWID(), @UserName, @DisplayName, @UserType,
-                @Hash, @Email, @Mobile, @Tel, @Title, 'SYSTEM', 'SYSTEM')
+                @Hash, @Email, @Mobile, @Title, 'SYSTEM', 'SYSTEM')
         `;
         user.Hash = crypto.createHash('sha1');
         user.UserType = 'USER';
@@ -126,7 +126,6 @@ Factory.prototype.update = Q.async(function* (user){
                 DisplayName = @DisplayName,
                 Email = @Email,
                 Mobile = @Mobile,
-                Tel = @Tel,                
                 Title = @Title,
                 DateOfBirth = @DateOfBirth                                
             WHERE UserKey = @UserKey

@@ -1,6 +1,6 @@
 {
   "name": "transportation-mssql",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "transportation-mssql",
   "main": "app.js",
   "engines": {
@@ -13,7 +13,7 @@
   },
   "author": "VO DUY ANH",
   "email": "voduyanh1984@yahoo.com",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
