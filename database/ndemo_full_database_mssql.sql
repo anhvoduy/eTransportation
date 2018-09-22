@@ -10,32 +10,39 @@ GO
 --
 --  Table [dbo].[Customer]
 --
-DROP TABLE [dbo].[Customer]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Customer'))
+BEGIN
+	DROP TABLE [dbo].[Customer]
+END
 GO
 
-CREATE TABLE [dbo].[Customer](
-	[CustomerId] [INT] IDENTITY(1,1) NOT NULL,
-    [CustomerKey] [nvarchar](50) NOT NULL,
-	[CustomerName] [nvarchar](50) NOT NULL,
-    [Description] [nvarchar](250) DEFAULT NULL,
-    [Email] [nvarchar](50) DEFAULT NULL,
-    [Mobile] [nvarchar](50) DEFAULT NULL,
-    [Tel] [nvarchar](50) DEFAULT NULL,
-    [Fax] [nvarchar](50) DEFAULT NULL,    
-	[Address] [nvarchar](250) DEFAULT NULL,
-	[Representative] [nvarchar](50) DEFAULT NULL,
-	[Title] [nvarchar](50) DEFAULT NULL,
-	[ImageKey] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,	
-    [Deleted] [INT] DEFAULT 0
- CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED
-(
-	[CustomerId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Customer](
+		[CustomerId] [INT] IDENTITY(1,1) NOT NULL,
+		[CustomerKey] [nvarchar](50) NOT NULL,
+		[CustomerName] [nvarchar](50) NOT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Email] [nvarchar](50) DEFAULT NULL,
+		[Mobile] [nvarchar](50) DEFAULT NULL,
+		[Tel] [nvarchar](50) DEFAULT NULL,
+		[Fax] [nvarchar](50) DEFAULT NULL,    
+		[Address] [nvarchar](250) DEFAULT NULL,
+		[Representative] [nvarchar](50) DEFAULT NULL,
+		[Title] [nvarchar](50) DEFAULT NULL,
+		[ImageKey] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,	
+		[Deleted] [INT] DEFAULT 0
+	CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED
+	(
+		[CustomerId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 -- Sample data
@@ -353,26 +360,32 @@ GO
 --
 -- Table [dbo].[Truck]
 --
-DROP TABLE [dbo].[Truck]
-GO
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Truck'))
+BEGIN
+	DROP TABLE [dbo].[Truck]
+END
 
-CREATE TABLE [dbo].[Truck](
-	[TruckId] [int] IDENTITY(1,1) NOT NULL,
-    [TruckKey] [nvarchar](50) NOT NULL,
-	[TruckName] [nvarchar](50) NULL,
-	[TruckNumber] [nvarchar](50) NULL,
-	[ImageKey] [nvarchar](250) NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,	
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [INT] DEFAULT 0
- CONSTRAINT [PK_Truck] PRIMARY KEY CLUSTERED 
-(
-	[TruckId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Truck](
+		[TruckId] [int] IDENTITY(1,1) NOT NULL,
+		[TruckKey] [nvarchar](50) NOT NULL,
+		[TruckName] [nvarchar](50) NULL,
+		[TruckNumber] [nvarchar](50) NULL,
+		[ImageKey] [nvarchar](250) NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,	
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [INT] DEFAULT 0
+	CONSTRAINT [PK_Truck] PRIMARY KEY CLUSTERED 
+	(
+		[TruckId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 -- Sample data
@@ -486,26 +499,33 @@ VALUES (NEWID(), 'TRUCK - FORD', 'T-FORD-852741963', 'FORD 2018', 'SYSTEM', 'SYS
 --
 -- Table [dbo].[Account]
 --
-DROP TABLE [dbo].[Account]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Account'))
+BEGIN
+	DROP TABLE [dbo].[Account]
+END
 GO
 
-CREATE TABLE [dbo].[Account](
-	[AccountId] [int] IDENTITY(1,1) NOT NULL,
-	[AccountKey] [nvarchar](50) NOT NULL,
-	[AccountNo] [nvarchar](20) NOT NULL,
-    [AccountName] [nvarchar](100) NULL,	
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update DR || CR
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [INT] DEFAULT 0
- CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
-(
-	[AccountId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Account](
+		[AccountId] [int] IDENTITY(1,1) NOT NULL,
+		[AccountKey] [nvarchar](50) NOT NULL,
+		[AccountNo] [nvarchar](20) NOT NULL,
+		[AccountName] [nvarchar](100) NULL,	
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update DR || CR
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [INT] DEFAULT 0
+	CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+	(
+		[AccountId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 INSERT INTO [dbo].[Account] (AccountKey, AccountNo,AccountName,Author,Editor) 
@@ -549,35 +569,42 @@ VALUES (NEWID(), '911','911','SYSTEM','SYSTEM');
 --
 -- Table [dbo].[Transaction]
 --
-DROP TABLE [dbo].[Transaction]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Transaction'))
+BEGIN
+	DROP TABLE [dbo].[Transaction]
+END
 GO
 
-CREATE TABLE [dbo].[Transaction](
-	[TransactionId] [int] IDENTITY(1,1) NOT NULL,
-	[TransactionKey] [nvarchar](50) NOT NULL,
-	[TransactionNo] [nvarchar](50) DEFAULT NULL,
-	[TransactionDate] [datetime] DEFAULT NULL,	 -- ngay hach toan
-    [TransactionType] [nvarchar](20) NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[DebitAcctNo] [nvarchar](20) NOT NULL,
-	[CreditAcctNo] [nvarchar](20) NOT NULL,
-	[Currency] [nvarchar](3) NOT NULL,
-	[TotalAmount] [decimal](12,4) NOT NULL DEFAULT 0,
-	[CustomerId] [int] DEFAULT 0,
-  	[CustomerName] [nvarchar](50) DEFAULT NULL,
-	[InvoiceNo] [nvarchar](20) DEFAULT NULL,
-	[InvoiceDate] [datetime] DEFAULT NULL, -- ngay hoa don
-	[InvoiceDesc] [nvarchar](250) DEFAULT NULL,  
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED 
-(
-	[TransactionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Transaction](
+		[TransactionId] [int] IDENTITY(1,1) NOT NULL,
+		[TransactionKey] [nvarchar](50) NOT NULL,
+		[TransactionNo] [nvarchar](50) DEFAULT NULL,
+		[TransactionDate] [datetime] DEFAULT NULL,	 -- ngay hach toan
+		[TransactionType] [nvarchar](20) NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[DebitAcctNo] [nvarchar](20) NOT NULL,
+		[CreditAcctNo] [nvarchar](20) NOT NULL,
+		[Currency] [nvarchar](3) NOT NULL,
+		[TotalAmount] [decimal](12,4) NOT NULL DEFAULT 0,
+		[CustomerId] [int] DEFAULT 0,
+		[CustomerName] [nvarchar](50) DEFAULT NULL,
+		[InvoiceNo] [nvarchar](20) DEFAULT NULL,
+		[InvoiceDate] [datetime] DEFAULT NULL, -- ngay hoa don
+		[InvoiceDesc] [nvarchar](250) DEFAULT NULL,  
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED 
+	(
+		[TransactionId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 INSERT INTO [dbo].[Transaction] (TransactionKey, TransactionNo, TransactionDate, TransactionType, Description, DebitAcctNo, CreditAcctNo, Currency, TotalAmount, CustomerId, Author, Editor)
@@ -603,25 +630,32 @@ VALUES (NEWID(),'CASHOUT-000003', '2016-11-07','CASHOUT','Cash Out', '111', '532
 --
 -- Table [dbo].[Inventory]
 --
-DROP TABLE [dbo].[Inventory]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Inventory'))
+BEGIN
+	DROP TABLE [dbo].[Inventory]
+END
 GO
 
-CREATE TABLE [dbo].[Inventory](
-	[InventoryId] [int] IDENTITY(1,1) NOT NULL,
-	[InventoryKey] [nvarchar](50) DEFAULT NULL,
-	[InventoryName] [nvarchar](50) DEFAULT NULL,
-	[Location] [nvarchar](50) DEFAULT NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
-CONSTRAINT [PK_InventoryId] PRIMARY KEY CLUSTERED 
-(
-	[InventoryId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Inventory](
+		[InventoryId] [int] IDENTITY(1,1) NOT NULL,
+		[InventoryKey] [nvarchar](50) DEFAULT NULL,
+		[InventoryName] [nvarchar](50) DEFAULT NULL,
+		[Location] [nvarchar](50) DEFAULT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_InventoryId] PRIMARY KEY CLUSTERED 
+	(
+		[InventoryId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -641,28 +675,35 @@ VALUES (NEWID(),'Shop Store','450 A Ngu Hanh Son street','Da Nang city', 'SYSTEM
 --
 -- Table [dbo].[InventoryBalance]
 --
-DROP TABLE [dbo].[InventoryBalance]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'InventoryBalance'))
+BEGIN
+	DROP TABLE [dbo].[InventoryBalance]
+END
 GO
 
-CREATE TABLE [dbo].[InventoryBalance](
-	[InventoryBalanceId] [int] IDENTITY(1,1) NOT NULL,
-	[InventoryId] [int] DEFAULT NULL,
-	[ProductId] [int] DEFAULT NULL,
-	[IsPerpetual] [int] NOT NULL DEFAULT 0,
-	[QtyInput] [int] NOT NULL DEFAULT 0,
-	[QtyOutput] [int] NOT NULL DEFAULT 0,
-	[Currency] [nvarchar](3) DEFAULT NULL,
-	[Price] [decimal](12,4) NOT NULL DEFAULT 0,	
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
-CONSTRAINT [PK_InventoryBalanceId] PRIMARY KEY CLUSTERED 
-(
-	[InventoryBalanceId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[InventoryBalance](
+		[InventoryBalanceId] [int] IDENTITY(1,1) NOT NULL,
+		[InventoryId] [int] DEFAULT NULL,
+		[ProductId] [int] DEFAULT NULL,
+		[IsPerpetual] [int] NOT NULL DEFAULT 0,
+		[QtyInput] [int] NOT NULL DEFAULT 0,
+		[QtyOutput] [int] NOT NULL DEFAULT 0,
+		[Currency] [nvarchar](3) DEFAULT NULL,
+		[Price] [decimal](12,4) NOT NULL DEFAULT 0,	
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_InventoryBalanceId] PRIMARY KEY CLUSTERED 
+	(
+		[InventoryBalanceId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -692,33 +733,40 @@ VALUES (2, 3, 2, 1, 50, 'SYSTEM', 'SYSTEM');
 --
 -- Table structure for table [dbo].[Stock]
 --
-DROP TABLE [dbo].[Stock]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Stock'))
+BEGIN
+	DROP TABLE [dbo].[Stock]
+END
 GO
 
-CREATE TABLE [dbo].[Stock](
-	[StockId] [int] IDENTITY(1,1) NOT NULL,
-	[StockKey] [nvarchar](50) NOT NULL,
-	[StockNo] [nvarchar](50) DEFAULT NULL,
-    [StockDate] [datetime] DEFAULT NULL,
-	[StockType] [nvarchar](20) DEFAULT NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[Currency] [nvarchar](3) DEFAULT NULL,
-	[TotalAmount] [decimal](12,4) DEFAULT 0,
-	[CustomerId] [int] DEFAULT 0,
-  	[CustomerName] [nvarchar](50) DEFAULT NULL,
-	[InvoiceNo] [nvarchar](20) DEFAULT NULL,
-	[InvoiceDate] [datetime] DEFAULT NULL,
-	[InvoiceDesc] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_StockId] PRIMARY KEY CLUSTERED
-(
-	[StockId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Stock](
+		[StockId] [int] IDENTITY(1,1) NOT NULL,
+		[StockKey] [nvarchar](50) NOT NULL,
+		[StockNo] [nvarchar](50) DEFAULT NULL,
+		[StockDate] [datetime] DEFAULT NULL,
+		[StockType] [nvarchar](20) DEFAULT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Currency] [nvarchar](3) DEFAULT NULL,
+		[TotalAmount] [decimal](12,4) DEFAULT 0,
+		[CustomerId] [int] DEFAULT 0,
+		[CustomerName] [nvarchar](50) DEFAULT NULL,
+		[InvoiceNo] [nvarchar](20) DEFAULT NULL,
+		[InvoiceDate] [datetime] DEFAULT NULL,
+		[InvoiceDesc] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_StockId] PRIMARY KEY CLUSTERED
+	(
+		[StockId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -747,28 +795,35 @@ VALUES (NEWID(), '2016-12-12', 'STOCKOUT', 'Output Goods', 'USD', '150', '2', 'F
 --
 -- Table [dbo].[StockDetail]
 --
-DROP TABLE [dbo].[StockDetail]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'StockDetail'))
+BEGIN
+	DROP TABLE [dbo].[StockDetail]
+END
 GO
 
-CREATE TABLE [dbo].[StockDetail](
-	[StockDetailId] [int] IDENTITY(1,1) NOT NULL,	
-	[StockId] [int] DEFAULT 0,
-	[ProductId] [int] DEFAULT 0,
-  	[ProductName] [nvarchar](50) NULL,
-    [Description] [nvarchar](250) DEFAULT NULL,
-	[Quantity] [int] DEFAULT 0,
-	[Price] [decimal](12,4) DEFAULT 0,
-	[Amount] [decimal](12,4) DEFAULT 0,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_StockDetailId] PRIMARY KEY CLUSTERED
-(
-	[StockDetailId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[StockDetail](
+		[StockDetailId] [int] IDENTITY(1,1) NOT NULL,	
+		[StockId] [int] DEFAULT 0,
+		[ProductId] [int] DEFAULT 0,
+		[ProductName] [nvarchar](50) NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Quantity] [int] DEFAULT 0,
+		[Price] [decimal](12,4) DEFAULT 0,
+		[Amount] [decimal](12,4) DEFAULT 0,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_StockDetailId] PRIMARY KEY CLUSTERED
+	(
+		[StockDetailId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -797,29 +852,36 @@ VALUES (2, 3, 'Product 3', ' Desc 3', 25, 200, 5000, 'SYSTEM', 'SYSTEM');
 --
 -- Table [dbo].[Journal]
 --
-DROP TABLE [dbo].[Journal]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Journal'))
+BEGIN
+	DROP TABLE [dbo].[Journal]
+END
 GO
 
-CREATE TABLE [dbo].[Journal](
-	[JournalId] [int] IDENTITY(1,1) NOT NULL,
-	[JournalKey] [nvarchar](50) NOT NULL,
-	[JournalType] [nvarchar](20) NOT NULL,
-	[JournalDate] [datetime] NULL,	
-	[DebitAcctNo] [nvarchar](20) NULL,
-	[CreditAcctNo] [nvarchar](20) NULL,
-	[Currency] [nvarchar](3) NOT NULL,
-	[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_JournalId] PRIMARY KEY CLUSTERED
-(
-	[JournalId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Journal](
+		[JournalId] [int] IDENTITY(1,1) NOT NULL,
+		[JournalKey] [nvarchar](50) NOT NULL,
+		[JournalType] [nvarchar](20) NOT NULL,
+		[JournalDate] [datetime] NULL,	
+		[DebitAcctNo] [nvarchar](20) NULL,
+		[CreditAcctNo] [nvarchar](20) NULL,
+		[Currency] [nvarchar](3) NOT NULL,
+		[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_JournalId] PRIMARY KEY CLUSTERED
+	(
+		[JournalId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -845,24 +907,31 @@ VALUES (NEWID(), 'STOCK', '2017-08-09', '156', '632', 'VND', 150, ' Import Produ
 --
 -- Table [dbo].[Brand]
 --
-DROP TABLE [dbo].[Brand]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Brand'))
+BEGIN
+	DROP TABLE [dbo].[Brand]
+END
 GO
 
-CREATE TABLE [dbo].[Brand](
-	[BrandId] [int] IDENTITY(1,1) NOT NULL,
-	[BrandKey] [nvarchar](50) NOT NULL,
-	[BrandName] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_BrandId] PRIMARY KEY CLUSTERED
-(
-	[BrandId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Brand](
+		[BrandId] [int] IDENTITY(1,1) NOT NULL,
+		[BrandKey] [nvarchar](50) NOT NULL,
+		[BrandName] [nvarchar](50) NOT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_BrandId] PRIMARY KEY CLUSTERED
+	(
+		[BrandId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES (NEWID(),'Thinkpad T450','Lenovo Thinkpad T450','SYSTEM','SYSTEM');
@@ -892,31 +961,38 @@ INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES 
 --
 -- Table [dbo].[Product]
 --
-DROP TABLE [dbo].[Product]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Product'))
+BEGIN
+	DROP TABLE [dbo].[Product]
+END
 GO
 
-CREATE TABLE [dbo].[Product](
-	[ProductId] [int] IDENTITY(1,1) NOT NULL,
-	[ProductKey] [nvarchar](50) NOT NULL,
-	[ProductCode] [nvarchar](20) DEFAULT NULL,
-	[ProductName] [nvarchar](50) DEFAULT NULL,
-	[ProductImage] [nvarchar](50) DEFAULT NULL,	
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[BrandId] [int] NOT NULL DEFAULT 0,
-	[Price] [decimal](12,4) DEFAULT 0,
-	[Colour] [nvarchar](10) DEFAULT NULL, -- should be ColorCode
-	[Status] [nvarchar](10) DEFAULT NULL,
-	[LatestReviewInfo] [nvarchar](250) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_ProductId] PRIMARY KEY CLUSTERED
-(
-	[ProductId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Product](
+		[ProductId] [int] IDENTITY(1,1) NOT NULL,
+		[ProductKey] [nvarchar](50) NOT NULL,
+		[ProductCode] [nvarchar](20) DEFAULT NULL,
+		[ProductName] [nvarchar](50) DEFAULT NULL,
+		[ProductImage] [nvarchar](50) DEFAULT NULL,	
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[BrandId] [int] NOT NULL DEFAULT 0,
+		[Price] [decimal](12,4) DEFAULT 0,
+		[Colour] [nvarchar](10) DEFAULT NULL, -- should be ColorCode
+		[Status] [nvarchar](10) DEFAULT NULL,
+		[LatestReviewInfo] [nvarchar](250) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_ProductId] PRIMARY KEY CLUSTERED
+	(
+		[ProductId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 --
@@ -1253,26 +1329,33 @@ VALUES (NEWID(), 'TIGER-2012', 'TIGER BEER 2012', 'DESC: TIGER BEER 2012', 2, 10
 --
 -- Table structure for table `Review`
 --
-DROP TABLE [dbo].[Review]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Review'))
+BEGIN
+	DROP TABLE [dbo].[Review]
+END
 GO
 
-CREATE TABLE [dbo].[Review](
-	[ReviewId] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](50) DEFAULT NULL,
-	[Rating] [int] DEFAULT 0,
-	[Comment] [nvarchar](250) DEFAULT NULL,
-	[ProductId] [int] DEFAULT 0,
-	[Email] [nvarchar](50) DEFAULT NULL,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_ReviewId] PRIMARY KEY CLUSTERED
-(
-	[ReviewId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Review](
+		[ReviewId] [int] IDENTITY(1,1) NOT NULL,
+		[Name] [nvarchar](50) DEFAULT NULL,
+		[Rating] [int] DEFAULT 0,
+		[Comment] [nvarchar](250) DEFAULT NULL,
+		[ProductId] [int] DEFAULT 0,
+		[Email] [nvarchar](50) DEFAULT NULL,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_ReviewId] PRIMARY KEY CLUSTERED
+	(
+		[ReviewId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',1,'Not bad','2013-08-25 17:00:00',1,'test@hvn.com','SYSTEM','SYSTEM');
@@ -1288,32 +1371,39 @@ INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,E
 --
 -- Table structure for table [dbo].[User]
 --
-DROP TABLE [dbo].[User]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'User'))
+BEGIN
+	DROP TABLE [dbo].[User]
+END
 GO
 
-CREATE TABLE [dbo].[User](
-	[UserId] [int] IDENTITY(1,1) NOT NULL,
-	[UserKey] [nvarchar](50) NOT NULL,	
-    [UserType] [nvarchar](20) DEFAULT NULL,
-	[UserName] [nvarchar](50) DEFAULT NULL,
-	[Hash] [nvarchar](50) DEFAULT NULL,	
-	[DisplayName] [nvarchar](50) DEFAULT NULL,
-	[ImageKey] [nvarchar](250) DEFAULT NULL,
-	[Email] [nvarchar](50) DEFAULT NULL,
-	[Mobile] [nvarchar](50) DEFAULT NULL,	
-	[Title] [nvarchar](50) DEFAULT NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,
-	[DateOfBirth] [datetime] DEFAULT NULL,	
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
-(
-	[UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[User](
+		[UserId] [int] IDENTITY(1,1) NOT NULL,
+		[UserKey] [nvarchar](50) NOT NULL,	
+		[UserType] [nvarchar](20) DEFAULT NULL,
+		[UserName] [nvarchar](50) DEFAULT NULL,
+		[Hash] [nvarchar](50) DEFAULT NULL,	
+		[DisplayName] [nvarchar](50) DEFAULT NULL,
+		[ImageKey] [nvarchar](250) DEFAULT NULL,
+		[Email] [nvarchar](50) DEFAULT NULL,
+		[Mobile] [nvarchar](50) DEFAULT NULL,	
+		[Title] [nvarchar](50) DEFAULT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,
+		[DateOfBirth] [datetime] DEFAULT NULL,	
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+	(
+		[UserId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 --
@@ -1356,24 +1446,31 @@ VALUES (NEWID(),'USER', 'messi',  NEWID(),'messi','messi@manchester.com','1987-0
 --
 -- Table structure for table [dbo].[Group]
 --
-DROP TABLE [dbo].[Group]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Group'))
+BEGIN
+	DROP TABLE [dbo].[Group]
+END
 GO
 
-CREATE TABLE [dbo].[Group](
-	[GroupId] [int] IDENTITY(1,1) NOT NULL,
-	[GroupKey] [nvarchar](50) DEFAULT NULL,	
-    [GroupName] [nvarchar](50) DEFAULT NULL,
-	[Description] [nvarchar](250) DEFAULT NULL,	
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) DEFAULT NULL,
-	[Editor] [nvarchar](50) DEFAULT NULL,
-    [Deleted] [int] DEFAULT 0
- CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
-(
-	[GroupId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[Group](
+		[GroupId] [int] IDENTITY(1,1) NOT NULL,
+		[GroupKey] [nvarchar](50) DEFAULT NULL,	
+		[GroupName] [nvarchar](50) DEFAULT NULL,
+		[Description] [nvarchar](250) DEFAULT NULL,	
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) DEFAULT NULL,
+		[Editor] [nvarchar](50) DEFAULT NULL,
+		[Deleted] [int] DEFAULT 0
+	CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+	(
+		[GroupId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
@@ -1399,27 +1496,34 @@ VALUES (NEWID(),'Logictics', 'Logictics Group','SYSTEM','SYSTEM');
 --
 -- Table [dbo].[UserGroup]
 --
-DROP TABLE [dbo].[UserGroup]
+IF (EXISTS (SELECT * 
+			FROM INFORMATION_SCHEMA.TABLES 
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'UserGroup'))
+BEGIN
+	DROP TABLE [dbo].[UserGroup]
+END
 GO
 
-CREATE TABLE [dbo].[UserGroup](
-	[UserGroupId] [int] IDENTITY(1,1) NOT NULL,
-	[UserId] [int] NOT NULL,
-	[GroupId] [int] NOT NULL,
-	[ModuleId] [int] NOT NULL,
-	[IsCreate] [int] DEFAULT 0,
-	[IsUpdate] [int] DEFAULT 0,
-	[IsDelete] [int] DEFAULT 0,
-	[IsDisplay] [int] DEFAULT 1,
-	[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-	[Author] [nvarchar](50) NULL,
-	[Editor] [nvarchar](50) NULL
- CONSTRAINT [PK_UserGroup] PRIMARY KEY CLUSTERED 
-(
-	[UserGroupId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+BEGIN
+	CREATE TABLE [dbo].[UserGroup](
+		[UserGroupId] [int] IDENTITY(1,1) NOT NULL,
+		[UserId] [int] NOT NULL,
+		[GroupId] [int] NOT NULL,
+		[ModuleId] [int] NOT NULL,
+		[IsCreate] [int] DEFAULT 0,
+		[IsUpdate] [int] DEFAULT 0,
+		[IsDelete] [int] DEFAULT 0,
+		[IsDisplay] [int] DEFAULT 1,
+		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
+		[Author] [nvarchar](50) NULL,
+		[Editor] [nvarchar](50) NULL
+	CONSTRAINT [PK_UserGroup] PRIMARY KEY CLUSTERED 
+	(
+		[UserGroupId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
 GO
 
 
