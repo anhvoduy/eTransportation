@@ -5,8 +5,8 @@ services:
     hostname: 'sqlserver'
     environment:
       ACCEPT_EULA: Y
-      MSSQL_SA_PASSWORD: s@
-      MSSQL_PID: sa
+      MSSQL_SA_PASSWORD: P@ssw0rd
+      MSSQL_PID: Developer
     ports:
       - "1433:1433"
     volumes:
