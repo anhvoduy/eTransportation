@@ -12,7 +12,7 @@ server.use(cookieParser()); // read cookies (needed for auth)
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
-// setup Server
+// setup server
 auth.setup(server);
 server.set('port', process.env.PORT || 3000);
 server.set('secretKey', constant.secretKey);
