@@ -73,4 +73,10 @@ router.get('/profile', function (req, res, next) {
     next();
 });
 
+router.post('/loginAzure', function (req, res, next) {
+	res.status(200).json({
+		success: true
+	});
+});
+
 module.exports = router;

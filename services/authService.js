@@ -1,6 +1,7 @@
 const Q = require('q');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const constant = require('../lib/constant');
 const dbContext = require('../lib/dbContext');
 const userService = require('./userService');
 
@@ -9,22 +10,26 @@ const userService = require('./userService');
 const auth = {};
 
 auth.setup = function (app) {
-    app.use(passport.initialize());    
-    passport.use(new LocalStrategy(
-        function (username, password, done) {
-            var data = {
-                success: userService.authenticate(username, password),
-                user: { username: username, password: password }
-            };
-            //console.log('Verify Username & Password ...');
-            return done(null, data);
-        }
-    ));   
+    app.use(passport.initialize());
+
+    if(!constant.AZURE_AUTHENTICATION) {
+        passport.use(new LocalStrategy(
+            function (username, password, done) {
+                var data = {
+                    success: userService.authenticate(username, password),
+                    user: { username: username, password: password }
+                };
+                return done(null, data);
+            }
+        ));
+    } 
+    else {
+        
+    }
 };
 
 auth.checkAuthentication = function () {    
     return function (req, res, next) {
-        //console.log('checkAuthentication() ...');
         next();
     };
 };
