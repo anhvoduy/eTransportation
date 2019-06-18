@@ -2,10 +2,7 @@ const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
 const Q = require('q');
-const constant = require('../lib/constant');
 const errorHelper = require('../lib/errorHelper');
-const validator = require('../lib/validator');
-const auth = require('../services/authService');
 const customerService = require('../services/customerService');
 
 router.get('/list', Q.async(function* (req, res, next) {	

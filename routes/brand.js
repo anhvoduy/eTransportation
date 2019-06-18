@@ -3,7 +3,6 @@ const router = express.Router();
 const _ = require('lodash');
 const Q = require('q');
 const errorHelper = require('../lib/errorHelper');
-const validator = require('../lib/validator');
 const auth = require('../services/authService');
 const brandService = require('../services/brandService');
 

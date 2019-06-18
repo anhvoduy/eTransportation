@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const Q = require('q');
 const dbContext = require('../lib/dbContext');
 
