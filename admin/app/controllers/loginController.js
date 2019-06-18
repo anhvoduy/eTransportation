@@ -24,7 +24,11 @@
 				});
 			}
 		};
-				
+		
+		$scope.loginAzure = function () {
+			console.log('xxxxx');
+		};
+		
 		/* start */
 		activate();
 	}
