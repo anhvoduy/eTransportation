@@ -64,6 +64,7 @@
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer;
+        margin: 0 0 15px;
     }
     .login-page .login-panel button:hover,.login-panel button:active,.login-panel button:focus {
         background: #43A047;
@@ -118,7 +119,6 @@
 <div class="login-page">
 	<div class="login-panel">
         <div ng-show="error" class="alert alert-danger message-error">
-            <!-- <div class="row">{{ error.code }}</div> -->
             <div class="row">{{ error.message }}</div>
         </div>
         <div ng-show="dataLoading">
@@ -139,7 +139,8 @@
                    placeholder="password"
                    maxlength="20"
                    required />
-			<button type="submit">login</button>			
+            <button type="submit">login</button>
+            <button type="submit">login azure</button>
 			<p class="message">
 				<span style="font-size: 18px;"><a href="/">Back to Home Page</a></span>
 			</p>
