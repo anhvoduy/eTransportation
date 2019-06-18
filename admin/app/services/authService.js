@@ -7,7 +7,7 @@
         var authService = function () {
         }
 
-        authService.prototype.login = function (username, password) {            
+        authService.prototype.login = function (username, password) {
             var q = $q.defer();
             $http.post('/api/login', { username: username, password: password })
             .success(function (result) {
@@ -18,7 +18,7 @@
             return q.promise;
         };
 
-        authService.prototype.loginAzure = function (username, password) {            
+        authService.prototype.loginAzure = function (username, password) {
             var q = $q.defer();
             $http.post('/api/loginAzure', { username: username, password: password })
             .success(function (result) {
