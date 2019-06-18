@@ -24,9 +24,23 @@
 				});
 			}
 		};
-		
+
 		$scope.loginAzure = function () {
-			console.log('xxxxx');
+			if($scope.username && $scope.password){
+				$scope.dataLoading = true;
+				authService.loginAzure($scope.username, $scope.password).then(function(result){
+					if(result.success){
+						authService.setCredentials(result.user);
+						$location.path('/');
+					}else {
+						$scope.error = result.message;
+						$scope.dataLoading = false;
+					}
+				}, function(result){
+					$scope.error = result.message;
+					$scope.dataLoading = false;
+				});
+			}
 		};
 		
 		/* start */
