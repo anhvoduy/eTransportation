@@ -35,9 +35,8 @@ router.post('/update', auth.checkAuthentication(), Q.async(function* (req, res, 
 	try
 	{
 		let brand = _.pick(req.body, ['BrandKey', 'BrandName', 'Description']);
-		if(!brand) throw errorHelper.ERROR_INVALID_BRAND;
-				
-		let result;
+		if(!brand) throw { code: 'ERROR_INVALID_BRAND', message: "Brand is invalid" };		
+		
 		if(brand.BrandKey){
 			let data = yield brandService.update(brand);
 			if(data.rowsAffected.length > 0) result = true;
@@ -49,18 +48,11 @@ router.post('/update', auth.checkAuthentication(), Q.async(function* (req, res, 
 			else result = false;
 		}
 		res.status(200).json(true);
-	}catch(err){
+	}
+	catch(err){
 		res.status(500).json(err);
 		next(err);
 	}
-
-    res.status(200).json(true);
-	next();
 }));
-
-router.delete('/delete', auth.checkAuthentication(), function (req, res, next) {	
-	res.status(200).json(true);
-	next();
-});
 
 module.exports = router;

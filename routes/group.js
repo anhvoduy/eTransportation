@@ -37,7 +37,7 @@ router.post('/update', Q.async(function* (req, res, next) {
 	try
 	{
 		let group = _.pick(req.body, ['GroupKey', 'GroupName', 'Description']);
-		if(!group) throw errorHelper.ERROR_INVALID_GROUP;
+		if(!group) throw { code: 'ERROR_INVALID_GROUP', message: "Group is invalid" };
 
 		let result;
 		if(group.GroupKey){
