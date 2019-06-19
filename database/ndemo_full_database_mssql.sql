@@ -1131,9 +1131,3 @@ INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,3,3,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,4,4,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,5,5,'SYSTEM','SYSTEM');
-
-
---
--- Table structure for table `UserGroupSecurity`
--- this table may be NEED or NO NEED
---
