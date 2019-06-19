@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "test",
-    "dev": "node app.js",
+    "dev": "npx nodemon",
     "start": "node app.js"
   },
   "author": "VO DUY ANH",
