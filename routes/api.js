@@ -77,6 +77,7 @@ router.post('/loginAzure',
 	function(req, res) {
 		console.info('Login Azure was called');
 		res.redirect('/');
-});
+	}
+);
 
 module.exports = router;
