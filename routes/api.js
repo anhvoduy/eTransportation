@@ -1,6 +1,5 @@
 ﻿const express = require('express');
 const router = express.Router();
-const _ = require('lodash');
 const Q = require('q');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
@@ -74,17 +73,11 @@ router.get('/profile', function (req, res, next) {
 });
 
 // authenticate by Azure Directory
-router.post('/loginAzure', function (req, res, next) {
-	res.status(200).json({
-		success: true
-	});
-});
-
-server.get('/azure', au, (req, res, next) => {
-    res.status(200).json({
-		message: 'response from API endpoint'
-	});
-    next();
+router.post('/loginAzure', 
+	passport.authenticate('oauth-bearer', { session: false }),
+	function(req, res) {
+		console.info('Login Azure was called');
+		res.redirect('/');
 });
 
 module.exports = router;
