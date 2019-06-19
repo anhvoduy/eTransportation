@@ -11,11 +11,12 @@
 			if($scope.username && $scope.password){
 				$scope.dataLoading = true;
 				authService.login($scope.username, $scope.password).then(function(result){
-					if(result.success){
+					if(result.success && result.user){
 						authService.setCredentials(result.user);
 						$location.path('/');
-					}else {
-						$scope.error = result.message;
+					}
+					else {
+						$scope.error = result.message || 'Internal Server Error';
 						$scope.dataLoading = false;
 					}
 				}, function(result){
@@ -29,11 +30,12 @@
 			if($scope.username && $scope.password){
 				$scope.dataLoading = true;
 				authService.loginAzure($scope.username, $scope.password).then(function(result){
-					if(result.success){
+					if(result.success && result.user){
 						authService.setCredentials(result.user);
 						$location.path('/');
-					}else {
-						$scope.error = result.message;
+					}
+					else {
+						$scope.error = result.message || 'Internal Server Error';
 						$scope.dataLoading = false;
 					}
 				}, function(result){
