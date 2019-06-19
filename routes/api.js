@@ -73,10 +73,18 @@ router.get('/profile', function (req, res, next) {
     next();
 });
 
+// authenticate by Azure Directory
 router.post('/loginAzure', function (req, res, next) {
 	res.status(200).json({
 		success: true
 	});
+});
+
+server.get('/azure', au, (req, res, next) => {
+    res.status(200).json({
+		message: 'response from API endpoint'
+	});
+    next();
 });
 
 module.exports = router;
