@@ -495,8 +495,6 @@ INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author
 VALUES (NEWID(), 'TRUCK - FORD', 'T-FORD-852741963', 'FORD 2018', 'SYSTEM', 'SYSTEM');
 
 
-
-
 --
 -- Table [dbo].[Brand]
 --
@@ -527,6 +525,7 @@ BEGIN
 END
 GO
 
+-- Sample data
 INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES (NEWID(),'Thinkpad T450','Lenovo Thinkpad T450','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES (NEWID(),'Apple','Apple','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Brand] (BrandKey,BrandName,Description,Author,Editor) VALUES (NEWID(),'HIPHOP 005','HIPHOP 005','SYSTEM','SYSTEM');
@@ -588,9 +587,7 @@ BEGIN
 END
 GO
 
---
--- Sample data for table [dbo].[Product]
---
+-- Sample data
 INSERT INTO [dbo].[Product](ProductKey, ProductCode, ProductName, Description, BrandId, Price, Colour, Status, Author,Editor) 
 VALUES (NEWID(), 'SONY-2020', 'Sony Vaio 2020', 'DESC: Laptop Sony Vaio 2020', 1, 100, 'While', 2,'SYSTEM','SYSTEM');
 
@@ -951,6 +948,7 @@ BEGIN
 END
 GO
 
+-- Sample data
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',1,'Not bad','2013-08-25 17:00:00',1,'test@hvn.com','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',5,'Normal','2013-08-25 17:00:00',2,'test@hvn.com','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',6,'Good','2013-08-22 17:00:00',3,'test@hvn.com','SYSTEM','SYSTEM');
@@ -960,6 +958,7 @@ INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,E
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',3,'Comment','2016-07-10 16:43:41',7,'hvn@hvn.net','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',3,'Comment','2016-07-10 16:43:41',7,'hvn@hvn.net','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Review](Name, Rating,Comment,Created,ProductId,Email,Author,Editor) VALUES ('TEST',2,'2222','2016-07-10 16:59:04',15,'hvn@hvn.net','SYSTEM','SYSTEM');
+
 
 --
 -- Table structure for table [dbo].[User]
@@ -999,9 +998,7 @@ BEGIN
 END
 GO
 
---
--- Sample data for table [dbo].[User]
---
+-- Sample data
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) 
 VALUES (NEWID(),'USER', 'beckham',NEWID(),'David Beckham','hoanganh@ibm.com','1990-03-03','SYSTEM','SYSTEM');
 
@@ -1066,10 +1063,7 @@ BEGIN
 END
 GO
 
-
---
--- Sample data for table [dbo].[Group]
---
+-- Sample data
 INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) 
 VALUES (NEWID(),'Administrators', 'Administrators Group','SYSTEM','SYSTEM');
 
@@ -1119,8 +1113,7 @@ BEGIN
 END
 GO
 
-
---  GroupId = ModuleId
+-- Sample data: GroupId = ModuleId
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,1,1,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,2,2,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (1,3,3,'SYSTEM','SYSTEM');
