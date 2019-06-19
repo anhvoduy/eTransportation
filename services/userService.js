@@ -136,13 +136,9 @@ Factory.prototype.update = Q.async(function* (user){
     }
 });
 
-Factory.prototype.delete = Q.async(function* (userKey){
-    return true;
-});
-
 Factory.prototype.getMenus = function(){
     return data.getMenus();
-}
+};
 
 // Export
 module.exports = new Factory;

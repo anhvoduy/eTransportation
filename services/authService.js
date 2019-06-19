@@ -14,6 +14,7 @@ const auth = {};
 
 auth.setup = function (app) {
     app.use(passport.initialize());
+    app.use(passport.session());
 
     if(!constant.AZURE_AUTHENTICATION) {
         const authenticationLocal = new LocalStrategy(
@@ -48,14 +49,10 @@ auth.setup = function (app) {
     }
 };
 
-auth.checkAuthentication = function () {    
+auth.checkAuthentication = function () {
     return function (req, res, next) {
         next();
     };
-};
-
-auth.checkAuthenticationAzure = function() {
-    return passport.authenticate('oauth-bearer', { session: false });
 };
 
 auth.getInformationSchema = function(){
@@ -78,6 +75,6 @@ auth.getInformationSchema = function(){
     });
 
     return deferred.promise;
-}
+};
 
 module.exports = auth;
