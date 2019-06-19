@@ -1,13 +1,9 @@
-﻿const _ = require('lodash');
-const Q = require('q');
+﻿const Q = require('q');
 const crypto = require('crypto');
 const dbContext = require('../lib/dbContext');
-
 const data = require('../database/sampleData');
 
-// Constructor
-const Factory = function () { 
-}
+const Factory = function () {};
 
 Factory.prototype.myProfile = Q.async(function* (UserKey){
     try{        
@@ -140,5 +136,4 @@ Factory.prototype.getMenus = function(){
     return data.getMenus();
 };
 
-// Export
 module.exports = new Factory;
