@@ -2,7 +2,6 @@
 const router = express.Router();
 const _ = require('lodash');
 const Q = require('q');
-const errorHelper = require('../lib/errorHelper');
 const groupService = require('../services/groupService');
 
 // Routers
@@ -34,7 +33,7 @@ router.post('/update', Q.async(function* (req, res, next) {
 	try
 	{
 		let group = _.pick(req.body, ['GroupKey', 'GroupName', 'Description']);
-		if(!group) throw errorHelper.ERROR_INVALID_GROUP;
+		if(!group) throw { code: 'ERROR_INVALID_GROUP', message: "Group is invalid" };
 
 		let result;
 		if(group.GroupKey){
