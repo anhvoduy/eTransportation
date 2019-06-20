@@ -1,11 +1,7 @@
-﻿const express = require('express');
-const router = express.Router();
+﻿const router = require('express').Router();
 const _ = require('lodash');
 const Q = require('q');
-const constant = require('../lib/constant');
 const errorHelper = require('../lib/errorHelper');
-const validator = require('../lib/validator');
-const auth = require('../services/authService');
 const truckService = require('../services/truckService');
 
 // Routers
@@ -61,10 +57,4 @@ router.post('/update', Q.async(function* (req, res, next) {
 	}	
 }));
 
-router.delete('/delete', function (req, res, next) {
-	res.status(200).json(true);
-	next();
-});
-
-// return Router
 module.exports = router;

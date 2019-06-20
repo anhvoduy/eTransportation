@@ -18,8 +18,6 @@ router.get('/menu', Q.async(function* (req, res, next) {
 	next();
 }));
 
-
-
 router.get('/list', Q.async(function* (req, res, next) {
 	try
 	{
@@ -70,10 +68,4 @@ router.post('/update', Q.async(function* (req, res, next) {
 	}
 }));
 
-router.delete('/delete', Q.async(function* (req, res, next) {
-	res.status(200).json(true);
-	next();
-}));
-
-// export Router
 module.exports = router;
