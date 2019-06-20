@@ -7,29 +7,25 @@ const auth = require('../services/authService');
 const userService = require('../services/userService');
 
 /**
- * APIs: using for testing
- * GET & POST simple + test database connection
+ * APIs: using for testing: Get + Post + query DB
  */
 router.get('/', function (req, res, next) {
-    res.json({ message: 'Transportation API method GET() is success' });
-    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
+    res.json({ code: 'SUCCESS', message: 'Transportation API method GET() is success' });
     next();
 });
 
 router.post('/', function (req, res, next) {
-    res.json({ message: 'Transportation API method POST() is success' });
-    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);
+    res.json({ code: 'SUCCESS', message: 'Transportation API method POST() is success' });
     next();
 });
 
 router.get('/connection', Q.async(function* (req, res, next) {
 	let tables = yield auth.getInformationSchema();
-    res.json({ 
+	res.json({ 
 		code: 'CONNECTION_SUCCESS', 
 		message: 'Transportation API make connection to database is success',
 		data: tables
 	});
-    console.log('%s %s :: %s', (new Date).toString(), req.method, req.url);	
     next();
 }));
 
@@ -70,5 +66,15 @@ router.get('/profile', function (req, res, next) {
     res.json(userService.myProfile());
     next();
 });
+
+// authenticate by Azure Directory
+// https://medium.com/@kevinle/securing-nodejs-rest-with-azure-active-directory-95379288a717
+router.post('/loginAzure', 
+	passport.authenticate('oauth-bearer', { session: false }),
+	function(req, res) {
+		console.info('Login Azure was called');
+		res.redirect('/');
+	}
+);
 
 module.exports = router;

@@ -1,25 +1,32 @@
 const Q = require('q');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const constant = require('../lib/constant');
 const dbContext = require('../lib/dbContext');
 const userService = require('./userService');
 
 // Authenticate Service
 // https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-nodejs-webapi
 const auth = {};
 
 auth.setup = function (app) {
-    app.use(passport.initialize());    
-    passport.use(new LocalStrategy(
-        function (username, password, done) {
-            var data = {
-                success: userService.authenticate(username, password),
-                user: { username: username, password: password }
-            };
-            //console.log('Verify Username & Password ...');
-            return done(null, data);
-        }
-    ));   
+    app.use(passport.initialize());
+    app.use(passport.session());
+
+    if(!constant.AZURE_AUTHENTICATION) {
+        const authenticationLocal = new LocalStrategy(
+            function (username, password, done) {
+                var data = {
+                    success: userService.authenticate(username, password),
+                    user: { username: username, password: password }
+                };
+                return done(null, data);
+            }
+        );
+
+        passport.use(authenticationLocal);
+    }
 };
 
 auth.getInformationSchema = function(){
@@ -42,6 +49,6 @@ auth.getInformationSchema = function(){
     });
 
     return deferred.promise;
-}
+};
 
 module.exports = auth;
