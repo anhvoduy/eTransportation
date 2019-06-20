@@ -1,8 +1,6 @@
 const Q = require('q');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const BearerStrategy = require('passport-azure-ad').BearerStrategy
-const aadConfig = require('../config/aadConfig');
 const constant = require('../lib/constant');
 const dbContext = require('../lib/dbContext');
 const userService = require('./userService');
@@ -28,24 +26,6 @@ auth.setup = function (app) {
         );
 
         passport.use(authenticationLocal);
-    } 
-    else {
-        const authenticationStrategy = new BearerStrategy(aadConfig.credentials, (token, done) => {
-            let currentUser = null;
-        
-            let userToken = authenticatedUserTokens.find((user) => {
-                currentUser = user;
-                user.sub === token.sub;
-            });
-        
-            if(!userToken) {
-                authenticatedUserTokens.push(token);
-            }
-        
-            return done(null, currentUser, token);
-        });
-
-        passport.use(authenticationStrategy);
     }
 };
 
