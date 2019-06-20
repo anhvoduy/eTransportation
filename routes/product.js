@@ -2,16 +2,8 @@ const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
 const Q = require('q');
-const constant = require('../lib/constant');
 const errorHelper = require('../lib/errorHelper');
-const validator = require('../lib/validator');
-const auth = require('../services/authService');
 const productService = require('../services/productService');
-
-// upload image
-router.post('/upload', Q.async(function* (req, res, next) {
-	return true;	
-}));
 
 router.get('/list', Q.async(function* (req, res, next) {	
 	try
@@ -64,11 +56,6 @@ router.post('/update', Q.async(function* (req, res, next) {
 		res.status(500).json(err);
 		next(err);
 	}
-}));
-
-router.delete('/delete', auth.checkAuthentication(), Q.async(function* (req, res, next) {
-	res.status(200).json(true);
-	next();
 }));
 
 module.exports = router;

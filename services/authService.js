@@ -49,12 +49,6 @@ auth.setup = function (app) {
     }
 };
 
-auth.checkAuthentication = function () {
-    return function (req, res, next) {
-        next();
-    };
-};
-
 auth.getInformationSchema = function(){
     let deferred  = Q.defer();
     let tables;
