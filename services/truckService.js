@@ -1,10 +1,8 @@
-﻿const _ = require('lodash');
-const Q = require('q');
+﻿const Q = require('q');
 const dbContext = require('../lib/dbContext');
 
-// Constructor
-const Factory = function () { 
-}
+const Factory = function () {
+};
 
 Factory.prototype.getList = Q.async(function* (query){
     try{
@@ -96,9 +94,4 @@ Factory.prototype.update = Q.async(function* (truck){
     }
 });
 
-Factory.prototype.delete = function(TruckKey){
-    return true;
-}
-
-// Export
 module.exports = new Factory;
