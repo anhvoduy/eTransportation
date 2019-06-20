@@ -1,5 +1,4 @@
-﻿const _ = require('lodash');
-const Q = require('q');
+﻿const Q = require('q');
 const dbContext = require('../lib/dbContext');
 
 // Constructor
@@ -106,9 +105,4 @@ Factory.prototype.update = Q.async(function* (product){
     }
 });
 
-Factory.prototype.delete = Q.async(function* (ProductKey){
-    return true;
-});
-
-// Export
 module.exports = new Factory;
