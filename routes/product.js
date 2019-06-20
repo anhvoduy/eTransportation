@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const _ = require('lodash');
 const Q = require('q');
 const errorHelper = require('../lib/errorHelper');
