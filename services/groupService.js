@@ -116,7 +116,6 @@ Factory.prototype.update = Q.async(function* (group){
         return dbContext.queryExecute(sql, group);        
     }
     catch(err){
-                
         throw err;
     }
 });

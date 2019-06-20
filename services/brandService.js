@@ -68,8 +68,4 @@ Factory.prototype.update = Q.async(function* (brand){
     }
 });
 
-Factory.prototype.delete = Q.async(function* (BrandKey){
-    return true;
-});
-
 module.exports = new Factory;

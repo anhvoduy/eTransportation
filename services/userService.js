@@ -108,7 +108,8 @@ Factory.prototype.create = Q.async(function* (user){
         user.Hash = crypto.createHash('sha1');
         user.UserType = 'USER';
         return yield dbContext.queryExecute(sql, user);
-    }catch(err){
+    }
+    catch(err){
         throw err;
     }
 });
@@ -127,7 +128,8 @@ Factory.prototype.update = Q.async(function* (user){
             WHERE UserKey = @UserKey
         `;
         return yield dbContext.queryExecute(sql, user);
-    }catch(err){        
+    }
+    catch(err){        
         throw err;
     }
 });
