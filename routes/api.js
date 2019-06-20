@@ -69,12 +69,27 @@ router.get('/profile', function (req, res, next) {
 
 // authenticate by Azure Directory
 // https://medium.com/@kevinle/securing-nodejs-rest-with-azure-active-directory-95379288a717
-router.post('/loginAzure', 
-	passport.authenticate('oauth-bearer', { session: false }),
-	function(req, res) {
-		console.info('Login Azure was called');
-		res.redirect('/');
-	}
-);
+router.post('/loginAzure', function (req, res, next) {
+	passport.authenticate('local', function (err, result) {
+		if (err) { 
+			return next(err); 
+		}
+
+		if (!result.success) {
+			res.status(404).json({
+				success: false,
+				message: { code: 'ERROR_UNAUTHENTICATION', message: 'Username and Password is invalid.' }
+			});
+		} 
+		else {
+			var token = jwt.sign(result.user, constant.secretKey, { expiresIn: 60 * 60 * 24 * 1 });
+			res.status(200).json({
+				success: true,
+				message: { code: 'SUCCESS_AUTHENTICATION', message: 'Login is successful.' },
+				user: { username: result.user.username, token: token }
+			});
+		}
+	})(req, res, next);
+});
 
 module.exports = router;
