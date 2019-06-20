@@ -1,5 +1,4 @@
-﻿const _ = require('lodash');
-const Q = require('q');
+﻿const Q = require('q');
 const dbContext = require('../lib/dbContext');
 
 // Constructor
@@ -90,16 +89,6 @@ Factory.prototype.saveUserGroupPermission = Q.async(function* (groupPermission){
     }
 });
 
-Factory.prototype.linkUserToGroup = Q.async(function* (groupKey, userKey){
-    try
-    {        
-        return true;
-    }
-    catch(err){
-        throw err;
-    }
-});
-
 Factory.prototype.create = Q.async(function* (group){
     try
     {        
@@ -132,9 +121,4 @@ Factory.prototype.update = Q.async(function* (group){
     }
 });
 
-Factory.prototype.delete = Q.async(function* (GroupKey){
-    return true;
-});
-
-// Export
 module.exports = new Factory;
