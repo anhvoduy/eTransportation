@@ -2,5 +2,5 @@
 const server = require('./server');
 
 http.createServer(server).listen(server.get('port'), function () {
-    console.log('Transportation Web & APIs is running on port:' + server.get('port'));    
+    console.log('Transportation Web & APIs is running on port:' + server.get('port'));
 });

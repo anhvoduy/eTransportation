@@ -1,13 +1,8 @@
-﻿const express = require('express');
-const router = express.Router();
-const _ = require('lodash');
+﻿const router = require('express').Router();
 const Q = require('q');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const config = require('../config/config');
 const constant = require('../lib/constant');
-const errorHelper = require('../lib/errorHelper');
 const auth = require('../services/authService');
 const userService = require('../services/userService');
 
