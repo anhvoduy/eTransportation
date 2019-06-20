@@ -109,10 +109,4 @@ Factory.prototype.update = Q.async(function* (customer){
     }
 });
 
-Factory.prototype.delete = Q.async(function* (CustomerKey){
-    console.log(customerKey);
-    return true;
-});
-
-// Export
 module.exports = new Factory;

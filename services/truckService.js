@@ -58,7 +58,8 @@ Factory.prototype.getItem = Q.async(function* (TruckKey){
         `;        
         let truck = yield dbContext.queryItem(sql, { TruckKey: TruckKey });        
         return truck;
-    }catch(err){        
+    }
+    catch(err){        
         throw err;
     }
 });
@@ -72,7 +73,8 @@ Factory.prototype.create = Q.async(function* (truck){
         `;
         let data = yield dbContext.queryExecute(sql, truck);
         return data;
-    }catch(err){
+    }
+    catch(err){
         throw err;
     }    
 });
@@ -89,7 +91,8 @@ Factory.prototype.update = Q.async(function* (truck){
         `;
         let data = yield dbContext.queryExecute(sql, truck);
         return data;
-    }catch(err){
+    }
+    catch(err){
         throw err;
     }
 });
