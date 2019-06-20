@@ -495,63 +495,6 @@ INSERT INTO [dbo].[Truck] (TruckKey, TruckName, TruckNumber, Description, Author
 VALUES (NEWID(), 'TRUCK - FORD', 'T-FORD-852741963', 'FORD 2018', 'SYSTEM', 'SYSTEM');
 
 
-
-
---
--- Table [dbo].[Journal]
---
-IF (EXISTS (SELECT * 
-			FROM INFORMATION_SCHEMA.TABLES 
-			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Journal'))
-BEGIN
-	DROP TABLE [dbo].[Journal]
-END
-GO
-
-BEGIN
-	CREATE TABLE [dbo].[Journal](
-		[JournalId] [int] IDENTITY(1,1) NOT NULL,
-		[JournalKey] [nvarchar](50) NOT NULL,
-		[JournalType] [nvarchar](20) NOT NULL,
-		[JournalDate] [datetime] NULL,	
-		[DebitAcctNo] [nvarchar](20) NULL,
-		[CreditAcctNo] [nvarchar](20) NULL,
-		[Currency] [nvarchar](3) NOT NULL,
-		[Amount] [decimal](12,4) NOT NULL DEFAULT 0,
-		[Description] [nvarchar](250) DEFAULT NULL,
-		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-		[Author] [nvarchar](50) DEFAULT NULL,
-		[Editor] [nvarchar](50) DEFAULT NULL,
-		[Deleted] [int] DEFAULT 0
-	CONSTRAINT [PK_JournalId] PRIMARY KEY CLUSTERED
-	(
-		[JournalId] ASC
-	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-	) ON [PRIMARY]
-END
-GO
-
-
---
--- Table structure for table [dbo].[Journal]
---
-INSERT INTO [dbo].[Journal](JournalKey,JournalType,JournalDate,DebitAcctNo,CreditAcctNo,Currency,Amount,Description,Author,Editor) 
-VALUES (NEWID(), 'CASH', '2017-08-01', '111', '641', 'VND', 6500, ' Cash Journal', 'SYSTEM', 'SYSTEM');
-
-INSERT INTO [dbo].[Journal](JournalKey,JournalType,JournalDate,DebitAcctNo,CreditAcctNo,Currency,Amount,Description,Author,Editor) 
-VALUES (NEWID(), 'CASH', '2017-08-08', '112', '642', 'VND', 5000, ' Cash Journal', 'SYSTEM', 'SYSTEM');
-
-INSERT INTO [dbo].[Journal](JournalKey,JournalType,JournalDate,DebitAcctNo,CreditAcctNo,Currency,Amount,Description,Author,Editor) 
-VALUES (NEWID(), 'STOCK', '2017-08-09', '156', '632', 'VND', 8000, 'Import Product', 'SYSTEM', 'SYSTEM');
-
-INSERT INTO [dbo].[Journal](JournalKey,JournalType,JournalDate,DebitAcctNo,CreditAcctNo,Currency,Amount,Description,Author,Editor) 
-VALUES (NEWID(), 'STOCK', '2017-08-09', '156', '632', 'VND', 600, ' Import Product', 'SYSTEM', 'SYSTEM');
-
-INSERT INTO [dbo].[Journal](JournalKey,JournalType,JournalDate,DebitAcctNo,CreditAcctNo,Currency,Amount,Description,Author,Editor) 
-VALUES (NEWID(), 'STOCK', '2017-08-09', '156', '632', 'VND', 150, ' Import Product', 'SYSTEM', 'SYSTEM');
-
-
 --
 -- Table [dbo].[Brand]
 --
@@ -1054,9 +997,7 @@ BEGIN
 END
 GO
 
---
--- Sample data for table [dbo].[User]
---
+-- Sample data
 INSERT INTO [dbo].[User] (UserKey, UserType, UserName, Hash, DisplayName, Email, DateOfBirth, Author, Editor) 
 VALUES (NEWID(),'USER', 'beckham',NEWID(),'David Beckham','hoanganh@ibm.com','1990-03-03','SYSTEM','SYSTEM');
 
@@ -1121,10 +1062,7 @@ BEGIN
 END
 GO
 
-
---
--- Sample data for table [dbo].[Group]
---
+-- Sample data
 INSERT INTO [dbo].[Group] (GroupKey, GroupName, Description, Author, Editor) 
 VALUES (NEWID(),'Administrators', 'Administrators Group','SYSTEM','SYSTEM');
 
@@ -1186,9 +1124,3 @@ INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,3,3,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,4,4,'SYSTEM','SYSTEM');
 INSERT INTO [dbo].[UserGroup] (UserId, GroupId, ModuleId, Author, Editor) VALUES (2,5,5,'SYSTEM','SYSTEM');
-
-
---
--- Table structure for table `UserGroupSecurity`
--- this table may be NEED or NO NEED
---
