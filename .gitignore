@@ -1,4 +1,4 @@
 node_modules/
 config/config.js
-config/aadConfig.js
+config/aadconfig.js
 !.gitignore
