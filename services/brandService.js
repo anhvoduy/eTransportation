@@ -30,7 +30,8 @@ Factory.prototype.getItem = Q.async(function* (BrandKey){
             WHERE BrandKey = @BrandKey AND Deleted = 0
         `;
         return dbContext.queryItem(sql, { BrandKey: BrandKey });
-    }catch(err){
+    }
+    catch(err){
         throw err;
     }
 });
@@ -71,5 +72,4 @@ Factory.prototype.delete = Q.async(function* (BrandKey){
     return true;
 });
 
-// Export
 module.exports = new Factory;
