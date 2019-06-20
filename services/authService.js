@@ -1,6 +1,4 @@
-const _ = require('lodash');
 const Q = require('q');
-const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const dbContext = require('../lib/dbContext');
@@ -22,13 +20,6 @@ auth.setup = function (app) {
             return done(null, data);
         }
     ));   
-};
-
-auth.checkAuthentication = function () {    
-    return function (req, res, next) {
-        //console.log('checkAuthentication() ...');
-        next();
-    };
 };
 
 auth.getInformationSchema = function(){
