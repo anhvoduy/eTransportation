@@ -82,30 +82,4 @@ router.post('/loginAzure',
 	}
 );
 
-router.get('/books', function (req, res, next) {
-	var audience = 'https://graph.windows.net';
-  	var authorization = req.headers['authorization']
-	if (authorization) {
-		var bearer = authorization.split(" ");
-		var jwtToken = bearer[1];
-	
-		if (jwtToken) {  
-			aad.verify(jwtToken, null, function(err, result) {
-				if(err) console.log(err);
-
-				if (result) {
-					res.status(200).send(['data1', 'data2', 'data3']);
-				} 
-				else {
-					res.status(401).send('no valid token');
-				}
-			});
-		} else {
-			res.status(401).send('no token in header');
-		}  
-	} else {
-		res.status(401).send('no authorization attr in header');
-	}
-});
-
 module.exports = router;
