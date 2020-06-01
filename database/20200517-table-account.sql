@@ -294,6 +294,35 @@ VALUES (NEWID(), '2117',N'Đồ đạc','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
 VALUES (NEWID(), '2118',N'TSCĐ khác','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '212',N'TSCĐ thuê tài chính','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '213',N'TSCĐ vô hình','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2131',N'Quyền sử dụng đất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2132',N'Quyền phát hành','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2133',N'Bản quyền, Bằng sáng chế','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2134',N'Nhãn hiệu hàng hoá','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2135',N'Phần mềm máy vi tính','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2136',N'Giấy phép và giấy phép nhượng quyền','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '2138',N'TSCĐ vô hình khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '214',N'Hao mòn TSCĐ','SYSTEM','SYSTEM');
 
 
 
