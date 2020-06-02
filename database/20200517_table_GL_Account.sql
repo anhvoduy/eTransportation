@@ -12,29 +12,29 @@ GO
 --
 IF (EXISTS (SELECT * 
 			FROM INFORMATION_SCHEMA.TABLES 
-			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Account'))
+			WHERE TABLE_CATALOG='ndemo' AND TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'GL_Account'))
 BEGIN
 	DROP TABLE [dbo].[Account]
 END
 GO
 
 BEGIN
-	CREATE TABLE [dbo].[Account](
+	CREATE TABLE [dbo].[GL_Account](
 		[AccountId] [int] IDENTITY(1,1) NOT NULL,
 		[AccountKey] [nvarchar](50) NOT NULL,
 		[AccountNo] [nvarchar](20) NOT NULL,
-		[AccountName] [nvarchar](100) NULL,
-		[AccountName_EN] [nvarchar](100) NULL,	
+		[AccountName] [nvarchar](250) NULL,
+		[AccountName_EN] [nvarchar](250) NULL,	
 		[Description] [nvarchar](250) DEFAULT NULL,
-		[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update DR || CR
+		[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update DR || CR		
+		[HasChildren] [int] DEFAULT 0,
 		[Status] [int] DEFAULT 1,
-		[hasChildren] [int] DEFAULT 0,
 		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
 		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
 		[Author] [nvarchar](50) DEFAULT NULL,
 		[Editor] [nvarchar](50) DEFAULT NULL,
 		[Deleted] [int] DEFAULT 0
-	CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+	CONSTRAINT [PK_AccountId] PRIMARY KEY CLUSTERED 
 	(
 		[AccountId] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
