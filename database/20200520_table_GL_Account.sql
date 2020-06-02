@@ -20,24 +20,27 @@ GO
 
 BEGIN
 	CREATE TABLE [dbo].[GL_Account](
-		[AccountId] [int] IDENTITY(1,1) NOT NULL,
-		[AccountKey] [nvarchar](50) NOT NULL,
-		[AccountNo] [nvarchar](20) NOT NULL,
-		[AccountName] [nvarchar](250) NULL,
-		[AccountName_EN] [nvarchar](250) NULL,	
-		[Description] [nvarchar](250) DEFAULT NULL,
-		[DebitOrCredit] [nvarchar](2) DEFAULT NULL, -- TO DO: update D or C (debit or credit)
-		[HasChildren] [int] DEFAULT 0,
-		[Status] [int] DEFAULT 1,
-		[Be_Balance] decimal(18,2) DEFAULT 0,
-		[Total_Debit] decimal(18,2) DEFAULT 0,
-		[Total_Credit] decimal(18,2) DEFAULT 0,
-		[En_Balance] decimal(18,2) DEFAULT 0,
+		[AccountId] int IDENTITY(1,1) NOT NULL,
+		[AccountKey] nvarchar(50) NOT NULL,
+		[AccountNo] nvarchar(20) NOT NULL,
+		[AccountName] nvarchar(250) NULL,
+		[AccountName_EN] nvarchar(250) NULL,	
+		[Description] nvarchar(250) DEFAULT NULL,
+		[DebitOrCredit] nvarchar(2) DEFAULT NULL, -- TO DO: update D or C (debit or credit)
+		[HasChildren] int DEFAULT 0,
+		[Status] int DEFAULT 1,
+		
+		[Be_Balance] decimal(18,4) DEFAULT 0,
+		[Total_Debit] decimal(18,4) DEFAULT 0,
+		[Total_Credit] decimal(18,4) DEFAULT 0,
+		[En_Balance] decimal(18,4) DEFAULT 0,
+		
+		[Note] nvarchar(250) DEFAULT NULL,
+		[Author] nvarchar(50) DEFAULT NULL,
 		[Created] [datetime] DEFAULT CURRENT_TIMESTAMP,
-		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,
-		[Author] [nvarchar](50) DEFAULT NULL,
-		[Editor] [nvarchar](50) DEFAULT NULL,
-		[Deleted] [int] DEFAULT 0
+		[Editor] nvarchar(50) DEFAULT NULL,
+		[Updated] [datetime] DEFAULT CURRENT_TIMESTAMP,		
+		[Deleted] int DEFAULT 0
 	CONSTRAINT [PK_AccountId] PRIMARY KEY CLUSTERED 
 	(
 		[AccountId] ASC
