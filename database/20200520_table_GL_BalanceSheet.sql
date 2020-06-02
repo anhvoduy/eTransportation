@@ -8,7 +8,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 --
--- Table [dbo].[Account]
+-- Table [dbo].[GL_BalanceSheet]
 --
 IF (EXISTS (SELECT * 
 			FROM INFORMATION_SCHEMA.TABLES 
