@@ -549,29 +549,392 @@ VALUES (NEWID(), '3389',N'Bảo hiểm thất nghiệp','SYSTEM','SYSTEM');
 INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
 VALUES (NEWID(), '413',N'Chênh lệch tỷ giá','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '4131',N'Chênh lệch tỷ giá đánh giá lại cuối năm tài chính','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '4133',N'Chênh lệch tỷ giá hối đoái chuyển đổi từ báo cáo tài chính','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '417',N'Quỹ hỗ trợ sắp xếp và cổ phần hoá doanh nghiệp nhà nước','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '451',N'Quỹ quản lý của cấp trên','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '511',N'Doanh thu bán hàng và cung cấp dịch vụ','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5111',N'Doanh thu bán hàng hóa','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5112',N'Doanh thu bán thành phẩm','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '51121',N'Doanh thu bán hàng chính phẩm','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '51122',N'Doanh thu bán thứ phẩm, phế phẩm','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5113',N'Doanh thu cung cấp dịch vụ','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5114',N'Doanh thu trợ cấp, trợ giá','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5117',N'Doanh thu kinh doanh bất động sản đầu tư','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '512',N'Doanh thu nội bộ','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5121',N'Doanh thu bán hàng hóa','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5122',N'Doanh thu bán thành phẩm','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5123',N'Doanh thu cung cấp dịch vụ','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '515',N'Doanh thu hoạt động tài chính','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5151',N'Thu lãi tiền gửi','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5152',N'Thu nhập từ trái phiếu, cổ phiếu','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5153',N'Thu nhập từ Công ty liên kết','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5159',N'Chênh lệch tỷ giá','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '51591',N'Chênh lệch tỷ giá do thanh tóan','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '51592',N'Chênh lệch tỷ giá do đánh giá số dư cuối kỳ','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '521',N'Chiết khấu hàng hóa','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5211',N'Chiết khấu hàng hóa thương mại','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5212',N'Chiết khấu thành phẩm','SYSTEM','SYSTEM');
 
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '5213',N'Chiết khấu dịch vụ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '531',N'Hàng bán bị trả lại','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '532',N'Giảm giá hàng bán','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '611',N'Mua hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6111',N'Mua nguyên vật liệu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6112',N'Mua hàng hóa','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '621',N'Chi phí nguyên, vật liệu trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6211',N'Chi phí nguyên vật liệu chính','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6212',N'Chi phínguyên vât liệu phụ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '622',N'Chi phí nhân công trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6221',N'Chi phí lương công nhận trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6222',N'Chi phí BHXH công nhân trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6223',N'Chi phí BHYT công nhân trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6224',N'Chi phí thưởng công nhân trực tiếp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6228',N'Chi phí khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '623',N'Chi phí máy thi công','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6231',N'Chi phí máy thi công - nhân viên','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6232',N'Chi phí máy thi công - vật liệu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6233',N'Chi phí máy thi công - dụng cụ sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6234',N'Chi phí máy thi công - khấu hao','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6237',N'Chi phí máy thi công - dịch vụ mua ngoài','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6238',N'Chi phí máy thi công - bằng tiền khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '627',N'Chi phí sản xuất chung','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6271',N'Chi phí nhân viên phân xưởng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '62711',N'Chi phí lương bộ phận quản lý sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '62712',N'Chi phí BHXH bộ phận quản lý sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '62713',N'Chi phí BHYT bộ phận quản lý sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '62714',N'Chi phí thưởng bộ phận quản lý sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '62718',N'Chi phí khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6272',N'Chi phí vật liệu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6273',N'Chi phí dụng cụ sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6274',N'Chi phí khấu hao TSCĐ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6277',N'Chi phí dịch vụ mua ngoài','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6278',N'Chi phí bằng tiền khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '631',N'Giá thành sản xuất','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '632',N'Giá vốn hàng bán','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6321',N'Giá vốn hàng bán','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6329',N'Dự phòng giảm giá hàng tồn kho','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '635',N'Chi phí tài chính','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6351',N'Chi phí lãi tiền vay','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6352',N'Chi phí tài chính cho Cổ phiếu trái phiếu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6353',N'Chi phí tài chính','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6359',N'Chênh lệch tỷ giá','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '63591',N'Chênh lệch tỷ giá do thanh tóan','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '63592',N'Chênh lệch tỷ giá do đánh giá số dư cuối kỳ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '641',N'Chi phí bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6411',N'Chi phí nhân viên','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64111',N'Chi phí lương bộ phận bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64112',N'Chi phí BHXH bộ phận bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64113',N'Chi phí BHYT bộ phận bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64114',N'Chi phí thưởng bộ phận bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64118',N'Chi phí khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6412',N'Chi phí vật liệu bao bì','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6413',N'Chi phí dụng cụ, đồ dùng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6414',N'Chi phí khấu hao TSCĐ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6415',N'Chi phí bảo hành','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6417',N'Chi phí dịch vụ mua ngoài','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6418',N'Chi phí bằng tiền khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6419',N'Chi phí trợ giá, thúc đẩy bán hàng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '642',N'Chi phí quản lý doanh nghiệp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6421',N'Chi phí nhân viên quản lý','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64211',N'Lương Ban giám đốc','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64212',N'Lương nhân viên quản lý','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64213',N'Chi phí BHXH bộ phận văn phòng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64214',N'Chi phí BHYT bộ phận văn phòng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64215',N'Chi phí thưởng bộ phận văn phòng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '64218',N'Chi phí khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6422',N'Chi phí vật liệu dùng cho quản lý','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6423',N'Chi phí đồ dùng văn phòng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6424',N'Chi phí khấu hao TSCĐ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6425',N'Thuế, phí, lệ phí','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6426',N'Chi phí dự phòng','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6427',N'Chi phí dịch vụ mua ngoài','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '6428',N'Chi phí bằng tiền khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '711',N'Thu nhập khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '7111',N'Thu thanh lý tài sản','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '71111',N'Thu thanh lý TSCĐ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '71112',N'Thu thanh lý phế liệu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '71118',N'Thu khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '7112',N'Thu giảm thuế, hòan thuế, miễn thuế','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '7118',N'Thu nhập khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '7119',N'Thu bồi thường','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '71191',N'Thu bồi thường billet','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '71198',N'Thu bồi thường khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '811',N'Chi phí thanh lý','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8111',N'Chi phí thanh lý','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '81111',N'Chi phí thanh lý TSCĐ','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '81112',N'Chi phí thanh lý phế liệu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '81113',N'Chi phí thanh lý khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8112',N'Chi phí giảm thuế, hòan thuế, miễn thuế','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8118',N'Chi phí khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8119',N'Chi phí bồi thường','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '81191',N'Chi phí bồi thường sản phẩm','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '81198',N'Chi phí bồi thường khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '821',N'Chi phí thuế thu nhập doanh nghiệp','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8211',N'Chi phí thuế thu nhập doanh nghiệp hiện hành','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '8212',N'Chi phí thuế thu nhập doanh nghiệp hõan lại','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '911',N'Xác định kết quả sản xuất kinh doanh','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '9111',N'Xác định kết quả HĐKD','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '9112',N'Xác định kết quả HĐTC','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), '9113',N'Xác định kết quả HĐ Khác','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), 'DTNK',N'Doanh thu hàng nhập khẩu','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), 'GTGT01',N'Điều chỉnh tăng (giảm) thuế GTGT','SYSTEM','SYSTEM');
+
+INSERT INTO [dbo].[Account] (AccountKey, AccountNo, AccountName, Author, Editor)
+VALUES (NEWID(), 'GTGT02',N'Điều chỉnh tăng (giảm) doanh thu','SYSTEM','SYSTEM');
