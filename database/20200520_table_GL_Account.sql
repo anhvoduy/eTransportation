@@ -24,8 +24,8 @@ BEGIN
 		[AccountKey] nvarchar(50) NOT NULL,
 		[AccountNo] nvarchar(20) NOT NULL,
 		[AccountName] nvarchar(250) NULL,
-		[AccountName_EN] nvarchar(250) NULL,	
-		[Description] nvarchar(250) DEFAULT NULL,
+		[AccountName_EN] nvarchar(250) NULL,
+		
 		[DebitOrCredit] nvarchar(2) DEFAULT NULL, -- TO DO: update D or C (debit or credit)
 		[HasChildren] int DEFAULT 0,
 		[Status] int DEFAULT 1,

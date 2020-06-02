@@ -24,9 +24,9 @@ BEGIN
 		[IncomeKey] nvarchar(50) NOT NULL,
 		[Description] nvarchar(250) NULL,
 		[Description_EN] nvarchar(250) NULL,
-		[IdCode] nvarchar(10) NULL,
-		[IdGroup] nvarchar(10) NULL,
 		
+		[IdCode] nvarchar(10) NULL,
+		[IdGroup] nvarchar(10) NULL,		
 		[Current_Balance] decimal(18,4) DEFAULT 0,
 		[Previous_Balance] decimal(18,4) DEFAULT 0,
 		[Progressive] decimal(18,4) DEFAULT 0,
