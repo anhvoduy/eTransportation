@@ -1,5 +1,6 @@
 ﻿const router = require('express').Router();
 const Q = require('q');
+const version = require('../package.json').version;
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const constant = require('../lib/constant');
@@ -10,12 +11,12 @@ const userService = require('../services/userService');
  * APIs: using for testing: Get + Post + query DB
  */
 router.get('/', function (req, res, next) {
-    res.json({ code: 'SUCCESS', message: 'Transportation API method GET() is success' });
+    res.json({ code: 'SUCCESS', message: 'API method GET() is success', version: version });
     next();
 });
 
 router.post('/', function (req, res, next) {
-    res.json({ code: 'SUCCESS', message: 'Transportation API method POST() is success' });
+    res.json({ code: 'SUCCESS', message: 'API method POST() is success', version: version });
     next();
 });
 
