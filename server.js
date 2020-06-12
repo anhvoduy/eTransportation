@@ -1,5 +1,6 @@
 ﻿const express = require('express');
 const path = require('path');
+const cors = require('cors')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const constant = require('./lib/constant');
@@ -7,6 +8,7 @@ const auth = require('./services/authService');
 
 // Express
 const server = express();
+server.use(cors())
 server.use(cookieParser()); // read cookies (needed for auth)
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
