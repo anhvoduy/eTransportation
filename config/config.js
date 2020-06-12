@@ -9,7 +9,7 @@ const configMsSql = {
     port: 1433,    
     pool: {
         max: 10,
-        min: 0,
+        min: 2,
         idleTimeoutMillis: 30000
     }
 }
