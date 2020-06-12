@@ -1,7 +1,6 @@
 ﻿const Q = require('q');
 const dbContext = require('../lib/dbContext');
 
-// Constructor
 const Factory = function(){	
 }
 
