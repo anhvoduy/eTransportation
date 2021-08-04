@@ -1,5 +1,5 @@
 # demo transportation 
-demo on azure: http://demo-transport.azurewebsites.net/
+demo on azure: http://transportation.azurewebsites.net/
 - public site: angularjs
 - admin site: angularjs
 - web api: nodejs & express
